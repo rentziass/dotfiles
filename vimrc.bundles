@@ -46,6 +46,12 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jsx/jsx.vim'
 Bundle 'terryma/vim-expand-region'
+" Bundle 'Valloric/YouCompleteMe'
+Bundle 'jiangmiao/auto-pairs'
+Plugin 'garbas/vim-snipmate'
+
+" Optional:
+Plugin 'honza/vim-snippets'
 
 
 filetype on

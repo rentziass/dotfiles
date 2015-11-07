@@ -39,6 +39,9 @@ fi
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
 
+# graphviz
+# export PATH="/usr/local/Cellar/graphviz/2.38.0/bin:$PATH"
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
@@ -109,7 +112,8 @@ source $ZSH/oh-my-zsh.sh
 
 cd ${PWD}
 
-export PATH="/Users/francescorenzi/.rvm/gems/ruby-2.1.3/bin:/Users/francescorenzi/.rvm/gems/ruby-2.1.3@global/bin:/Users/francescorenzi/.rvm/rubies/ruby-2.1.3/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/francescorenzi/.rvm/bin:/usr/local/git/bin:$PATH"
+# export PATH="/Users/francescorenzi/.rvm/gems/ruby-2.1.3/bin:/Users/francescorenzi/.rvm/gems/ruby-2.1.3@global/bin:/Users/francescorenzi/.rvm/rubies/ruby-2.1.3/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/francescorenzi/.rvm/bin:/usr/local/git/bin:$PATH"
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/francescorenzi/.rvm/bin:/usr/local/git/bin:$PATH"
 
 function cs () {
     cd "$@" && tree -L 1 -C

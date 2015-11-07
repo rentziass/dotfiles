@@ -22,7 +22,7 @@
 [include]
   path = .gitconfig.local
 [commit]
-	template = /Users/mike/.gitmessage
+	template = /Users/francescorenzi/.gitmessage
 [user]
   name = Francesco Renzi
   email = rentziass@gmail.com
