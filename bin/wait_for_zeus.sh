@@ -163,20 +163,29 @@ function check_if_zeus_is_running {
     printf "Zeus is already running.\n\r"
     echo "$(get_latest_zeus_output)"
 
+    # if [[ $ZEUS_PID != false ]]; then 
+    #   echo ""
+    #   read -n 1 -p "${TBOLD}ACTIONS:${TNORMAL} [${TBOLD}R${TNORMAL}]estart Zeus, [${TBOLD}K${TNORMAL}]ill Zeus, [${TBOLD}c${TNORMAL}]ontinue? [${TBOLD}RKc${TNORMAL}]: " RESPONSE
+    #   echo ""
+    #   if [[ "$RESPONSE" == "K" ]]; then
+    #     echo "[PID: $ZEUS_PID] - Killing Existing Zeus Processes."
+    #     kill $ZEUS_PID
+    #     exit 0
+    #   elif [[ "$RESPONSE" == "R" ]]; then
+    #     echo "[PID: $ZEUS_PID] - Killing Existing Zeus Processes."
+    #     kill $ZEUS_PID
+    #   else # Continue
+    #     exit 0 
+    #   fi
+    # else
+    #   # Zues is running, but this script did not start it -- bail out!
+    #   exit 0
+    # fi
+
     if [[ $ZEUS_PID != false ]]; then 
       echo ""
-      read -n 1 -p "${TBOLD}ACTIONS:${TNORMAL} [${TBOLD}R${TNORMAL}]estart Zeus, [${TBOLD}K${TNORMAL}]ill Zeus, [${TBOLD}c${TNORMAL}]ontinue? [${TBOLD}RKc${TNORMAL}]: " RESPONSE
-      echo ""
-      if [[ "$RESPONSE" == "K" ]]; then
-        echo "[PID: $ZEUS_PID] - Killing Existing Zeus Processes."
-        kill $ZEUS_PID
-        exit 0
-      elif [[ "$RESPONSE" == "R" ]]; then
-        echo "[PID: $ZEUS_PID] - Killing Existing Zeus Processes."
-        kill $ZEUS_PID
-      else # Continue
-        exit 0 
-      fi
+      echo "[PID: $ZEUS_PID] - Killing Existing Zeus Processes."
+      kill $ZEUS_PID
     else
       # Zues is running, but this script did not start it -- bail out!
       exit 0
