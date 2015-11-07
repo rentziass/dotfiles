@@ -25,7 +25,7 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # your dotfiles folder
-export MY_DOTFILES="$HOME/dotfiles"
+export MY_DOTFILES_PATH="$HOME/dotfiles"
 
 # use vim as the visual editor
 export VISUAL=vim
