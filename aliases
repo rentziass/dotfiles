@@ -55,7 +55,9 @@ alias zshrc="vim ~/.zshrc"
 alias gokoodit="cd ~/Documents/Development/koodit"
 alias ze="st ~/.zshrc"
 alias pg_clean="rm /usr/local/var/postgres/postmaster.pid"
-alias erdda="erd --inheritance --direct --attributes=foreign_keys,content --filetype=dot; dot -Tjpg erd.dot > erd.pdf" 
+alias erdda="erd --inheritance --direct --attributes=foreign_keys,content --filetype=dot; dot -Tjpg erd.dot > erd.pdf"
+
+alias get_zeus_waiter="cp -i $MY_DOTFILES/bin/wait_for_zeus.sh wait_for_zeus.sh"
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local

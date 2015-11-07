@@ -24,6 +24,9 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
+# your dotfiles folder
+export MY_DOTFILES="$HOME/dotfiles"
+
 # use vim as the visual editor
 export VISUAL=vim
 export EDITOR=$VISUAL
@@ -112,8 +115,7 @@ source $ZSH/oh-my-zsh.sh
 
 cd ${PWD}
 
-# export PATH="/Users/francescorenzi/.rvm/gems/ruby-2.1.3/bin:/Users/francescorenzi/.rvm/gems/ruby-2.1.3@global/bin:/Users/francescorenzi/.rvm/rubies/ruby-2.1.3/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/francescorenzi/.rvm/bin:/usr/local/git/bin:$PATH"
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/francescorenzi/.rvm/bin:/usr/local/git/bin:$PATH"
+# export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/francescorenzi/.rvm/bin:/usr/local/git/bin:$PATH"
 
 function cs () {
     cd "$@" && tree -L 1 -C
@@ -144,3 +146,22 @@ function cs () {
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Tmuxinator
+export DISABLE_AUTO_TITLE=true
+
+# ruby and ruby processes
+pgr() {
+  for x in rails phantomjs zeus; do
+    pgrep -fl $x;
+  done
+}
+
+pgk() {
+  for x in rails phantomjs zeus; do
+    pkill -fl $x;
+  done
+}
