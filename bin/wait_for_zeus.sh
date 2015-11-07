@@ -1,11 +1,16 @@
 #!/bin/bash
 
 # =============================================================================
-# Author: Daniel Doezema
-# Author URI: http://dan.doezema.com
-# 
+# Created by: Daniel Doezema
+# Creator URI: http://dan.doezema.com
 # Copyright (c) 2013, Daniel Doezema
 # All rights reserved.
+#
+# Edited and maintained by: Francesco Renzi
+# Maintainer URI: http://github.com/rentziass
+# Copyright (c) 2015, Francesco Renzi
+# All rights reserved.
+#
 # 
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
