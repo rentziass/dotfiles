@@ -156,6 +156,8 @@ set t_Co=256
 
 " Color scheme
 set background=dark
+set t_Co=256
+colorscheme OceanicNext
 set encoding=utf-8
 
 " Highlight line number of where cursor currently is
@@ -264,3 +266,7 @@ nnoremap <C-H> <C-W><C-H>
 " Insert new line with enter and line above with shift enter
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+
+" Auto save and load of folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview

@@ -59,5 +59,7 @@ alias erdda="erd --inheritance --direct --attributes=foreign_keys,content --file
 
 alias get_zeus_waiter="cp -i $MY_DOTFILES_PATH/bin/wait_for_zeus.sh wait_for_zeus.sh && chmod +x wait_for_zeus.sh"
 
+alias restore_camera="sudo killall VDCAssistant"
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local

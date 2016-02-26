@@ -49,9 +49,22 @@ Bundle 'terryma/vim-expand-region'
 " Bundle 'Valloric/YouCompleteMe'
 Bundle 'jiangmiao/auto-pairs'
 Plugin 'garbas/vim-snipmate'
+" Bundle 'vim-scripts/L9'
+" Bundle 'vim-scripts/FuzzyFinder'
+
+" Restore cursor position and folding
+Bundle 'vim-scripts/restore_view.vim'
+
+Bundle "dkprice/vim-easygrep"
 
 " Optional:
 Plugin 'honza/vim-snippets'
+
+" Theme
+Plugin 'mhartington/oceanic-next'
+
+" Extra syntax
+Bundle 'slim-template/vim-slim.git'
 
 
 filetype on
