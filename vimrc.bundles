@@ -55,8 +55,6 @@ Plugin 'garbas/vim-snipmate'
 " Restore cursor position and folding
 Bundle 'vim-scripts/restore_view.vim'
 
-Bundle "dkprice/vim-easygrep"
-
 " Optional:
 Plugin 'honza/vim-snippets'
 
