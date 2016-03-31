@@ -63,3 +63,6 @@ alias restore_camera="sudo killall VDCAssistant"
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
+
+# Rails 5
+alias rdbm="rails db:migrate"

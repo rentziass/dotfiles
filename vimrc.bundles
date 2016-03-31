@@ -64,5 +64,11 @@ Plugin 'mhartington/oceanic-next'
 " Extra syntax
 Bundle 'slim-template/vim-slim.git'
 
+" Vim Rspec
+Bundle "thoughtbot/vim-rspec"
+
+" Vim I18n
+Bundle "stefanoverna/vim-i18n"
+
 
 filetype on

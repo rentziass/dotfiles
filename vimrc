@@ -24,11 +24,6 @@ map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gp :Gpush<CR>
 "
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
 
 
 " Toggle nerdtree with F10
@@ -86,6 +81,10 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
+if filereadable(expand("~/.vimrc.rspec"))
+  source ~/.vimrc.rspec
+endif
+
 filetype plugin indent on
 
 augroup vimrcEx
@@ -121,7 +120,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-let g:rspec_command = 'call Send_to_Tmux("bin/rspec {spec}\n")'
+" let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec}\n")'
 let g:mocha_js_command = 'call Send_to_Tmux("mocha --opts spec/javascripts/mocha.opts {spec}\n")'
 let g:rspec_runner = "os_x_iterm"
 
@@ -263,10 +262,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Insert new line with enter and line above with shift enter
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
+" " Insert new line with enter and line above with shift enter
+" nmap <S-Enter> O<Esc>
+" nmap <CR> o<Esc>
 
 " Auto save and load of folds
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+
+" Vim I18n
+vmap <Leader>z :call I18nTranslateString()<CR>
+vmap <Leader>dt :call I18nDisplayTranslation()<CR>
