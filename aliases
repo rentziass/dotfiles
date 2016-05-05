@@ -24,7 +24,6 @@ alias bim="vim"
 alias rake='noglob rake'
 
 # git
-alias g='git'
 alias gs='git status -sb'
 # copy the current branch name
 alias gcb='git rev-parse --abbrev-ref HEAD | pbcopy'

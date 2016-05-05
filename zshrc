@@ -1,7 +1,10 @@
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
+  source "$HOME/.zprezto/init.zsh"
 fi
+
+# WITH RUBY VERSION
+# export PROMPT='%F{cyan}${_prompt_sorin_pwd}%f${git_info:+${(e)git_info[prompt]} ${RUBY_VERSION}%(!. %B%F{red}#%f%b.)${editor_info[keymap]}'
 
 export PROMPT='%F{cyan}${_prompt_sorin_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
 
@@ -50,6 +53,11 @@ export PATH=".git/safe/../../bin:$PATH"
 
 # env vars
 source ~/.env
+
+# functions
+for function in $MY_DOTFILES_PATH/zsh/functions/*; do
+  source $function
+done
 
 
 # For connecting to docker from docker client
@@ -107,9 +115,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow osx pow rails bundler sublime web-search zeus)
-
-source $ZSH/oh-my-zsh.sh
+# plugins=(git git-flow osx pow rails bundler sublime web-search zeus)
+#
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -165,3 +173,6 @@ pgk() {
     pkill -fl $x;
   done
 }
+
+# Eseguibili nella root bin
+export PATH=$PATH":$HOME/bin"
