@@ -1,21 +1,27 @@
 [push]
-  default = current
+  default = upstream
+[fetch]
+  prune = true
 [color]
   ui = auto
 [alias]
   aa = add --all
   ap = add --patch
+  b = branch
+  browse = !hub browse
   ca = commit --amend
   ci = commit -v
   co = checkout
-  create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
-  delete-branch = !sh -c 'git push origin :refs/heads/$1 && git remote prune origin && git branch -D $1' -
-  merge-branch = !git checkout master && git merge @{-1}
-  st = status
-  up = !git fetch origin && git rebase origin/master
-	sla = log --oneline --decorate --graph --all
-	unstage = reset
-	uncommit = reset --soft HEAD^
+  compare = !hub compare
+  issues = !hub browse -- issues
+  sla = log --oneline --decorate --graph --all -20
+  unstage = reset
+  uncommit = reset --soft HEAD^
+  mup = !git checkout master && git pull && git checkout -
+  cop = checkout -
+  fall = "!for remote in $(git remote); do echo "Fetching $remote"; git fetch "$remote"; done"
+  upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
+  ureset = !git upstream && git reset --hard $(git upstream)
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -24,28 +30,9 @@
 [include]
   path = .gitconfig.local
 [commit]
-	template = /Users/francescorenzi/.gitmessage
+  template = /Users/francescorenzi/.gitmessage
 [user]
   name = Francesco Renzi
   email = rentziass@gmail.com
-[diff]
-    tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
-[difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-[credential]
-
-[hub]
-protocol = https
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+[github]
+  user = rentziass

@@ -6,7 +6,7 @@ fi
 # WITH RUBY VERSION
 # export PROMPT='%F{cyan}${_prompt_sorin_pwd}%f${git_info:+${(e)git_info[prompt]} ${RUBY_VERSION}%(!. %B%F{red}#%f%b.)${editor_info[keymap]}'
 
-export PROMPT='%F{cyan}${_prompt_sorin_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
+export PROMPT='%F{cyan}${_prompt_damoekri_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
 
 # history settings
 setopt appendhistory histignoredups
