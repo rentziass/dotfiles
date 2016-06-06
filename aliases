@@ -51,7 +51,7 @@ alias vimrc="vim ~/.vimrc"
 alias vimrcbundles="vim ~/.vimrc.bundles"
 alias zshrc="vim ~/.zshrc"
 
-alias gokoodit="cd ~/Documents/Development/koodit"
+alias gokoodit="cd ~/Documents/Development/koodit/current"
 alias ze="st ~/.zshrc"
 alias pg_clean="rm /usr/local/var/postgres/postmaster.pid"
 alias erdda="erd --inheritance --direct --attributes=foreign_keys,content --filetype=dot; dot -Tjpg erd.dot > erd.pdf"
@@ -64,4 +64,17 @@ alias restore_camera="sudo killall VDCAssistant"
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
 
 # Rails 5
+alias r="rails"
+alias rg="rails g"
+alias rs="puma"
 alias rdbm="rails db:migrate"
+alias rr="rails routes"
+
+# Zeus
+alias zs="zeus start"
+alias zsr="zeus server"
+alias zc="zeus console"
+alias zdbm="zeus rake db:migrate"
+alias zspec="zeus spec"
+
+alias c="clear"

@@ -68,7 +68,10 @@ Bundle 'slim-template/vim-slim.git'
 Bundle "thoughtbot/vim-rspec"
 
 " Vim I18n
-Bundle "stefanoverna/vim-i18n"
+Bundle "rentziass/vim-i18n"
+
+Bundle "jacoborus/tender"
+Bundle "lifepillar/vim-wwdc16-theme"
 
 
 filetype on

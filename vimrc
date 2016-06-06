@@ -156,6 +156,8 @@ set t_Co=256
 " Color scheme
 set background=dark
 set t_Co=256
+" colorscheme tender
+" colorscheme wwdc16
 colorscheme OceanicNext
 set encoding=utf-8
 
