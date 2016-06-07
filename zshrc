@@ -52,7 +52,7 @@ export PATH=".git/safe/../../bin:$PATH"
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # env vars
-source ~/.env
+source ~/.koodit_env/env
 
 # functions
 for function in $MY_DOTFILES_PATH/zsh/functions/*; do
