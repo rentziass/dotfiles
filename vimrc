@@ -151,7 +151,9 @@ set t_Co=256
 
 :set smartcase
 :set ignorecase
-:set noantialias
+if !has('nvim')
+  :set noantialias
+endif
 
 " Color scheme
 set background=dark
@@ -177,11 +179,11 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 
-:nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
-:nnoremap <expr> yy (v:register ==# '"' ? '"+' : '') . 'yy'
-:nnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
-:xnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
-:xnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
+" :nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+" :nnoremap <expr> yy (v:register ==# '"' ? '"+' : '') . 'yy'
+" :nnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
+" :xnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+" :xnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
 
 " convert hash rockets
 nmap <leader>rh :%s/\v:(\w+) \=\>/\1:/g<cr>

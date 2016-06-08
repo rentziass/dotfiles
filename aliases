@@ -19,6 +19,7 @@ alias e="$EDITOR"
 alias v="$VISUAL"
 # because typing is hard
 alias bim="vim"
+alias n="nvim"
 
 # fix for passing params to rake tasks
 alias rake='noglob rake'
@@ -51,7 +52,11 @@ alias vimrc="vim ~/.vimrc"
 alias vimrcbundles="vim ~/.vimrc.bundles"
 alias zshrc="vim ~/.zshrc"
 
-alias gokoodit="cd ~/Documents/Development/koodit/current"
+alias gw="cd ~/development/work"
+alias gwc="cd ~/development/work/current"
+alias gwp="cd ~/development/work/past"
+alias gdev="cd ~/development"
+
 alias ze="st ~/.zshrc"
 alias pg_clean="rm /usr/local/var/postgres/postmaster.pid"
 alias erdda="erd --inheritance --direct --attributes=foreign_keys,content --filetype=dot; dot -Tjpg erd.dot > erd.pdf"
