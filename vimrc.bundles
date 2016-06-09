@@ -31,8 +31,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "skwp/greplace.vim"
-Bundle "vim-ruby/vim-ruby"
-Bundle "elixir-lang/vim-elixir"
+" Bundle "vim-ruby/vim-ruby"
 Bundle "scrooloose/syntastic"
 Bundle "tpope/vim-haml"
 Bundle "dkprice/vim-easygrep"
@@ -47,17 +46,11 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jsx/jsx.vim'
 Bundle 'terryma/vim-expand-region'
-" Bundle 'Valloric/YouCompleteMe'
 Bundle 'jiangmiao/auto-pairs'
 Plugin 'garbas/vim-snipmate'
-" Bundle 'vim-scripts/L9'
-" Bundle 'vim-scripts/FuzzyFinder'
 
 " Restore cursor position and folding
 Bundle 'vim-scripts/restore_view.vim'
-
-" Optional:
-Plugin 'honza/vim-snippets'
 
 " Theme
 Plugin 'mhartington/oceanic-next'
@@ -70,9 +63,5 @@ Bundle "thoughtbot/vim-rspec"
 
 " Vim I18n
 Bundle "rentziass/vim-i18n"
-
-Bundle "jacoborus/tender"
-Bundle "lifepillar/vim-wwdc16-theme"
-
 
 filetype on

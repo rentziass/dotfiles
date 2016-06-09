@@ -151,9 +151,7 @@ set t_Co=256
 
 :set smartcase
 :set ignorecase
-if !has('nvim')
-  :set noantialias
-endif
+:set noantialias
 
 " Color scheme
 set background=dark
@@ -265,10 +263,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" " Insert new line with enter and line above with shift enter
-" nmap <S-Enter> O<Esc>
-" nmap <CR> o<Esc>
 
 " Auto save and load of folds
 autocmd BufWinLeave *.* mkview

@@ -19,7 +19,6 @@ alias e="$EDITOR"
 alias v="$VISUAL"
 # because typing is hard
 alias bim="vim"
-alias n="nvim"
 
 # fix for passing params to rake tasks
 alias rake='noglob rake'
