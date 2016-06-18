@@ -31,7 +31,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "skwp/greplace.vim"
-" Bundle "vim-ruby/vim-ruby"
+Bundle "vim-ruby/vim-ruby"
 Bundle "scrooloose/syntastic"
 Bundle "tpope/vim-haml"
 Bundle "dkprice/vim-easygrep"
@@ -48,6 +48,8 @@ Bundle 'jsx/jsx.vim'
 Bundle 'terryma/vim-expand-region'
 Bundle 'jiangmiao/auto-pairs'
 Plugin 'garbas/vim-snipmate'
+Plugin 'rentziass/vim-snippets'
+Plugin 'digitaltoad/vim-pug'
 
 " Restore cursor position and folding
 Bundle 'vim-scripts/restore_view.vim'

@@ -53,6 +53,7 @@ export PATH=".git/safe/../../bin:$PATH"
 
 # env vars
 source ~/.koodit_env/env
+source ~/.env
 
 # functions
 for function in $MY_DOTFILES_PATH/zsh/functions/*; do
