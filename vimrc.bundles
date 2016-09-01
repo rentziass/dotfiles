@@ -66,4 +66,10 @@ Bundle "thoughtbot/vim-rspec"
 " Vim I18n
 Bundle "rentziass/vim-i18n"
 
+" Vim easy align
+Bundle "junegunn/vim-easy-align"
+
+" Indentation guides
+Bundle "Yggdroot/indentLine"
+
 filetype on

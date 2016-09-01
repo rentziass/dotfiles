@@ -82,3 +82,6 @@ alias zdbm="zeus rake db:migrate"
 alias zspec="zeus spec"
 
 alias c="clear"
+
+alias tin="afplay /Users/francescorenzi/Documents/Suoni/sms_alert_note.mov -v 10"
+alias badum="afplay /Users/francescorenzi/Documents/Suoni/ba_dum_tss.mp3 -v 3"

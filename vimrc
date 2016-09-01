@@ -272,4 +272,16 @@ autocmd BufWinEnter *.* silent loadview
 vmap <Leader>z :call I18nTranslateString()<CR>
 vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" Indentation guides
+let g:indentLine_char = '┆'
+au InsertEnter * IndentLinesToggle
+au InsertLeave * IndentLinesToggle
+
 set number

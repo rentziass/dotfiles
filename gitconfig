@@ -36,3 +36,5 @@
   email = rentziass@gmail.com
 [github]
   user = rentziass
+[credential]
+	helper = osxkeychain
