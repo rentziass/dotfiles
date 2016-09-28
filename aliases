@@ -72,7 +72,10 @@ alias r="rails"
 alias rg="rails g"
 alias rs="puma"
 alias rdbm="rails db:migrate"
+alias rdbmt="rails db:migrate RAILS_ENV=test"
+alias rdbma="rdbm && rdbmt"
 alias rr="rails routes"
+alias be="bundle exec"
 
 # Zeus
 alias zs="zeus start"
@@ -82,6 +85,8 @@ alias zdbm="zeus rake db:migrate"
 alias zspec="zeus spec"
 
 alias c="clear"
+
+alias myip="ifconfig | grep en0 -A 1 | grep 'inet 192' | awk '{print $2}'"
 
 alias tin="afplay /Users/francescorenzi/Documents/Suoni/sms_alert_note.mov -v 10"
 alias badum="afplay /Users/francescorenzi/Documents/Suoni/ba_dum_tss.mp3 -v 3"

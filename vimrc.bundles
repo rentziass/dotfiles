@@ -50,6 +50,8 @@ Bundle 'jiangmiao/auto-pairs'
 Plugin 'garbas/vim-snipmate'
 Plugin 'rentziass/vim-snippets'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Shougo/neocomplete.vim'
 
 " Restore cursor position and folding
 Bundle 'vim-scripts/restore_view.vim'
