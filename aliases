@@ -55,6 +55,8 @@ alias gw="cd ~/development/work"
 alias gwc="cd ~/development/work/current"
 alias gwp="cd ~/development/work/past"
 alias gdev="cd ~/development"
+alias ggo="cd ~/development/go"
+alias gk="cd ~/development/kimon"
 
 alias ze="st ~/.zshrc"
 alias pg_clean="rm /usr/local/var/postgres/postmaster.pid"
@@ -77,6 +79,9 @@ alias rdbma="rdbm && rdbmt"
 alias rr="rails routes"
 alias be="bundle exec"
 
+# Golang
+alias gomigrate="/Users/francescorenzi/development/go/bin/migrate"
+
 # Zeus
 alias zs="zeus start"
 alias zsr="zeus server"
@@ -84,9 +89,15 @@ alias zc="zeus console"
 alias zdbm="zeus rake db:migrate"
 alias zspec="zeus spec"
 
+# Add rsa key for koodit servers
+alias akk="ssh-add /Users/francescorenzi/.ssh/koodit_servers_id_rsa"
+
 alias c="clear"
 
 alias myip="ifconfig | grep en0 -A 1 | grep 'inet 192' | awk '{print $2}'"
 
 alias tin="afplay /Users/francescorenzi/Documents/Suoni/sms_alert_note.mov -v 10"
 alias badum="afplay /Users/francescorenzi/Documents/Suoni/ba_dum_tss.mp3 -v 3"
+
+alias "hidedock"="defaults write com.apple.dock static-only -bool TRUE; killall Dock"
+alias "showdedock"="defaults write com.apple.dock static-only -bool FALSE; killall Dock"
