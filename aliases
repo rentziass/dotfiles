@@ -82,6 +82,10 @@ alias be="bundle exec"
 # Golang
 alias gomigrate="/Users/francescorenzi/development/go/bin/migrate"
 
+# SSH
+# Restart agent
+alias sshr="eval '$(ssh-agent -s)' && ssh-add ~/.ssh/id_rsa"
+
 # Zeus
 alias zs="zeus start"
 alias zsr="zeus server"
