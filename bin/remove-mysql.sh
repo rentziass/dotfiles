@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -e
-set -o pipefail
-
 brew remove mysql
 brew cleanup
 sudo rm /usr/local/mysql
