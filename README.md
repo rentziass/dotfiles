@@ -32,10 +32,10 @@ $ sudo apt-get update
 $ sudo apt-get install rcm
 ```
 
-If you're using a different OS, refer to [RCM docs](https://github.com/thoughtbot/rcm) fonr further info.
+If you're using a different OS, refer to [RCM docs](https://github.com/thoughtbot/rcm) for further info.
 
 ### Run RCM
-this command expects that you cloned your dotfiles to `~/dotfiles/`
+This command expects that you cloned your dotfiles to `~/dotfiles/`
 ```
 $ env RCRC=$HOME/dotfiles/rcrc rcup
 ```
