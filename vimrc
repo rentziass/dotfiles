@@ -280,12 +280,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " MultiCursor
-" Default Mapping
-" let g:multi_cursor_next_key='<C-n>'
-" let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_prev_key='<C-b>'
-" let g:multi_cursor_skip_key='<C-x>'
-" let g:multi_cursor_quit_key='<Esc>'
 
 " Indentation guides
 let g:indentLine_char = '┆'
@@ -295,30 +290,16 @@ au InsertLeave * IndentLinesToggle
 set number
 
 " NEOCOMPLETE
-" " Disable AutoComplPop.
-" let g:acp_enableAtStartup = 0
-" " Use neocomplete.
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_auto_select = 1
-" " Use smartcase.
-" let g:neocomplete#enable_smart_case = 1
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_auto_select = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
 " " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-"
-" " Define dictionary.
-" let g:neocomplete#sources#dictionary#dictionaries = {
-"     \ 'default' : '',
-"     \ 'vimshell' : $HOME.'/.vimshell_hist',
-"     \ 'scheme' : $HOME.'/.gosh_completions'
-"         \ }
-"
-" " Define keyword.
-" if !exists('g:neocomplete#keyword_patterns')
-"     let g:neocomplete#keyword_patterns = {}
-" endif
-" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-"
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
 " " Plugin key-mappings.
 " inoremap <expr><C-g>     neocomplete#undo_completion()
 " inoremap <expr><C-l>     neocomplete#complete_common_string()
@@ -367,11 +348,11 @@ set number
 " " https://github.com/c9s/perlomni.vim
 " let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "
-" " Enter to complete
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
-"   return pumvisible() ? "\<C-y>" : "\<CR>"
-" endfunction
+" Enter to complete
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
 "
 " " NEOSNIPPET.vim
 " " Plugin key-mappings.
@@ -398,14 +379,14 @@ set number
 " " Tell Neosnippet about the other snippets
 " let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-
 " vim-go
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_type = "quickfix"
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
@@ -417,6 +398,10 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
+
+" Open docs in a vertical split
+au Filetype go nnoremap <leader>d :vsp <CR>:exe "GoDef" <CR>
+" End of go
 
 " Use <leader>p to put over selected text without registering it
 vnoremap <leader>p "_dp

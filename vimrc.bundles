@@ -52,8 +52,8 @@ Plugin 'rentziass/vim-snippets'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Shougo/neocomplete.vim'
-" Plugin 'Shougo/neosnippet'
-" Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 Plugin 'fatih/vim-go'
 
 " Restore cursor position and folding
