@@ -37,4 +37,4 @@
 [github]
   user = rentziass
 [credential]
-	helper = osxkeychain
+  helper = cache

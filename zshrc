@@ -52,7 +52,6 @@ export PATH=".git/safe/../../bin:$PATH"
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # env vars
-source ~/.koodit_env/env
 source ~/.env
 
 # functions
@@ -177,3 +176,7 @@ pgk() {
 
 # Eseguibili nella root bin
 export PATH=$PATH":$HOME/bin"
+
+# GOLANG
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/go

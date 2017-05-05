@@ -77,4 +77,7 @@ Bundle "junegunn/vim-easy-align"
 " Indentation guides
 Bundle "Yggdroot/indentLine"
 
+" Colorscheme
+Plugin 'git@github.com:fugalh/desert.vim.git'
+
 filetype on

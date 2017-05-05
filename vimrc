@@ -158,7 +158,7 @@ set background=dark
 set t_Co=256
 " colorscheme tender
 " colorscheme wwdc16
-colorscheme OceanicNext
+" colorscheme OceanicNext
 set encoding=utf-8
 
 " Highlight line number of where cursor currently is
@@ -294,90 +294,55 @@ set number
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_auto_select = 1
+" let g:neocomplete#enable_auto_select = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#enable_auto_delimiter             = 1
+let g:neocomplete#enable_refresh_always             = 1
 
-" " Plugin key-mappings.
-" inoremap <expr><C-g>     neocomplete#undo_completion()
-" inoremap <expr><C-l>     neocomplete#complete_common_string()
-"
-" " Recommended key-mappings.
-" " <CR>: close popup and save indent.
-" " inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" " function! s:my_cr_function()
-"   " return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-"   " For no inserting <CR> key."
-"   "return pumvisible() ? "\<C-y>" : "\<CR>"
-" " endfunction
-" " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" " <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" " Close popup by <Space>.
-" "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-"
-" " AutoComplPop like behavior.
-" "let g:neocomplete#enable_auto_select = 1
-"
-" " Shell like behavior(not recommended).
-" "set completeopt+=longest
-" "let g:neocomplete#enable_auto_select = 1
-" "let g:neocomplete#disable_auto_complete = 1
-" "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-"
 " " Enable omni completion.
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"
-" " Enable heavy omni completion.
-" if !exists('g:neocomplete#sources#omni#input_patterns')
-"   let g:neocomplete#sources#omni#input_patterns = {}
-" endif
-" "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-" "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-" "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"
-" " For perlomni.vim setting.
-" " https://github.com/c9s/perlomni.vim
-" let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-"
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+let g:neocomplete#force_overwrite_completefunc      = 1
+if !exists('g:neocomplete#sources#omni#functions')
+    let g:neocomplete#sources#omni#functions        = {}
+endif
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#functions.lua        = 'xolox#lua#omnifunc'
+" let g:neocomplete#force_omni_input_patterns.lua     = '\w\+[.:]\|require\s*(\?["'']\w*'
+
 " Enter to complete
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
-"
-" " NEOSNIPPET.vim
-" " Plugin key-mappings.
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-"
-" " SuperTab like snippets behavior.
-" "imap <expr><TAB>
-" " \ pumvisible() ? "\<C-n>" :
-" " \ neosnippet#expandable_or_jumpable() ?
-" " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-" \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-"
-" " For conceal markers.
-" if has('conceal')
-"   set conceallevel=2 concealcursor=niv
-" endif
-"
-" " Enable snipMate compatibility feature.
-" " let g:neosnippet#enable_snipmate_compatibility = 1
-"
-" " Tell Neosnippet about the other snippets
-" let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns              = {}
+endif
+let g:neocomplete#keyword_patterns['default']       = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 " vim-go
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
@@ -405,3 +370,89 @@ au Filetype go nnoremap <leader>d :vsp <CR>:exe "GoDef" <CR>
 
 " Use <leader>p to put over selected text without registering it
 vnoremap <leader>p "_dp
+
+"------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
+" New useful stuff
+"------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
+
+" This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
+inoremap jj <esc>
+nnoremap JJJJ <nop>
+
+"------------------------------------------------------------------------------
+" VIM user interface
+"------------------------------------------------------------------------------
+
+" Make sure that coursor is always vertically centered on j/k moves
+" set so=999
+
+" add vertical lines on columns
+set colorcolumn=80,120
+highlight ColorColumn ctermbg=7 guibg=yellow
+
+" Highlight current line - allows you to track cursor position more easily
+set cursorline
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+colorscheme desert
+
+set background=dark
+
+" Set extra options when running in GUI mode
+if has("gui_running")
+    set visualbell
+    set t_vb=
+    set guioptions-=T
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+"------------------------------------------------------------------------------
+" Editing mappings
+"------------------------------------------------------------------------------
+" Remap VIM 0 to first non-blank character
+map 0 ^
+
+" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
+nmap <M-j> mz:m+<cr>`z
+nmap <M-k> mz:m-2<cr>`z
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+if has("mac") || has("macunix")
+  nmap <D-j> <M-j>
+  nmap <D-k> <M-k>
+  vmap <D-j> <M-j>
+  vmap <D-k> <M-k>
+endif
+
+"------------------------------------------------------------------------------
+" Spell checking
+"------------------------------------------------------------------------------
+
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
