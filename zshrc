@@ -176,8 +176,8 @@ pgk() {
 
 # Eseguibili nella root bin
 export PATH=$PATH":$HOME/bin"
-export PATH=$PATH":$GOPATH/bin"
 
 # GOLANG
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~/go
+export PATH=$PATH":$GOPATH/bin"
