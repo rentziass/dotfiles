@@ -37,4 +37,4 @@
 [github]
   user = rentziass
 [credential]
-  helper = cache
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
