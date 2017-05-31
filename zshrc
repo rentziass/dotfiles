@@ -50,6 +50,7 @@ export PATH=".git/safe/../../bin:$PATH"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+[[ -f ~/.trash_stuff ]] && source ~/.trash_stuff
 
 # env vars
 source ~/.env
@@ -181,3 +182,4 @@ export PATH=$PATH":$HOME/bin"
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~/go
 export PATH=$PATH":$GOPATH/bin"
+export PATH=~/.local/bin:$PATH

@@ -40,9 +40,9 @@ set notimeout
 " uses expression to extract path from current file's path
 
 " highlight vertical column of cursor
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline
-set cursorline
+" au WinLeave * set nocursorline nocursorcolumn
+" au WinEnter * set cursorline
+" set cursorline
 
 "key to insert mode with paste using F2 key
 map <F2> :set paste<CR>i
@@ -61,7 +61,7 @@ set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=500
-set ruler         " show the cursor position all the time
+" set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set hlsearch      " highlight matches
@@ -162,7 +162,7 @@ set t_Co=256
 set encoding=utf-8
 
 " Highlight line number of where cursor currently is
-hi CursorLineNr guifg=#050505
+" hi CursorLineNr guifg=#050505
 
 " Numbers
 set number
@@ -344,6 +344,22 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
 " vim-go
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
@@ -397,7 +413,7 @@ set colorcolumn=80,120
 highlight ColorColumn ctermbg=7 guibg=yellow
 
 " Highlight current line - allows you to track cursor position more easily
-set cursorline
+" set cursorline
 
 " Show matching brackets when text indicator is over them
 set showmatch
@@ -417,12 +433,12 @@ set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set visualbell
-    set t_vb=
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
+    " set visualbell
+    " set t_vb=
+    " set guioptions-=T
+    " set guioptions-=e
+    " set t_Co=256
+    " set guitablabel=%M\ %t
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language

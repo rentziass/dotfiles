@@ -1,0 +1,4 @@
+alias cena="mpg123 ~/dotfiles/sounds/john_cena.mp3"
+alias getthecamera="mpg123 ~/dotfiles/sounds/getthecamera.mp3"
+alias sike="mpg123 ~/dotfiles/sounds/sike.mp3"
+alias omg="mpg123 ~/dotfiles/sounds/omg.mp3"
