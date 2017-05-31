@@ -1,0 +1,7 @@
+# create a migration to be used with github.com/mattes/migrate
+cgomigr() {
+  NAME="$(date +%s)_$1"
+  echo -n migrations/$NAME.up.sql|xargs touch
+  echo -n migrations/$NAME.down.sql|xargs touch
+  echo "Up and down migrations created at ./migrations/$NAME"
+}
