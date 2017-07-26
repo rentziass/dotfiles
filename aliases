@@ -107,3 +107,6 @@ alias "hidedock"="defaults write com.apple.dock static-only -bool TRUE; killall 
 alias "showdedock"="defaults write com.apple.dock static-only -bool FALSE; killall Dock"
 
 alias goglang="cd /home/frenzi/Gogland-171.4424.55/bin && ./goglang.sh"
+
+### Kubernetes
+alias k="kubectl"
