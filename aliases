@@ -55,7 +55,7 @@ alias gw="cd ~/development/work"
 alias gwc="cd ~/development/work/current"
 alias gwp="cd ~/development/work/past"
 alias gdev="cd ~/development"
-alias ggo="cd ~/development/go"
+alias ggo="cd ~/go"
 alias gk="cd ~/development/kimon"
 
 alias ze="st ~/.zshrc"
@@ -110,3 +110,6 @@ alias goglang="cd /home/frenzi/Gogland-171.4424.55/bin && ./goglang.sh"
 
 ### Kubernetes
 alias k="kubectl"
+
+## Tensorflow
+alias start_tf="source ~/tensorflow/bin/activate"

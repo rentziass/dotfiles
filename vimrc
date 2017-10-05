@@ -282,10 +282,10 @@ nmap ga <Plug>(EasyAlign)
 " MultiCursor
 let g:multi_cursor_prev_key='<C-b>'
 
-" Indentation guides
-let g:indentLine_char = '┆'
-au InsertEnter * IndentLinesToggle
-au InsertLeave * IndentLinesToggle
+" " Indentation guides
+" let g:indentLine_char = '┆'
+" au InsertEnter * IndentLinesToggle
+" au InsertLeave * IndentLinesToggle
 
 set number
 

@@ -178,6 +178,9 @@ pgk() {
 # Eseguibili nella root bin
 export PATH=$PATH":$HOME/bin"
 
+# Python
+export PATH=$PATH:~/Library/Python/3.6/bin/
+
 # GOLANG
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~/go
