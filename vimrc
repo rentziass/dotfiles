@@ -409,7 +409,7 @@ nnoremap JJJJ <nop>
 " set so=999
 
 " add vertical lines on columns
-set colorcolumn=80,120
+" set colorcolumn=80,120
 highlight ColorColumn ctermbg=7 guibg=yellow
 
 " Highlight current line - allows you to track cursor position more easily
@@ -427,7 +427,7 @@ set novisualbell
 set t_vb=
 set tm=500
 
-colorscheme desert
+colorscheme deus
 
 set background=dark
 

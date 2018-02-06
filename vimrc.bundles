@@ -55,12 +55,14 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'fatih/vim-go'
+Plugin 'mattn/emmet-vim'
 
 " Restore cursor position and folding
 Bundle 'vim-scripts/restore_view.vim'
 
 " Theme
-Plugin 'mhartington/oceanic-next'
+" Plugin 'mhartington/oceanic-next'
+Bundle 'ajmwagar/vim-deus'
 
 " Extra syntax
 Bundle 'slim-template/vim-slim.git'
@@ -78,6 +80,6 @@ Bundle "junegunn/vim-easy-align"
 Bundle "Yggdroot/indentLine"
 
 " Colorscheme
-Plugin 'git@github.com:fugalh/desert.vim.git'
+" Plugin 'git@github.com:fugalh/desert.vim.git'
 
 filetype on
