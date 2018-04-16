@@ -393,6 +393,9 @@ vnoremap <leader>p "_dp
 "------------------------------------------------------------------------------
 "------------------------------------------------------------------------------
 
+" Turn off highlighting
+map <Leader>n :noh<CR>
+
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
