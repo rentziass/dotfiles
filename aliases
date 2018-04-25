@@ -52,7 +52,7 @@ alias vimrcbundles="vim ~/.vimrc.bundles"
 alias zshrc="vim ~/.zshrc"
 
 alias gw="cd ~/development/work"
-alias gwc="cd ~/development/work/current"
+alias gwc="cd ~/development/work/sm"
 alias gwp="cd ~/development/work/past"
 alias gdev="cd ~/development"
 alias ggo="cd ~/go"
