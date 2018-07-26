@@ -113,3 +113,6 @@ alias k="kubectl"
 
 ## Tensorflow
 alias start_tf="source ~/tensorflow/bin/activate"
+
+# Use mvim instead of vim for rendering speed
+alias vim="mvim -v"
