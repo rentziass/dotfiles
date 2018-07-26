@@ -80,3 +80,13 @@ fi
 # The original version is saved in .zprofile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH
+export PATH=".git/safe/../../bin:$PATH"
+# export PATH="/usr/local/Cellar/graphviz/2.38.0/bin:$PATH"
+# export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/francescorenzi/.rvm/bin:/usr/local/git/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=$PATH":$HOME/bin"
+export PATH=$PATH:~/Library/Python/3.6/bin/
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH":$GOPATH/bin"
+export PATH=~/.local/bin:$PATH
+export PATH="$HOME/.fastlane/bin:$PATH"
