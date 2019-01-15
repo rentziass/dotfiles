@@ -218,7 +218,8 @@ export PATH=$PATH":$HOME/bin"
 export PATH=$PATH:~/Library/Python/3.6/bin/
 
 # GOLANG
-export PATH=$PATH:/usr/local/go/bin
+# export PATH=$PATH:/usr/local/go/bin # 1.9
+export PATH=$PATH:/usr/local/opt/go/libexec/bin # 1.11
 export GOPATH=~/go
 export PATH=$PATH":$GOPATH/bin"
 export PATH=~/.local/bin:$PATH
@@ -233,3 +234,16 @@ flush_dns() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
+# Enable word jumps
+bindkey "^[f" forward-word
+bindkey "^[b" backward-word
+
+# Include specific version of postgres
+export PATH="/usr/local/Cellar/postgresql@9.6/9.6.10/bin:$PATH"

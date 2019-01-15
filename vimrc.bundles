@@ -1,8 +1,8 @@
 set nocompatible
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
 
 " Let Vundle manage Vundle
 Bundle 'gmarik/vundle'
@@ -27,16 +27,16 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'vim-scripts/tComment'
 Bundle 'scrooloose/nerdtree'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "skwp/greplace.vim"
-Bundle "vim-ruby/vim-ruby"
-Bundle "scrooloose/syntastic"
-Bundle "tpope/vim-haml"
-Bundle "dkprice/vim-easygrep"
-Bundle "tpope/vim-rails"
-Bundle "altercation/vim-colors-solarized"
-Bundle "myusuf3/numbers.vim"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'skwp/greplace.vim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-haml'
+Bundle 'dkprice/vim-easygrep'
+Bundle 'tpope/vim-rails'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'myusuf3/numbers.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'henrik/vim-qargs'
@@ -53,29 +53,35 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'fatih/vim-go'
 Plugin 'mattn/emmet-vim'
 
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Shougo/deoplete.nvim'
+" Plugin 'roxma/nvim-yarp'
+" Plugin 'roxma/vim-hug-neovim-rpc'
+
 " Restore cursor position and folding
-Bundle 'vim-scripts/restore_view.vim'
+Plugin 'vim-scripts/restore_view.vim'
 
 " Theme
 " Plugin 'mhartington/oceanic-next'
-Bundle 'ajmwagar/vim-deus'
+Plugin 'ajmwagar/vim-deus'
 
 " Extra syntax
-Bundle 'slim-template/vim-slim.git'
+Plugin 'slim-template/vim-slim.git'
 
 " Vim Rspec
-Bundle "thoughtbot/vim-rspec"
+Plugin 'thoughtbot/vim-rspec'
 
 " Vim I18n
-Bundle "rentziass/vim-i18n"
+Plugin 'rentziass/vim-i18n'
 
 " Vim easy align
-Bundle "junegunn/vim-easy-align"
+Plugin 'junegunn/vim-easy-align'
 
 " Indentation guides
-Bundle "Yggdroot/indentLine"
+Plugin 'Yggdroot/indentLine'
 
 " Colorscheme
 " Plugin 'git@github.com:fugalh/desert.vim.git'
 
+call vundle#end()
 filetype on

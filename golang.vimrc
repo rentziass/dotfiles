@@ -1,6 +1,3 @@
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'zchee/deoplete-go'
-
 " hide hidden chars (yeah, right?)
 set nolist
 
@@ -11,10 +8,7 @@ imap <C-s>     <Plug>(neosnippet_expand_or_jump)
 smap <C-s>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-s>     <Plug>(neosnippet_expand_target)
 
-if has('nvim')
-  " Enable deoplete on startup
-  let g:deoplete#enable_at_startup = 1
-endif
+let g:deoplete#enable_at_startup = 1
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
