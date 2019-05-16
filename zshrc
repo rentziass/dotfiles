@@ -246,4 +246,5 @@ bindkey "^[f" forward-word
 bindkey "^[b" backward-word
 
 # Include specific version of postgres
-export PATH="/usr/local/Cellar/postgresql@9.6/9.6.10/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin/:$PATH"
+export PATH="/usr/local/opt/node@8/bin:$PATH"
