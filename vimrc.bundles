@@ -71,9 +71,6 @@ Plugin 'slim-template/vim-slim.git'
 " Vim Rspec
 Plugin 'thoughtbot/vim-rspec'
 
-" Vim I18n
-Plugin 'rentziass/vim-i18n'
-
 " Vim easy align
 Plugin 'junegunn/vim-easy-align'
 

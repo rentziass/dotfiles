@@ -30,7 +30,7 @@
 [include]
   path = .gitconfig.local
 [commit]
-  template = /Users/francescorenzi/.gitmessage
+  template = ~/.gitmessage
 [user]
   name = Francesco Renzi
   email = rentziass@gmail.com
