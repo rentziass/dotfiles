@@ -161,8 +161,9 @@ set encoding=utf-8
 " hi CursorLineNr guifg=#050505
 
 " Numbers
-set number
+set number relativenumber
 set numberwidth=5
+set cursorline
 
 " Snippets are activated by Shift+Tab
 let g:snippetsEmu_key = "<S-Tab>"
@@ -220,14 +221,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Auto save and load of folds
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
-
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-set number
 
 " Open docs in a vertical split
 au Filetype go nnoremap <leader>d :vsp <CR>:exe "GoDef" <CR>

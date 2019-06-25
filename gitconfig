@@ -31,9 +31,11 @@
   path = .gitconfig.local
 [commit]
   template = ~/.gitmessage
+	gpgsign = true
 [user]
   name = Francesco Renzi
   email = rentziass@gmail.com
+	signingkey = 7EF039B381D492B2
 [github]
   user = rentziass
 [credential]
