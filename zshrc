@@ -3,44 +3,10 @@ if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
   source "$HOME/.zprezto/init.zsh"
 fi
 
-# docker-machine info
-dmn_info() {
-  echo $DOCKER_MACHINE_NAME
-}
-
-__docker_machine_ps1 () {
-  local format=${1:- [%s]}
-  if test ${DOCKER_MACHINE_NAME}; then
-    local status
-    if test ${DOCKER_MACHINE_PS1_SHOWSTATUS:-false} = true; then
-      status=$(docker-machine status ${DOCKER_MACHINE_NAME})
-      case ${status} in
-        Running)
-          status=' R'
-          ;;
-        Stopping)
-          status=' R->S'
-          ;;
-        Starting)
-          status=' S->R'
-          ;;
-        Error|Timeout)
-          status=' E'
-          ;;
-        *)
-          # Just consider everything elase as 'stopped'
-          status=' S'
-          ;;
-      esac
-    fi
-    printf -- "${format}" "${DOCKER_MACHINE_NAME}${status}"
-  fi
-}
-
 PS1='[\u@\h \W$(__docker_machine_ps1 " [%s]")]\$ '
 
 export PROMPT='%F{cyan}${_prompt_damoekri_pwd}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
-RPROMPT='${__docker_machine_ps1}%F{cyan}${dmn_info}${git_info:+${(e)git_info[rprompt]}}${ruby_info:+${ruby_info[version]}}'
+RPROMPT='%F{cyan}${git_info:+${(e)git_info[rprompt]}}'
 
 
 
