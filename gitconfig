@@ -44,3 +44,11 @@
 	token = !security find-internet-password -a rentziass -s github.com -l 'ghi token' -w
 [http]
 	postBuffer = 1048576000
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[filter "strongbox"]
+	clean = strongbox -clean %f
+	smudge = strongbox -smudge %f
+	required = true
+[diff "strongbox"]
+	textconv = strongbox -diff
