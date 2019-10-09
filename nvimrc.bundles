@@ -21,8 +21,9 @@ Plug 'tomtom/tlib_vim'
 Plug 'skwp/greplace.vim'
 Plug 'scrooloose/syntastic'
 Plug 'dkprice/vim-easygrep'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'myusuf3/numbers.vim'
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jgdavey/tslime.vim'
 Plug 'henrik/vim-qargs'
@@ -40,6 +41,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+
+" Typescript
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
 
 " Theme
 " " Plug 'mhartington/oceanic-next'
