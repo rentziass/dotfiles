@@ -116,10 +116,16 @@ augroup END
 " bind K to search word under cursor
 nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+" Backslash for project searching
+nnoremap \ :Ag<SPACE>
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" Enable spellchecking for Markdown
+autocmd FileType typescript setlocal shiftwidth=2
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
@@ -270,7 +276,7 @@ set novisualbell
 set t_vb=
 set tm=500
 
-colorscheme deus
+colorscheme happy_hacking
 
 set background=dark
 
@@ -339,6 +345,14 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
 let g:go_fmt_command = "goimports"
+
+let g:go_auto_type_info = 1
+let g:go_def_mode = 'gopls'
+
+au FileType go nmap <leader>gt :GoDeclsDir<cr>
+au FileType go nmap <leader>t :GoTest -short<cr>
+au FileType go nmap <F10> :GoTest -short<cr>
+au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 
 " Error and warning signs.
 let g:ale_sign_error = '⤫'

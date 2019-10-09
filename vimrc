@@ -126,8 +126,8 @@ augroup END
 nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 " let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec}\n")'
@@ -368,7 +368,16 @@ set novisualbell
 set t_vb=
 set tm=500
 
-colorscheme deus
+function! MyHighlights() abort
+  highlight SpecialKey ctermbg=none ctermfg=239
+endfunction
+
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme * call MyHighlights()
+augroup END
+
+colorscheme happy_hacking
 
 set background=dark
 
