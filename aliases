@@ -1,9 +1,3 @@
-alias s="osascript ~/dotfiles/SpotifyControl/SpotifyControl.scpt"
-alias sn="osascript ~/dotfiles/SpotifyControl/SpotifyControl.scpt next"
-alias sp="osascript ~/dotfiles/SpotifyControl/SpotifyControl.scpt prev"
-# Now playing: Cher - Believe
-alias sb="osascript ~/dotfiles/SpotifyControl/SpotifyControl.scpt start spotify:track:2goLsvvODILDzeeiT4dAoR"
-
 # Unix
 alias tlf="tail -f"
 alias ln='ln -v'
@@ -20,81 +14,24 @@ alias v="$VISUAL"
 # because typing is hard
 alias bim="vim"
 
-# fix for passing params to rake tasks
-alias rake='noglob rake'
-
-# git
-alias gs='git status -sb'
-# copy the current branch name
-alias gcb='git rev-parse --abbrev-ref HEAD | pbcopy'
-# because i make this typo a lot
-alias ggs='gs'
-# open a pull request, requires Hub to be installed (hub.github.com)
-alias gpr='git pull-request'
-
-# Bundler
-alias b="bundle"
-alias bi="bundle install"
-alias be="bundle exec"
-# because i make this typo a lot
-alias kbundle="bundle"
-
-# Rubygems
-alias gi="gem install"
-
-# Rails
-alias rk="rake"
-alias rc="bin/rails c"
-
 # Config Files
 alias vimrc="vim ~/.vimrc"
 alias vimrcbundles="vim ~/.vimrc.bundles"
 alias zshrc="vim ~/.zshrc"
 
-alias gw="cd ~/development/work"
-alias gwc="cd ~/development/work/sm"
-alias gwp="cd ~/development/work/past"
 alias gdev="cd ~/development"
 alias ggo="cd ~/go"
-alias gk="cd ~/development/kimon"
 
-alias ze="st ~/.zshrc"
 alias pg_clean="rm /usr/local/var/postgres/postmaster.pid"
-alias erdda="erd --inheritance --direct --attributes=foreign_keys,content --filetype=dot; dot -Tjpg erd.dot > erd.pdf"
-
-alias get_zeus_waiter="cp -i $MY_DOTFILES_PATH/bin/wait_for_zeus.sh wait_for_zeus.sh && chmod +x wait_for_zeus.sh"
 
 alias restore_camera="sudo killall VDCAssistant"
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
 
-# Rails 5
-alias r="rails"
-alias rg="rails g"
-alias rs="puma"
-alias rdbm="rails db:migrate"
-alias rdbmt="rails db:migrate RAILS_ENV=test"
-alias rdbma="rdbm && rdbmt"
-alias rr="rails routes"
-alias be="bundle exec"
-
-# Golang
-alias gomigrate="/Users/francescorenzi/development/go/bin/migrate"
-
 # SSH
 # Restart agent
 alias sshr="eval '$(ssh-agent -s)' && ssh-add ~/.ssh/id_rsa"
-
-# Zeus
-alias zs="zeus start"
-alias zsr="zeus server"
-alias zc="zeus console"
-alias zdbm="zeus rake db:migrate"
-alias zspec="zeus spec"
-
-# Add rsa key for koodit servers
-alias akk="ssh-add /Users/francescorenzi/.ssh/koodit_servers_id_rsa"
 
 alias c="clear"
 
@@ -106,21 +43,13 @@ alias badum="afplay /Users/francescorenzi/Documents/Suoni/ba_dum_tss.mp3 -v 3"
 alias "hidedock"="defaults write com.apple.dock static-only -bool TRUE; killall Dock"
 alias "showdedock"="defaults write com.apple.dock static-only -bool FALSE; killall Dock"
 
-alias goglang="cd /home/frenzi/Gogland-171.4424.55/bin && ./goglang.sh"
-
 ### Kubernetes
 alias k="kubectl"
-
-## Tensorflow
-alias start_tf="source ~/tensorflow/bin/activate"
+alias kgp="kubectl get pods"
+alias kg="kubernetes-kafka-groups"
+alias kt="kubernetes-kafka-topics"
+alias klit="kubernetes-kafka-last-in-topic"
 
 # Use nvim instead of vim for rendering speed
 alias vim="nvim"
 
-# Kubernetes
-alias ku="kubectl"
-alias kgp="kubectl get pods"
-
-alias kg="kubernetes-kafka-groups"
-alias kt="kubernetes-kafka-topics"
-alias klit="kubernetes-kafka-last-in-topic"
