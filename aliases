@@ -114,9 +114,13 @@ alias k="kubectl"
 ## Tensorflow
 alias start_tf="source ~/tensorflow/bin/activate"
 
-# Use mvim instead of vim for rendering speed
-alias vim="mvim -v"
+# Use nvim instead of vim for rendering speed
+alias vim="nvim"
 
 # Kubernetes
 alias ku="kubectl"
 alias kgp="kubectl get pods"
+
+alias kg="kubernetes-kafka-groups"
+alias kt="kubernetes-kafka-topics"
+alias klit="kubernetes-kafka-last-in-topic"

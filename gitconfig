@@ -22,6 +22,8 @@
   fall = "!for remote in $(git remote); do echo "Fetching $remote"; git fetch "$remote"; done"
   upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
   ureset = !git upstream && git reset --hard $(git upstream)
+  pr = !hub pull-request
+  draft = !hub pull-request --draft
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -31,7 +33,6 @@
   path = .gitconfig.local
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
 [user]
   name = Francesco Renzi
   email = rentziass@gmail.com
