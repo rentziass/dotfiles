@@ -9,14 +9,7 @@ if dein#load_state('~/.config/dein')
   " Let dein manage dein
   " Required:
   call dein#add('~/.config/dein/repos/github.com/Shougo/dein.vim')
-
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('autozimu/LanguageClient-neovim', {
-        \ 'rev': 'next',
-        \ 'build': 'bash install.sh',
-        \})
-  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('neoclide/coc.nvim', {'branch': 'release'})
   call dein#add('chriskempson/base16-vim.git')
   call dein#add('tpope/vim-fugitive.git')
   call dein#add('scrooloose/nerdcommenter.git')
@@ -49,62 +42,39 @@ if dein#load_state('~/.config/dein')
   call dein#add('danishprakash/vim-githubinator')
 endif
 
+" CoC
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
 " NERDTree
 let NERDTreeChDirMode=2
 nnoremap <Leader>n :NERDTreeToggle<Enter>
 
-" LanguageClient
-let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-      \ 'go': ['gopls'],
-      \ }
-
-let g:LanguageClient_rootMarkers = {
-      \ 'rust': ['Cargo.toml'],
-      \ 'go': ['go.mod'],
-      \}
-
-" Run gofmt and goimports on save
-"let g:LanguageClient_hoverPreview = "Auto"
-"let g:LanguageClient_selectionUI="location-list"
-"let g:LanguageClient_trace="messages"
-"let g:LanguageClient_diagnosticsEnable=1
-let g:LanguageClient_changeThrottle = 0.01
-let g:LanguageClient_windowLogMessageLevel="Warning"
-let g:LanguageClient_loggingLevel='WARN'
-
 nnoremap <Leader>t i<C-v>u2713<esc>
 nnoremap <silent> <Leader>m :make build<CR>
-
-function LC_maps()
-  if has_key(g:LanguageClient_serverCommands, &filetype)
-    nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
-    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
-    nnoremap <buffer> <silent> <C-]> :call LanguageClient_textDocument_definition()<CR>
-    nnoremap <buffer> <silent> <Leader>gr :call LanguageClient_textDocument_rename()<CR>
-    nnoremap <buffer> <silent> <Leader>f :call LanguageClient_textDocument_formatting()<CR>
-    nnoremap <buffer> <silent> <Leader>l :call LanguageClient_contextMenu()<CR>
-  endif
-endfunction
-
-autocmd FileType * call LC_maps()
-"use deoplete
-"neocomplete like
-"set completeopt+=noinsert
-"deoplete.nvim recommend
-"set completeopt+=noselect
-let g:deoplete#enable_at_startup=1
-call deoplete#custom#source('LanguageClient',
-      \ 'min_pattern_length',
-      \ 2)
-
-" neosnippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-let g:neosnippet#snippets_directory = "~/.config/nvim/snippets"
-let g:neosnippet#enable_completed_snippet = 1
 
 " ALE:
 let g:ale_linters = {
@@ -119,7 +89,6 @@ let g:ale_linters = {
 \}
 
 " go
-let g:go_snippet_engine = "neosnippet"
 let g:syntastic_go_checkers = ['golint', 'govet', 'golangci-lint']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 "let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
@@ -153,7 +122,7 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_snippet_engine = "neosnippet"
+"let g:go_snippet_engine = "neosnippet"
 let g:go_fmt_command = "goimports"
 let g:go_term_enabled = 0
 let g:go_term_mode = "split"

@@ -7,5 +7,5 @@ else
     let s:editor_root=expand("~/.vim")
 endif
 
-source ~/.config/nvim/general.vimrc
+source ~/.config/nvim/general.vim
 source ~/.config/nvim/bundle.vim
