@@ -213,7 +213,6 @@ bindkey "^[b" backward-word
 
 # Include specific version of postgres
 export PATH="/usr/local/opt/postgresql@9.6/bin/:$PATH"
-export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 alias watch='watch '

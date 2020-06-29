@@ -377,8 +377,6 @@ augroup MyColors
   autocmd ColorScheme * call MyHighlights()
 augroup END
 
-colorscheme happy_hacking
-
 set background=dark
 
 " Set extra options when running in GUI mode
