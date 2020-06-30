@@ -14,7 +14,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go', {'branch': 'master'}
 Plug 'uarun/vim-protobuf'
-Plug 'dense-analysis/ale'
+Plug 'honza/vim-snippets'
 
 "" Useful defaults
 Plug 'tpope/vim-sensible'
@@ -37,18 +37,6 @@ nnoremap <Leader>f :NERDTreeFind<Enter>
 
 nnoremap <Leader>t i<C-v>u2713<esc>
 nnoremap <silent> <Leader>m :make build<CR>
-
-" ALE:
-let g:ale_linters = {
-      \ 'python': ['flake8', 'pylint'],
-      \ 'javascript': ['eslint'],
-      \ 'typescript': ['tsserver', 'tslint'],
-      \ 'vue': ['eslint'],
-      \ 'terraform': ['terraform'],
-      \ 'graphql': ['gqlint'],
-      \ 'yaml': ['yamllint'],
-      \ 'go': ['golangci-lint', 'gopls'],
-\}
 
 " go
 let g:syntastic_go_checkers = ['golint', 'govet', 'golangci-lint']
