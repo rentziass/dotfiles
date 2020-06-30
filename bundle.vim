@@ -9,6 +9,7 @@ if dein#load_state('~/.config/dein')
   " Let dein manage dein
   " Required:
   call dein#add('~/.config/dein/repos/github.com/Shougo/dein.vim')
+
   call dein#add('neoclide/coc.nvim', {'branch': 'release'})
   call dein#add('chriskempson/base16-vim.git')
   call dein#add('tpope/vim-fugitive.git')
@@ -33,40 +34,17 @@ if dein#load_state('~/.config/dein')
   call dein#add('tpope/vim-sensible')
   " iTerm integration, save on focus lost
   call dein#add('sjl/vitality.vim')
-  " Awesome fuzzy finder
-  call dein#add('kien/ctrlp.vim')
   " Alternate between relative and absolute line numbers
   call dein#add('myusuf3/numbers.vim')
   " Automatically close parenthesis
   call dein#add('jiangmiao/auto-pairs')
+
+  " Copy link to selected text in Github with ghc
   call dein#add('danishprakash/vim-githubinator')
-endif
 
-" CoC
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  " Required:
+  call dein#end()
+  call dein#save_state()
 endif
 
 " NERDTree

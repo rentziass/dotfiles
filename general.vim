@@ -16,7 +16,6 @@ set termguicolors
 
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
-" set hlsearch      " highlight matches
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
@@ -63,19 +62,6 @@ set expandtab
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup
-  let g:grep_cmd_opts = '--line-numbers --noheading'
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -134,9 +120,6 @@ command W w !sudo tee % > /dev/null
 " This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
 inoremap jj <esc>
 nnoremap JJJJ <nop>
-
-" Remove search highlightin
-map <leader>n :nohl<cr>
 
 " Don't automatically continue comments after newline
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro

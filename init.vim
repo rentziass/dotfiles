@@ -1,11 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-if has('nvim')
-    let s:editor_root=expand("~/.config/nvim")
-else
-    let s:editor_root=expand("~/.vim")
-endif
+let s:editor_root=expand("~/.config/nvim")
 
-source ~/.config/nvim/general.vim
 source ~/.config/nvim/bundle.vim
+source ~/.config/nvim/general.vim
+source ~/.config/nvim/denite.vim
+source ~/.config/nvim/coc.vim
