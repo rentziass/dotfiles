@@ -1,55 +1,39 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set runtimepath+=~/.config/dein/repos/github.com/Shougo/dein.vim
-" Required:
-if dein#load_state('~/.config/dein')
-  call dein#begin('~/.config/dein')
+call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
+Plug 'pivotal/tmux-config'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-surround'
+Plug 'Shougo/denite.nvim'
+Plug 'scrooloose/nerdtree'
+Plug 'fatih/vim-go', {'branch': 'master'}
+Plug 'uarun/vim-protobuf'
+Plug 'dense-analysis/ale'
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.config/dein/repos/github.com/Shougo/dein.vim')
+"" Useful defaults
+Plug 'tpope/vim-sensible'
+"" iTerm integration, save on focus lost
+Plug 'sjl/vitality.vim'
+"" Alternate between relative and absolute line numbers
+Plug 'myusuf3/numbers.vim'
+"" Automatically close parenthesis
+Plug 'jiangmiao/auto-pairs'
 
-  call dein#add('neoclide/coc.nvim', {'branch': 'release'})
-  call dein#add('chriskempson/base16-vim.git')
-  call dein#add('tpope/vim-fugitive.git')
-  call dein#add('scrooloose/nerdcommenter.git')
-  call dein#add('pivotal/tmux-config.git')
-  call dein#add('bling/vim-airline.git')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('tpope/vim-surround.git')
-  call dein#add('Shougo/denite.nvim.git')
-  call dein#add('scrooloose/nerdtree.git')
-  call dein#add('fatih/vim-go', {'branch': 'master'})
-  call dein#config('go.vim', {
-        \ 'lazy': 1, 'on_event': 'InsertEnter',
-        \})
-  call dein#add('uarun/vim-protobuf')
-  call dein#config('vim-protobuf.vim', {
-        \ 'lazy': 1, 'on_event': 'InsertEnter',
-        \ })
-  call dein#add('dense-analysis/ale')
+"" Copy link to selected text in Github with ghc
+Plug 'danishprakash/vim-githubinator'
 
-  " Useful defaults
-  call dein#add('tpope/vim-sensible')
-  " iTerm integration, save on focus lost
-  call dein#add('sjl/vitality.vim')
-  " Alternate between relative and absolute line numbers
-  call dein#add('myusuf3/numbers.vim')
-  " Automatically close parenthesis
-  call dein#add('jiangmiao/auto-pairs')
-
-  " Copy link to selected text in Github with ghc
-  call dein#add('danishprakash/vim-githubinator')
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+call plug#end()
 
 " NERDTree
 let NERDTreeChDirMode=2
 nnoremap <Leader>n :NERDTreeToggle<Enter>
+nnoremap <Leader>f :NERDTreeFind<Enter>
 
 nnoremap <Leader>t i<C-v>u2713<esc>
 nnoremap <silent> <Leader>m :make build<CR>

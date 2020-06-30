@@ -24,3 +24,6 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
 endif
+
+" coc-snippets (:CocInstall coc-snippets)
+imap <C-k> <Plug>(coc-snippets-expand)
