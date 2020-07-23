@@ -3,10 +3,12 @@ if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
   source "$HOME/.zprezto/init.zsh"
 fi
 
-PS1='[\u@\h \W$(__docker_machine_ps1 " [%s]")]\$ '
-
 export PROMPT='%F{cyan}${_prompt_damoekri_pwd}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
-RPROMPT='%F{cyan}${git_info:+${(e)git_info[rprompt]}}'
+RPROMPT='%F{cyan}${prompt_kubecontext}${git_info:+${(e)git_info[rprompt]}}'
+
+prompt_kubecontext() {
+  prompt_segment white black "k8s-`kubectl config current-context`/`kubectl config get-contexts --no-headers | grep '*' | awk '{print $5}'`"
+}
 
 
 

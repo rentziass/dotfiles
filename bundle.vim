@@ -28,15 +28,22 @@ Plug 'jiangmiao/auto-pairs'
 "" Copy link to selected text in Github with ghc
 Plug 'danishprakash/vim-githubinator'
 
+Plug 'ianks/vim-tsx'
+Plug 'leafgarland/typescript-vim'
+
 call plug#end()
 
 " NERDTree
 let NERDTreeChDirMode=2
+let NERDTreeShowHidden=1
 nnoremap <Leader>n :NERDTreeToggle<Enter>
 nnoremap <Leader>f :NERDTreeFind<Enter>
 
 nnoremap <Leader>t i<C-v>u2713<esc>
 nnoremap <silent> <Leader>m :make build<CR>
+
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
+au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 
 " go
 let g:syntastic_go_checkers = ['golint', 'govet', 'golangci-lint']
