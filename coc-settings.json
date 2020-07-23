@@ -1,4 +1,5 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": ["css", "js", "jsx", "ts", "tsx", "markdown", "typescriptreact", "scss", "rust"],
   "languageserver": {
    "go": {
       "command": "gopls",

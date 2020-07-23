@@ -53,3 +53,4 @@ alias klit="kubernetes-kafka-last-in-topic"
 # Use nvim instead of vim for rendering speed
 alias vim="nvim"
 
+alias make="gmake"
