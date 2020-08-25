@@ -25,6 +25,7 @@
   pr = !hub pull-request
   draft = !hub pull-request --draft
 [core]
+  editor = vim
   excludesfile = ~/.gitignore
   autocrlf = input
 [merge]

@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["css", "js", "jsx", "ts", "tsx", "markdown", "typescriptreact", "scss", "rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["css", "js", "jsx", "ts", "tsx", "markdown", "typescriptreact", "scss", "rust", "typescript"],
   "languageserver": {
    "go": {
       "command": "gopls",
@@ -9,6 +9,11 @@
       "initializationOptions": {
         "usePlaceholders": true
       }
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
     }
   }
 }

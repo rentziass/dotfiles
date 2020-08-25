@@ -15,6 +15,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go', {'branch': 'master'}
 Plug 'uarun/vim-protobuf'
 Plug 'honza/vim-snippets'
+Plug 'jparise/vim-graphql'
 
 "" Useful defaults
 Plug 'tpope/vim-sensible'
