@@ -10,3 +10,4 @@ tmp/**/*
 !tmp/cache/.keep
 zeus.json
 .idea
+telepresence.log

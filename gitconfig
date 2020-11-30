@@ -9,6 +9,7 @@
   ap = add --patch
   b = branch
   browse = !hub browse
+  cm = commit -m
   ca = commit --amend
   ci = commit -v
   co = checkout
@@ -25,10 +26,12 @@
   pr = !hub pull-request
   draft = !hub pull-request --draft
 [core]
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore
   autocrlf = input
 [merge]
+  ff = only
+[pull]
   ff = only
 [include]
   path = .gitconfig.local

@@ -16,6 +16,7 @@ Plug 'fatih/vim-go', {'branch': 'master'}
 Plug 'uarun/vim-protobuf'
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
+Plug 'AndrewRadev/splitjoin.vim'
 
 "" Useful defaults
 Plug 'tpope/vim-sensible'
@@ -35,6 +36,7 @@ Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 " NERDTree
+autocmd VimEnter * NERDTree
 let NERDTreeChDirMode=2
 let NERDTreeShowHidden=1
 nnoremap <Leader>n :NERDTreeToggle<Enter>
@@ -81,7 +83,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 "let g:go_snippet_engine = "neosnippet"
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gofumports"
 let g:go_term_enabled = 0
 let g:go_term_mode = "split"
 let g:go_def_mode = 'gopls'
