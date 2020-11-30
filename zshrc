@@ -3,14 +3,7 @@ if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
   source "$HOME/.zprezto/init.zsh"
 fi
 
-export PROMPT='%F{cyan}${_prompt_damoekri_pwd}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
-RPROMPT='%F{cyan}${prompt_kubecontext}${git_info:+${(e)git_info[rprompt]}}'
-
-prompt_kubecontext() {
-  prompt_segment white black "k8s-`kubectl config current-context`/`kubectl config get-contexts --no-headers | grep '*' | awk '{print $5}'`"
-}
-
-
+eval "$(starship init zsh)"
 
 # history settings
 setopt appendhistory histignoredups
@@ -35,7 +28,7 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 export MY_DOTFILES_PATH="$HOME/dotfiles"
 
 # use vim as the visual editor
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR=$VISUAL
 
 # look for ey config in project dirs
@@ -218,3 +211,4 @@ export PATH="/usr/local/opt/postgresql@9.6/bin/:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 alias watch='watch '
+source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh

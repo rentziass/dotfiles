@@ -14,6 +14,10 @@ alias v="$VISUAL"
 # because typing is hard
 alias bim="vim"
 
+# git
+alias gp="git push"
+alias gb="git branch"
+
 # Config Files
 alias vimrc="vim ~/.vimrc"
 alias vimrcbundles="vim ~/.vimrc.bundles"
@@ -53,4 +57,7 @@ alias klit="kubernetes-kafka-last-in-topic"
 # Use nvim instead of vim for rendering speed
 alias vim="nvim"
 
-alias make="gmake"
+alias start_uw_vpn="docker start uw-vpn"
+alias stop_uw_vpn="docker stop uw-vpn"
+
+alias tmn="tmux new -s"
