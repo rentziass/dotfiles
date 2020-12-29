@@ -7,7 +7,7 @@
 "   --glob:  Include or exclues files for searching that match the given glob
 "            (aka ignore .git files)
 "
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--glob', '!vendor', '--glob', '!node_modules'])
 
 " Use ripgrep in place of "grep"
 call denite#custom#var('grep', 'command', ['rg'])
@@ -67,7 +67,7 @@ call s:profile(s:denite_options)
 " ===                             KEY MAPPINGS                             === "
 " ============================================================================ "
 " === Denite shorcuts === "
-"   ;         - Browser currently open buffers
+"   <leader>b - Browser currently open buffers
 "   <leader>t - Browse list of files in current directory
 "   <leader>g - Search current directory for occurences of given term and close window if no results
 "   <leader>j - Search current directory for occurences of word under cursor
