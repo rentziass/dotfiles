@@ -12,7 +12,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'Shougo/denite.nvim'
 Plug 'scrooloose/nerdtree'
-Plug 'fatih/vim-go', {'branch': 'master'}
+Plug 'fatih/vim-go', {'tag': 'v1.24'}
 Plug 'uarun/vim-protobuf'
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
