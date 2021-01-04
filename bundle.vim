@@ -6,9 +6,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
-Plug 'pivotal/tmux-config'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'Shougo/denite.nvim'
 Plug 'scrooloose/nerdtree'
@@ -17,11 +14,10 @@ Plug 'uarun/vim-protobuf'
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'vimwiki/vimwiki'
 
 "" Useful defaults
 Plug 'tpope/vim-sensible'
-"" iTerm integration, save on focus lost
-Plug 'sjl/vitality.vim'
 "" Alternate between relative and absolute line numbers
 Plug 'myusuf3/numbers.vim'
 "" Automatically close parenthesis
@@ -34,6 +30,17 @@ Plug 'ianks/vim-tsx'
 Plug 'leafgarland/typescript-vim'
 
 call plug#end()
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown'}]
+
+" NERDCommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
 
 " NERDTree
 let NERDTreeChDirMode=2
