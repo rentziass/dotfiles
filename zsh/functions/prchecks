@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+prchecks () {
+  while :; do
+    output=`gh pr checks $@`;
+    echo -en "\r${output}"
+    sleep 3
+  done
+}
