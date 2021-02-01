@@ -1,5 +1,5 @@
 map <Space> <leader>
-map <Leader>w :update<CR>
+map <Leader>s :update<CR>
 map <Leader>q :qall<CR>
 
 "key to insert mode with paste using F2 key
