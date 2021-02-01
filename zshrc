@@ -175,9 +175,6 @@ pgk() {
 # Eseguibili nella root bin
 export PATH=$PATH":$HOME/bin"
 
-# Python
-export PATH=$PATH:~/Library/Python/3.6/bin/
-
 # GOLANG
 # export PATH=$PATH:/usr/local/go/bin # 1.9
 export PATH=$PATH:/usr/local/opt/go/libexec/bin # 1.11
@@ -211,4 +208,5 @@ export PATH="/usr/local/opt/postgresql@9.6/bin/:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 alias watch='watch '
-source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
+
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
