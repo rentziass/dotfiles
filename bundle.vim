@@ -7,7 +7,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'Shougo/denite.nvim'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go', {'tag': 'v1.24'}
 Plug 'uarun/vim-protobuf'
@@ -15,6 +14,12 @@ Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vimwiki/vimwiki'
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'pwntester/octo.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 "" Useful defaults
 Plug 'tpope/vim-sensible'
@@ -34,6 +39,19 @@ call plug#end()
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown'}]
 
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+
+nnoremap <leader>fb <cmd>Telescope git_branches<cr>
+nnoremap <leader>fc <cmd>Telescope git_commits<cr>
+nnoremap <leader>gs <cmd>Telescope git_status<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Octo.nvim
+nnoremap <leader>pr <cmd>Octo pr list<cr>
+
 " NERDCommenter
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -46,9 +64,8 @@ let g:NERDDefaultAlign = 'left'
 let NERDTreeChDirMode=2
 let NERDTreeShowHidden=1
 nnoremap <Leader>n :NERDTreeToggle<Enter>
-nnoremap <Leader>f :NERDTreeFind<Enter>
+nnoremap <Leader>t :NERDTreeFind<Enter>
 
-nnoremap <Leader>t i<C-v>u2713<esc>
 nnoremap <silent> <Leader>m :make build<CR>
 
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
