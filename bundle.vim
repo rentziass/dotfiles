@@ -63,8 +63,8 @@ let g:NERDDefaultAlign = 'left'
 " NERDTree
 let NERDTreeChDirMode=2
 let NERDTreeShowHidden=1
-nnoremap <Leader>n :NERDTreeToggle<Enter>
-nnoremap <Leader>t :NERDTreeFind<Enter>
+nnoremap <Leader>nt :NERDTreeToggle<Enter>
+nnoremap <Leader>nf :NERDTreeFind<Enter>
 
 nnoremap <silent> <Leader>m :make build<CR>
 
