@@ -7,7 +7,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go', {'tag': 'v1.24'}
 Plug 'uarun/vim-protobuf'
 Plug 'honza/vim-snippets'
@@ -20,6 +19,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'pwntester/octo.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 
 "" Useful defaults
 Plug 'tpope/vim-sensible'
@@ -52,19 +52,10 @@ nnoremap <leader>gs <cmd>Telescope git_status<cr>
 " Octo.nvim
 nnoremap <leader>pr <cmd>Octo pr list<cr>
 
-" NERDCommenter
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" NERDTree
-let NERDTreeChDirMode=2
-let NERDTreeShowHidden=1
-nnoremap <Leader>nt :NERDTreeToggle<Enter>
-nnoremap <Leader>nf :NERDTreeFind<Enter>
+" NvimTree
+nnoremap <leader>nt :NvimTreeToggle<CR>
+nnoremap <leader>nr :NvimTreeRefresh<CR>
+nnoremap <leader>nf :NvimTreeFindFile<CR>
 
 nnoremap <silent> <Leader>m :make build<CR>
 
