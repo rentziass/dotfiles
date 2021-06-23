@@ -12,7 +12,6 @@ Plug 'uarun/vim-protobuf'
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'vimwiki/vimwiki'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
