@@ -57,6 +57,9 @@ for function in $MY_DOTFILES_PATH/zsh/functions/*; do
   source $function
 done
 
+zle -N tfind
+bindkey "^F" tfind
+
 
 # For connecting to docker from docker client
 if (( $+commands[boot2docker] )) ; then

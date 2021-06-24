@@ -35,9 +35,6 @@ Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown'}]
-
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
