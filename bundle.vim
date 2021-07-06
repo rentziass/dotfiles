@@ -36,12 +36,12 @@ filetype off                  " required
 "call plug#end()
 
 " Telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+"nnoremap <leader>ff <cmd>Telescope find_files<cr>
+"nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
-nnoremap <leader>fb <cmd>Telescope git_branches<cr>
-nnoremap <leader>fc <cmd>Telescope git_commits<cr>
-nnoremap <leader>gs <cmd>Telescope git_status<cr>
+"nnoremap <leader>fb <cmd>Telescope git_branches<cr>
+"nnoremap <leader>fc <cmd>Telescope git_commits<cr>
+"nnoremap <leader>gs <cmd>Telescope git_status<cr>
 " nnoremap <leader>fb <cmd>Telescope buffers<cr>
 " nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
@@ -49,9 +49,9 @@ nnoremap <leader>gs <cmd>Telescope git_status<cr>
 nnoremap <leader>pr <cmd>Octo pr list<cr>
 
 " NvimTree
-nnoremap <leader>nt :NvimTreeToggle<CR>
-nnoremap <leader>nr :NvimTreeRefresh<CR>
-nnoremap <leader>nf :NvimTreeFindFile<CR>
+"nnoremap <leader>nt :NvimTreeToggle<CR>
+"nnoremap <leader>nr :NvimTreeRefresh<CR>
+"nnoremap <leader>nf :NvimTreeFindFile<CR>
 
 nnoremap <silent> <Leader>m :make build<CR>
 
