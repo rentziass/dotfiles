@@ -1,39 +1,39 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'fatih/vim-go', {'tag': 'v1.24'}
-Plug 'uarun/vim-protobuf'
-Plug 'honza/vim-snippets'
-Plug 'jparise/vim-graphql'
-Plug 'AndrewRadev/splitjoin.vim'
+"call plug#begin()
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'chriskempson/base16-vim'
+"Plug 'tpope/vim-fugitive'
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'tpope/vim-surround'
+"Plug 'fatih/vim-go', {'tag': 'v1.24'}
+"Plug 'uarun/vim-protobuf'
+"Plug 'honza/vim-snippets'
+"Plug 'jparise/vim-graphql'
+"Plug 'AndrewRadev/splitjoin.vim'
 
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'pwntester/octo.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
+"Plug 'nvim-lua/popup.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
+"Plug 'pwntester/octo.nvim'
+"Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'kyazdani42/nvim-tree.lua'
 
-"" Useful defaults
-Plug 'tpope/vim-sensible'
-"" Alternate between relative and absolute line numbers
-Plug 'myusuf3/numbers.vim'
-"" Automatically close parenthesis
-Plug 'jiangmiao/auto-pairs'
+""" Useful defaults
+"Plug 'tpope/vim-sensible'
+""" Alternate between relative and absolute line numbers
+"Plug 'myusuf3/numbers.vim'
+""" Automatically close parenthesis
+"Plug 'jiangmiao/auto-pairs'
 
-"" Copy link to selected text in Github with ghc
-Plug 'danishprakash/vim-githubinator'
+""" Copy link to selected text in Github with ghc
+"Plug 'danishprakash/vim-githubinator'
 
-Plug 'ianks/vim-tsx'
-Plug 'leafgarland/typescript-vim'
+"Plug 'ianks/vim-tsx'
+"Plug 'leafgarland/typescript-vim'
 
-call plug#end()
+"call plug#end()
 
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
