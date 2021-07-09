@@ -11,18 +11,21 @@ end
 
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
-  --use 'hrsh7th/nvim-compe'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
 
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'tpope/vim-sensible'
   use 'myusuf3/numbers.vim'
-  use 'RRethy/nvim-base16'
   use 'jiangmiao/auto-pairs'
   use 'danishprakash/vim-githubinator'
   use 'ianks/vim-tsx'
@@ -30,7 +33,6 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'scrooloose/nerdcommenter'
   use 'tpope/vim-surround'
-  use {'fatih/vim-go', tag = 'v1.24'}
   use 'uarun/vim-protobuf'
   use 'honza/vim-snippets'
   use 'jparise/vim-graphql'
