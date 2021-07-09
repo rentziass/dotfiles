@@ -22,7 +22,7 @@ return require('packer').startup(function()
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'tpope/vim-sensible'
   use 'myusuf3/numbers.vim'
-  use 'chriskempson/base16-vim'
+  use 'RRethy/nvim-base16'
   use 'jiangmiao/auto-pairs'
   use 'danishprakash/vim-githubinator'
   use 'ianks/vim-tsx'
