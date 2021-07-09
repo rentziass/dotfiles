@@ -16,7 +16,7 @@ autocmd BufWritePre *.go lua GoImports(1000)
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
 augroup END
 
-au FileType go setlocal ts=8 sw=8 noet nolist
+autocmd FileType go setlocal ts=8 sw=8 noet nolist
 autocmd Filetype go setlocal tabstop=2
 
 set background=dark
