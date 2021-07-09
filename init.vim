@@ -5,7 +5,7 @@ let s:editor_root=expand("~/.config/nvim")
 
 lua << EOF
 require('plugins')
---require('lsp')
+require('lsp')
 EOF
 
 source ~/.config/nvim/bundle.vim
