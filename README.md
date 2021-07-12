@@ -1,9 +1,7 @@
 ![dotfiles](https://media.giphy.com/media/K6nPw4pe3r6Bq/giphy.gif)
 
 # dotfiles
-
-![screenshot](https://github.com/rentziass/dotfiles/blob/master/screenshot.png)
-(Here's what my setup looks like. Vim/Tmux)
+![image](https://user-images.githubusercontent.com/6207785/125364604-b3f2bb80-e36a-11eb-9d0d-b533a87c2520.png)
 
 ## New to Vim?
 
