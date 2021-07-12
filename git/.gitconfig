@@ -1,0 +1,59 @@
+[push]
+  default = upstream
+[fetch]
+  prune = true
+[color]
+  ui = auto
+[alias]
+  aa = add --all
+  ap = add --patch
+  b = branch
+  browse = !hub browse
+  cm = commit -m
+  ca = commit --amend
+  ci = commit -v
+  co = checkout
+  compare = !hub compare
+  issues = !hub browse -- issues
+  sla = log --oneline --decorate --graph --all -40
+  unstage = reset
+  uncommit = reset --soft HEAD^
+  mup = !git checkout master && git pull && git checkout -
+  cop = checkout -
+  fall = "!for remote in $(git remote); do echo "Fetching $remote"; git fetch "$remote"; done"
+  upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
+  ureset = !git upstream && git reset --hard $(git upstream)
+  pr = !hub pull-request
+  draft = !hub pull-request --draft
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[merge]
+  ff = only
+[pull]
+  ff = only
+[include]
+  path = .gitconfig.local
+[commit]
+  template = ~/.gitmessage
+[user]
+  name = Francesco Renzi
+  email = rentziass@gmail.com
+	signingkey = C811A302DD7BBBDA
+[github]
+  user = rentziass
+[credential]
+	helper = osxkeychain
+[ghi]
+	token = !security find-internet-password -a rentziass -s github.com -l 'ghi token' -w
+[http]
+	postBuffer = 1048576000
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[filter "strongbox"]
+	clean = strongbox -clean %f
+	smudge = strongbox -smudge %f
+	required = true
+[diff "strongbox"]
+	textconv = strongbox -diff
