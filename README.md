@@ -2,7 +2,7 @@
 
 # dotfiles
 
-![image](https://user-images.githubusercontent.com/6207785/125364604-b3f2bb80-e36a-11eb-9d0d-b533a87c2520.png)
+![image](https://user-images.githubusercontent.com/6207785/125366414-e8b44200-e36d-11eb-9742-8d1dcfdbaf70.png)
 
 ## Dependencies
 
