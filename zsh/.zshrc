@@ -47,7 +47,6 @@ export PATH=".git/safe/../../bin:$PATH"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
-[[ -f ~/.trash_stuff ]] && source ~/.trash_stuff
 
 # env vars
 source ~/.env
