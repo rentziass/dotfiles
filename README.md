@@ -39,8 +39,8 @@ exit
 ```
 
 - Setup (Neo)Vim ([after installing it](https://github.com/neovim/neovim/wiki/Installing-Neovim)).
-  [packer]() (the plugin manager of choice should be installed automatically
-  after running `vim` for the first time). After vim has started these commands
+  [packer]() (my current plugin manager) should be installed automatically
+  after running `vim` for the first time. After vim has started these commands
   need to run
 
 ```bash
