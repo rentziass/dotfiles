@@ -52,4 +52,4 @@ exit
 - Install [fzf](https://github.com/junegunn/fzf)
 
 - Start a new session, `ctrl + f` and start :shipit: (assuming you keep your
-  projects in `~/dev`)
+  projects in `~/dev` :trollface:)
