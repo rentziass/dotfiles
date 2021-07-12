@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+stow -D git
+stow -D terminal
+stow -D tmux
+stow -D vim
+stow -D zsh

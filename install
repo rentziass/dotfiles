@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+stow git
+stow terminal
+stow tmux
+stow vim
+stow zsh
