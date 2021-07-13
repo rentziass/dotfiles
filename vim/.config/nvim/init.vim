@@ -9,7 +9,6 @@ require('lsp')
 EOF
 
 source ~/.config/nvim/general.vim
-source ~/.config/nvim/coc.vim
 
 augroup GoFormatting
 autocmd BufWritePre *.go lua GoImports(1000)
