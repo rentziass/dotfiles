@@ -3,7 +3,8 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  --buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- setup autocompletion
+  require'completion'.on_attach()
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -47,9 +48,6 @@ local lua_settings = {
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.codeAction = {
-    dynamicRegistration = true;
-  }
   return {
     -- enable snippet support
     capabilities = capabilities,

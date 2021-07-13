@@ -21,3 +21,21 @@ autocmd Filetype go setlocal tabstop=2
 
 set background=dark
 colorscheme gruvbox
+
+"""""""" Autocompletion
+let g:completion_enable_snippet = 'vim-vsnip'
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Ctrl + space to trigger autocompletion
+imap <silent> <C-space> <Plug>(completion_trigger)
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
+
+" Jump to next snippet placeholder
+imap <expr> <C-j>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<C-j>'
+smap <expr> <C-j>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<C-j>'

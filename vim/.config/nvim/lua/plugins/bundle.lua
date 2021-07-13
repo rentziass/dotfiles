@@ -15,15 +15,18 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- LSP
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
+  use 'nvim-lua/completion-nvim' -- LSP based autocompletion
+  use 'hrsh7th/vim-vsnip' -- LSP based snippets
+  use 'hrsh7th/vim-vsnip-integ'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
 
-  use {'neoclide/coc.nvim', branch = 'release'}
   use 'tpope/vim-sensible'
   use 'myusuf3/numbers.vim'
   use 'jiangmiao/auto-pairs'
