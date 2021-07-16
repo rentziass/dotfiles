@@ -26,6 +26,8 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
+  use 'lourenci/github-colors'
+  use 'projekt0n/github-nvim-theme'
 
   use 'tpope/vim-sensible'
   use 'myusuf3/numbers.vim'

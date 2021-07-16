@@ -18,8 +18,8 @@ augroup END
 autocmd FileType go setlocal ts=8 sw=8 noet nolist
 autocmd Filetype go setlocal tabstop=2
 
-set background=dark
-colorscheme gruvbox
+"set background=dark
+"colorscheme github-colors
 
 """""""" Autocompletion
 let g:completion_enable_snippet = 'vim-vsnip'
