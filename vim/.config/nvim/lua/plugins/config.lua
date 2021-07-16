@@ -5,7 +5,7 @@ local opts = { noremap=true, silent=true }
 ----------------- theme ------------------------
 ------------------------------------------------
 require("github-theme").setup({
-  themeStyle = "dark",
+  themeStyle = "dimmed",
 })
 
 ------------------------------------------------
