@@ -11,8 +11,8 @@ EOF
 source ~/.config/nvim/general.vim
 
 augroup GoFormatting
-autocmd BufWritePre *.go lua GoImports(1000)
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.go lua GoImports(1000)
 augroup END
 
 autocmd FileType go setlocal ts=8 sw=8 noet nolist
