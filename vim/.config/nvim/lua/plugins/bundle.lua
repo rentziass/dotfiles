@@ -15,6 +15,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use 'jiangmiao/auto-pairs'
+
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
@@ -29,9 +31,10 @@ return require('packer').startup(function(use)
   use 'lourenci/github-colors'
   use 'projekt0n/github-nvim-theme'
 
+  use 'fatih/vim-go'
+
   use 'tpope/vim-sensible'
   use 'myusuf3/numbers.vim'
-  use 'jiangmiao/auto-pairs'
   use 'danishprakash/vim-githubinator'
   use 'ianks/vim-tsx'
   use 'leafgarland/typescript-vim'

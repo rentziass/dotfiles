@@ -63,3 +63,5 @@ alias stop_uw_vpn="docker stop uw-vpn"
 alias tmn="tmux new -s"
 
 alias lastcommit="git fall && git rev-parse --verify origin/master"
+
+alias cat="bat"

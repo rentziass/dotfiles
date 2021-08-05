@@ -15,6 +15,10 @@ autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
 autocmd BufWritePre *.go lua GoImports(1000)
 augroup END
 
+augroup RustFormatting
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()
+augroup END
+
 autocmd FileType go setlocal ts=8 sw=8 noet nolist
 autocmd Filetype go setlocal tabstop=2
 
@@ -34,6 +38,9 @@ set completeopt=menuone,noinsert,noselect
 
 " Avoid showing message extra message when using completion
 set shortmess+=c
+
+" Delay completion
+let g:completion_timer_cycle = 200
 
 " Jump to next snippet placeholder
 imap <expr> <C-j>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<C-j>'
