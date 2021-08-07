@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
+  use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/vim-vsnip' -- LSP based snippets
+  use 'hrsh7th/vim-vsnip-integ'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
@@ -26,19 +29,13 @@ return require('packer').startup(function(use)
   use 'lourenci/github-colors'
   use 'projekt0n/github-nvim-theme'
 
-  use {'neoclide/coc.nvim', branch = 'release'}
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-sensible'
   use 'myusuf3/numbers.vim'
   use 'danishprakash/vim-githubinator'
-  use 'ianks/vim-tsx'
-  use 'leafgarland/typescript-vim'
   use 'tpope/vim-fugitive'
   use 'scrooloose/nerdcommenter'
   use 'tpope/vim-surround'
-  use 'uarun/vim-protobuf'
-  use 'honza/vim-snippets'
-  use 'jparise/vim-graphql'
   use 'AndrewRadev/splitjoin.vim'
 
   use 'nvim-lua/popup.nvim'
