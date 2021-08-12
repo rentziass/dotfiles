@@ -1,0 +1,79 @@
+{
+  "require no error": {
+    "prefix": ["renoe"],
+    "body": [
+      "require.NoError(t, err)"
+    ],
+    "description": "Require no error"
+  },
+  "define interface": {
+    "prefix": ["interface"],
+    "body": "type ${1:name} interface {\n\t$0\n}",
+    "description": "Snippet for a type interface"
+  },
+  "type struct declaration": {
+    "prefix": "struct",
+    "body": "type ${1:name} struct {\n\t$0\n}",
+    "description": "Snippet for a struct declaration"
+  },
+  "function declaration": {
+    "prefix": "func",
+    "body": "func $1($2) $3 {\n\t$0\n}",
+    "description": "Snippet for function declaration"
+  },
+  "for range statement": {
+    "prefix": "forr",
+    "body": "for ${1:_, }${2:v} := range ${3:v} {\n\t$0\n}",
+    "description": "Snippet for a for range loop"
+  },
+  "single constant": {
+    "prefix": "co",
+    "body": "const ${1:name} = ${2:value}",
+    "description": "Snippet for a constant"
+  },
+  "multiple constants": {
+    "prefix": "cos",
+    "body": "const (\n\t${1:name} = ${2:value}\n)",
+    "description": "Snippet for a constant block"
+  },
+  "switch statement": {
+    "prefix": "switch",
+    "body": "switch ${1:expression} {\ncase ${2:condition}:\n\t$0\n}",
+    "description": "Snippet for switch statement"
+  },
+  "select statement": {
+    "prefix": "sel",
+    "body": "select {\ncase ${1:condition}:\n\t$0\n}",
+    "description": "Snippet for select statement"
+  },
+  "case clause": {
+    "prefix": "case",
+    "body": "case ${1:condition}:$0",
+    "description": "Snippet for case clause"
+  },
+  "map declaration": {
+    "prefix": "map",
+    "body": "map[${1:type}]${2:type}",
+    "description": "Snippet for a map"
+  },
+  "if statement": {
+    "prefix": "if",
+    "body": "if ${1:condition} {\n\t$0\n}",
+    "description": "Snippet for if statement"
+  },
+  "log variable content": {
+    "prefix": "lv",
+    "body": "log.Printf(\"${1:var}: %#+v\\\\n\", ${1:var})",
+    "description": "Snippet for log.Printf() with variable content"
+  },
+  "test function": {
+    "prefix": "test",
+    "body": "func Test$1(t *testing.T) {\n\t$0\n}",
+    "description": "Snippet for Test function"
+  },
+  "method declaration": {
+    "prefix": "met",
+    "body": "func (${1:receiver} ${2:type}) ${3:method}($4) $5 {\n\t$0\n}",
+    "description": "Snippet for method declaration"
+  }
+}

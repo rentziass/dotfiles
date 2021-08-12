@@ -16,18 +16,20 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
-  use 'kabouzeid/nvim-lspinstall'
-  use 'hrsh7th/nvim-compe'
+  use 'neovim/nvim-lspconfig' -- bootstrap LSP configuration
+  use 'kabouzeid/nvim-lspinstall' -- install any LSP server
+  use 'hrsh7th/nvim-compe' -- autocompletion
   use 'hrsh7th/vim-vsnip' -- LSP based snippets
   use 'hrsh7th/vim-vsnip-integ'
+  --use 'golang/vscode-go' -- snippets like it's hot (enabled by vim-snip): manually imported the snippets I use with the prefixes I'm used to
+  use 'onsails/lspkind-nvim' -- add pictograms to autocompletion LSP results
+  use 'glepnir/lspsaga.nvim' -- some UI for LSP <- under trial
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
-  }
-  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
-  use 'lourenci/github-colors'
-  use 'projekt0n/github-nvim-theme'
+  } -- just the best thing
+  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}} -- sick theme
+  use 'joshdick/onedark.vim' -- Atom's theme
 
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-sensible'

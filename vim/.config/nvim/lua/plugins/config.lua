@@ -2,13 +2,6 @@ local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 local opts = { noremap=true, silent=true }
 
 ------------------------------------------------
------------------ theme ------------------------
-------------------------------------------------
-require("github-theme").setup({
-  themeStyle = "dimmed",
-})
-
-------------------------------------------------
 -------------- treesitter ----------------------
 ------------------------------------------------
 require'nvim-treesitter.configs'.setup {
@@ -36,7 +29,7 @@ vim.api.nvim_set_keymap('n', '<Leader>nf', ':NvimTreeFindFile<CR>', opts)
 ------------------------------------------------
 -------------- telescope -----------------------
 ------------------------------------------------
-vim.api.nvim_set_keymap('n', '<Leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", opts)
+vim.api.nvim_set_keymap('n', '<Leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' , '-g', '!vendor'}})<cr>", opts)
 vim.api.nvim_set_keymap('n', '<Leader>fg', ':Telescope live_grep<CR>', opts)
 
 vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope git_branches<CR>', opts)
@@ -63,7 +56,7 @@ require'compe'.setup {
   throttle_time = 80;
   source_timeout = 200;
   resolve_timeout = 800;
-  incomplete_delay = 400;
+  incomplete_delay = 200;
   max_abbr_width = 100;
   max_kind_width = 100;
   max_menu_width = 100;
@@ -126,3 +119,63 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+------------------------------------------------
+-------------- lspkind-nvim --------------------
+------------------------------------------------
+require('lspkind').init({
+    -- enables text annotations
+    --
+    -- default: true
+    with_text = true,
+
+    -- default symbol map
+    -- can be either 'default' or
+    -- 'codicons' for codicon preset (requires vscode-codicons font installed)
+    --
+    -- default: 'default'
+    preset = 'codicons',
+
+    -- override preset symbols
+    --
+    -- default: {}
+    symbol_map = {
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      Field = "ﰠ",
+      Variable = "",
+      Class = "ﴯ",
+      Interface = "",
+      Module = "",
+      Property = "ﰠ",
+      Unit = "塞",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "פּ",
+      Event = "",
+      Operator = "",
+      TypeParameter = ""
+    },
+})
+
+------------------------------------------------
+-------------- nvim_tree -----------------------
+------------------------------------------------
+require('lspsaga').init_lsp_saga({
+  code_action_keys = {
+    quit = {'q', '<esc>', '<C-c>'}, exec = '<CR>'
+  },
+  rename_action_keys = {
+    quit = {'<esc>', '<C-c>'}, exec = '<CR>'
+  },
+})
