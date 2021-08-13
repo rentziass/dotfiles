@@ -120,6 +120,9 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
+-- select first option by default
+vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
+
 ------------------------------------------------
 -------------- lspkind-nvim --------------------
 ------------------------------------------------
@@ -169,7 +172,7 @@ require('lspkind').init({
 })
 
 ------------------------------------------------
--------------- nvim_tree -----------------------
+-------------- lspsaga -------------------------
 ------------------------------------------------
 require('lspsaga').init_lsp_saga({
   code_action_keys = {
@@ -179,3 +182,8 @@ require('lspsaga').init_lsp_saga({
     quit = {'<esc>', '<C-c>'}, exec = '<CR>'
   },
 })
+
+------------------------------------------------
+-------------- trouble -----------------------
+------------------------------------------------
+vim.api.nvim_set_keymap('n', '<Leader>dw', '<cmd>TroubleToggle lsp_workspace_diagnostics<cr>', opts)

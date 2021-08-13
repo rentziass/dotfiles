@@ -25,9 +25,15 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim' -- add pictograms to autocompletion LSP results
   use 'glepnir/lspsaga.nvim' -- some UI for LSP <- under trial
   use {
-    'nvim-treesitter/nvim-treesitter',
+    'folke/trouble.nvim', -- display diagnostics (and more but that's why it's here)
+    config = function()
+      require('trouble').setup{}
+    end
+  }
+  use {
+    'nvim-treesitter/nvim-treesitter', -- just the best thing
     run = ':TSUpdate'
-  } -- just the best thing
+  }
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}} -- sick theme
   use 'joshdick/onedark.vim' -- Atom's theme
 
