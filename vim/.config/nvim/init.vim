@@ -23,6 +23,10 @@ augroup LuaFormatting
 autocmd BufWritePre *.lua lua vim.lsp.buf.formatting()
 augroup END
 
+augroup TypescriptFormatting
+autocmd BufWritePre *.ts lua vim.lsp.buf.formatting()
+augroup END
+
 autocmd FileType go setlocal ts=2 sw=2 noet nolist
 autocmd Filetype go setlocal tabstop=2
 

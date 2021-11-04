@@ -1,6 +1,7 @@
 font:
   normal:
-    family: JetBrains Mono Nerd Font
+    family: JetBrainsMono Nerd Font
+  size: 14
 
 
 schemes:

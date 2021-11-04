@@ -49,6 +49,7 @@
 	token = !security find-internet-password -a rentziass -s github.com -l 'ghi token' -w
 [http]
 	postBuffer = 1048576000
+	cookiefile = /Users/francescorenzi/.gitcookies
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [filter "strongbox"]
