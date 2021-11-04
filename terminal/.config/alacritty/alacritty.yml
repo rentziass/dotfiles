@@ -1,7 +1,27 @@
-font:
-  normal:
-    family: JetBrainsMono Nerd Font
-  size: 14
+fonts:
+  ibm_plex_mono: &blex_mono
+    normal:
+      family: BlexMono Nerd Font
+      style: Text
+
+    bold:
+      family: BlexMono Nerd Font
+    style: SemiBold
+
+    italic:
+      family: BlexMono Nerd Font
+      style: Italic
+
+    bold_italic:
+      family: BlexMono Nerd Font
+      style: Bold Italic
+
+    size: 15
+
+  jetbrains_mono: &jetbrains_mono
+    normal:
+      family: JetBrainsMono Nerd Font
+    size: 14
 
 
 schemes:
@@ -38,3 +58,4 @@ schemes:
       - { index: 17, color: '0xff938a' }
 
 #colors: *github_dimmed
+font: *blex_mono
