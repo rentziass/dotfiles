@@ -14,11 +14,11 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use 'lewis6991/impatient.nvim'
 
   -- LSP
   use 'neovim/nvim-lspconfig' -- bootstrap LSP configuration
   use 'kabouzeid/nvim-lspinstall' -- install any LSP server
-  use 'hrsh7th/nvim-compe' -- autocompletion
   use 'hrsh7th/vim-vsnip' -- LSP based snippets
   use 'hrsh7th/vim-vsnip-integ'
   use 'onsails/lspkind-nvim' -- add pictograms to autocompletion LSP results
@@ -36,6 +36,15 @@ return require('packer').startup(function(use)
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}} -- sick theme
   use 'joshdick/onedark.vim' -- Atom's theme
 
+  -- Completion
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-nvim-lsp-document-symbol'
+  use 'hrsh7th/cmp-vsnip'
+
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-sensible'
   use 'myusuf3/numbers.vim'
@@ -45,6 +54,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'AndrewRadev/splitjoin.vim'
 
+  use 'tjdevries/colorbuddy.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
