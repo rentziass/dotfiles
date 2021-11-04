@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+stow bin
 stow git
 stow terminal
 stow tmux
