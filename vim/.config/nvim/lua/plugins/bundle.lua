@@ -21,9 +21,8 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-compe' -- autocompletion
   use 'hrsh7th/vim-vsnip' -- LSP based snippets
   use 'hrsh7th/vim-vsnip-integ'
-  --use 'golang/vscode-go' -- snippets like it's hot (enabled by vim-snip): manually imported the snippets I use with the prefixes I'm used to
   use 'onsails/lspkind-nvim' -- add pictograms to autocompletion LSP results
-  use 'glepnir/lspsaga.nvim' -- some UI for LSP <- under trial
+  use 'tami5/lspsaga.nvim' -- some UI for LSP <- under trial
   use {
     'folke/trouble.nvim', -- display diagnostics (and more but that's why it's here)
     config = function()
