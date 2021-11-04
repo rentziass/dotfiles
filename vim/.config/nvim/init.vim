@@ -1,9 +1,20 @@
+"                 _       _
+"                | |     (_)
+"  _ __ ___ _ __ | |_ _____  __ _ ___ ___
+" | '__/ _ \ '_ \| __|_  / |/ _` / __/ __|
+" | | |  __/ | | | |_ / /| | (_| \__ \__ \
+" |_|  \___|_| |_|\__/___|_|\__,_|___/___/
+"
+"
+
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 let s:editor_root=expand("~/.config/nvim")
 
 lua << EOF
+require('impatient')
 require('plugins')
 require('lsp')
 EOF
