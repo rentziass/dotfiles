@@ -65,3 +65,5 @@ alias tmn="tmux new -s"
 alias lastcommit="git fall && git rev-parse --verify origin/master"
 
 alias cat="bat"
+
+alias prlink="gh pr view --json url --jq '.url'"

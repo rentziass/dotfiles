@@ -1,11 +1,11 @@
 kubernetes-kafka-last-in-topic () {
-    kubectl exec -ti kafka-0 -c broker -- /opt/kafka/bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092 --time -1 $@
+    kubectl exec -ti kafka-0 -c broker -- bash -c "unset JMX_PORT; /opt/kafka/bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092 --time -1 $@"
 }
 
 kubernetes-kafka-topics () {
-    kubectl exec -ti kafka-0 -c broker -- /opt/kafka/bin/kafka-topics.sh --zookeeper=zetcd:2181/kafka $@
+    kubectl exec -ti kafka-0 -c broker -- bash -c "unset JMX_PORT; /opt/kafka/bin/kafka-topics.sh --zookeeper=kafka-zookeeper:2181/kafka $@"
 }
 
 kubernetes-kafka-groups () {
-    kubectl exec -ti kafka-0 -c broker -- /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 $@
+    kubectl exec -ti kafka-0 -c broker -- bash -c "unset JMX_PORT; /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 $@"
 }
