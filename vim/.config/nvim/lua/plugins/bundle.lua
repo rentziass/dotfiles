@@ -14,7 +14,6 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use 'lewis6991/impatient.nvim'
 
   -- LSP
   use 'neovim/nvim-lspconfig' -- bootstrap LSP configuration
@@ -31,6 +30,7 @@ return require('packer').startup(function(use)
   }
   use {
     'nvim-treesitter/nvim-treesitter', -- just the best thing
+    branch = '0.5-compat',
     run = ':TSUpdate'
   }
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}} -- sick theme
@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   use 'myusuf3/numbers.vim'
   use 'danishprakash/vim-githubinator'
   use 'tpope/vim-fugitive'
-  use 'scrooloose/nerdcommenter'
+  use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
   use 'AndrewRadev/splitjoin.vim'
 

@@ -118,3 +118,8 @@ require('lspsaga').init_lsp_saga({
 -------------- trouble -----------------------
 ------------------------------------------------
 vim.api.nvim_set_keymap('n', '<Leader>dw', '<cmd>TroubleToggle lsp_workspace_diagnostics<cr>', opts)
+
+------------------------------------------------
+-------------- comment.nvim --------------------
+------------------------------------------------
+require('Comment').setup()

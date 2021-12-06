@@ -14,7 +14,6 @@ filetype off                  " required
 let s:editor_root=expand("~/.config/nvim")
 
 lua << EOF
-require('impatient')
 require('plugins')
 require('lsp')
 EOF

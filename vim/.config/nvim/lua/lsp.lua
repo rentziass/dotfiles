@@ -58,19 +58,13 @@ end
 
 -- lsp-install
 local function setup_servers()
-  require'lspinstall'.setup()
-
-  -- get all installed servers
-  local servers = require'lspinstall'.installed_servers()
-  -- ... and add manually installed servers
-  --table.insert(servers, "clangd")
-  --table.insert(servers, "sourcekit")
+  local servers = { 'gopls', 'sumneko_lua', 'tsserver' }
 
   for _, server in pairs(servers) do
     local config = make_config()
 
     -- language specific config
-    if server == "go" then
+    if server == 'gopls' then
       config.settings = {
         gopls = {
           usePlaceholders = true,
@@ -79,14 +73,14 @@ local function setup_servers()
         }
       }
     end
-    if server == "lua" then
+    if server == 'sumneko_lua' then
       config.settings = lua_settings
     end
-    if server == "sourcekit" then
-      config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
+    if server == 'sourcekit' then
+      config.filetypes = {'swift', 'objective-c', 'objective-cpp'}; -- we don't want c and cpp!
     end
-    if server == "clangd" then
-      config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
+    if server == 'clangd' then
+      config.filetypes = {'c', 'cpp'}; -- we don't want objective-c and objective-cpp!
     end
 
     require'lspconfig'[server].setup(config)
@@ -94,12 +88,6 @@ local function setup_servers()
 end
 
 setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
 
 ------ GO ------
 function GoImports(timeout_ms)
