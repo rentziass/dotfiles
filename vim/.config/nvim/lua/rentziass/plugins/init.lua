@@ -1,0 +1,11 @@
+require('rentziass.plugins.bundle')
+
+require('rentziass.plugins.cmp')
+require('rentziass.plugins.comment-nvim')
+require('rentziass.plugins.harpoon')
+require('rentziass.plugins.lspkind')
+require('rentziass.plugins.lspsaga')
+require('rentziass.plugins.nvim-treesitter')
+require('rentziass.plugins.nvim_tree')
+require('rentziass.plugins.octo-nvim')
+require('rentziass.plugins.telescope')

@@ -14,8 +14,8 @@ filetype off                  " required
 let s:editor_root=expand("~/.config/nvim")
 
 lua << EOF
-require('plugins')
-require('lsp')
+require('rentziass.plugins')
+require('rentziass.lsp')
 EOF
 
 source ~/.config/nvim/general.vim
