@@ -14,7 +14,7 @@
 - [fzf](https://github.com/junegunn/fzf)
 - [Starship](https://starship.rs/)
 - [Tmux](https://github.com/tmux/tmux/wiki)
-- [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) (>= 0.5,
+- [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) (>= 0.6,
   **very important**)
 
 ## Getting started
