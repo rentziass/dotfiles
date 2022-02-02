@@ -52,41 +52,13 @@ cmp.setup {
   },
 
   sources = {
-    { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "vsnip" },
     { name = "path" },
     { name = "buffer", keyword_length = 5 },
+    { name = "nvim_lua" },
   },
 
-  --sorting = {
-    --comparators = {
-      --cmp.config.compare.offset,
-      --cmp.config.compare.exact,
-      --cmp.config.compare.score,
-
-      ---- copied from cmp-under, but I don't think I need the plugin for this.
-      ---- I might add some more of my own.
-      --function(entry1, entry2)
-        --local _, entry1_under = entry1.completion_item.label:find "^_+"
-        --local _, entry2_under = entry2.completion_item.label:find "^_+"
-        --entry1_under = entry1_under or 0
-        --entry2_under = entry2_under or 0
-        --if entry1_under > entry2_under then
-          --return false
-        --elseif entry1_under < entry2_under then
-          --return true
-        --end
-      --end,
-
-      --cmp.config.compare.kind,
-      --cmp.config.compare.sort_text,
-      --cmp.config.compare.length,
-      --cmp.config.compare.order,
-    --},
-  --},
-
-  -- you need a separate snippets plugin
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
@@ -117,16 +89,26 @@ cmp.setup {
   },
 }
 
-cmp.setup.cmdline("/", {
-  completion = {
-    -- Might allow this later, but I don't like it right now really.
-    -- Although, perhaps if it just triggers w/ @ then we could.
-    --
-    -- I will have to come back to this.
-    autocomplete = false,
-  },
-  sources = cmp.config.sources({
-    { name = "nvim_lsp_document_symbol" },
-  }, {
-  }),
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
 })
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local servers = { 'gopls', 'sumneko_lua', 'tsserver', 'yamlls', 'rust_analyzer' }
+for _, server in pairs(servers) do
+  require('lspconfig')[server].setup {
+    capabilities = capabilities
+  }
+end
