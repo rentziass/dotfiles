@@ -24,6 +24,8 @@ local function ServerConfig()
       }
     }
   }
+
+  return config
 end
 
 SetupServer(server_name, ServerConfig())

@@ -9,6 +9,7 @@ local function ServerConfig()
       semanticTokens = true,
     }
   }
+  return config
 end
 
 SetupServer(server_name, ServerConfig())
