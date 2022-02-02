@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
 
   -- LSP
   use 'neovim/nvim-lspconfig' -- bootstrap LSP configuration
-  use 'kabouzeid/nvim-lspinstall' -- install any LSP server
+  use 'williamboman/nvim-lsp-installer' -- install any LSP server
   use 'hrsh7th/vim-vsnip' -- LSP based snippets
   use 'hrsh7th/vim-vsnip-integ'
   use 'onsails/lspkind-nvim' -- add pictograms to autocompletion LSP results

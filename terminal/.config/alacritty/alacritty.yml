@@ -19,9 +19,11 @@ fonts:
     size: 15
 
   jetbrains_mono: &jetbrains_mono
+    offset:
+      y: 5
     normal:
       family: JetBrainsMono Nerd Font
-    size: 14
+    size: 12
 
 
 schemes:
@@ -58,4 +60,4 @@ schemes:
       - { index: 17, color: '0xff938a' }
 
 #colors: *github_dimmed
-font: *blex_mono
+font: *jetbrains_mono

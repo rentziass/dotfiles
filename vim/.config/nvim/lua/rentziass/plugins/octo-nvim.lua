@@ -1,3 +1,3 @@
-local opts = { noremap=true, silent=true }
+require('rentziass.utils.keymaps')
 
-vim.api.nvim_set_keymap('n', '<Leader>pr', ':Octo pr list<CR>', opts)
+NMap('<Leader>pr', ':Octo pr list<CR>')

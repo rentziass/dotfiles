@@ -1,6 +1,7 @@
-local opts = { noremap=true, silent=true }
+require('rentziass.utils.keymaps')
 
-vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>n', ':NvimTreeFindFile<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>r', ':NvimTreeRefresh<CR>', opts)
+NMap('<C-n>', ':NvimTreeToggle<CR>')
+NMap('<Leader>n', ':NvimTreeFindFile<CR>')
+NMap('<Leader>r', ':NvimTreeRefresh<CR>')
+
 require('nvim-tree').setup()

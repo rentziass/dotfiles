@@ -1,22 +1,19 @@
--- keymaps
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+require('rentziass.utils.keymaps')
 
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
-  buf_set_keymap('v', '<space>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
-  buf_set_keymap('n', '<leader>dq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+-- keymaps
+local on_attach = function(_, bufnr)
+  BufNMap(bufnr, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+  BufNMap(bufnr, '<space>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>")
+  BufNMap(bufnr, 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+  BufNMap(bufnr, 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+  BufNMap(bufnr, 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+  BufNMap(bufnr, 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>")
+  BufNMap(bufnr, '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  BufNMap(bufnr, '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+  BufNMap(bufnr, ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+  BufNMap(bufnr, '<space>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>")
+  BufVMap(bufnr, '<space>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>")
+  BufNMap(bufnr, '<leader>dq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
 end
 
 -- Configure lua language server for neovim development
@@ -58,7 +55,7 @@ end
 
 -- lsp-install
 local function setup_servers()
-  local servers = { 'gopls', 'sumneko_lua', 'tsserver' }
+  local servers = { 'gopls', 'sumneko_lua', 'tsserver', 'yamlls', 'rust_analyzer' }
 
   for _, server in pairs(servers) do
     local config = make_config()
@@ -88,6 +85,56 @@ local function setup_servers()
 end
 
 setup_servers()
+
+local lsp_installer = require("nvim-lsp-installer")
+
+-- Register a handler that will be called for all installed servers.
+-- Alternatively, you may also register handlers on specific server instances instead (see example below).
+-- lsp_installer.on_server_ready(function(server)
+--     local opts = {}
+--
+--     if server.name == 'gopls' then
+--       opts.settings = {
+--         gopls = {
+--           usePlaceholders = true,
+--           gofumpt = true,
+--           semanticTokens = true,
+--         }
+--       }
+--     end
+--
+--     if server.name == 'sumneko_lua' then
+--       opts.settings = lua_settings
+--     end
+--
+--     if server.name == 'sourcekit' then
+--       opts.filetypes = {'swift', 'objective-c', 'objective-cpp'}; -- we don't want c and cpp!
+--     end
+--
+--     if server.name == 'clangd' then
+--       opts.filetypes = {'c', 'cpp'}; -- we don't want objective-c and objective-cpp!
+--     end
+--
+--     if server.name == 'yamlls' then
+--       opts.settings = {
+--         yaml = {
+--           schemas = {
+--             url = "globPattern",
+--             kubernetes = "globPattern"
+--           }
+--         }
+--       }
+--     end
+--
+--     -- (optional) Customize the options passed to the server
+--     -- if server.name == "tsserver" then
+--     --     opts.root_dir = function() ... end
+--     -- end
+--
+--     -- This setup() function is exactly the same as lspconfig's setup function.
+--     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+--     server:setup(opts)
+-- end)
 
 ------ GO ------
 function GoImports(timeout_ms)

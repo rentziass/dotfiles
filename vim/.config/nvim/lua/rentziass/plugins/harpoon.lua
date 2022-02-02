@@ -1,10 +1,10 @@
-local opts = { noremap=true, silent=true }
+require('rentziass.utils.keymaps')
 
-vim.api.nvim_set_keymap('n', '<leader>a', ':lua require("harpoon.mark").add_file()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<C-e>', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>tc', ':lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>', opts)
+NMap('<leader>a', ':lua require("harpoon.mark").add_file()<CR>')
+NMap('<C-e>', ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
+NMap('<leader>tc', ':lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>')
 
-vim.api.nvim_set_keymap('n', '<leader>j', ':lua require("harpoon.ui").nav_file(1)<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>k', ':lua require("harpoon.ui").nav_file(2)<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>l', ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>;', ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
+NMap('<leader>j', ':lua require("harpoon.ui").nav_file(1)<CR>')
+NMap('<leader>k', ':lua require("harpoon.ui").nav_file(2)<CR>')
+NMap('<leader>l', ':lua require("harpoon.ui").nav_file(3)<CR>')
+NMap('<leader>;', ':lua require("harpoon.ui").nav_file(4)<CR>')
