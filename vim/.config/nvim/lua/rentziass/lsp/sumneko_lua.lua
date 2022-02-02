@@ -1,7 +1,7 @@
 -- Server setup
 local server_name = 'sumneko_lua'
 local function ServerConfig()
-  local config = MakeServerConfig()
+  local config = DefaultServerConfig()
   config.settings = {
     gopls = {
       Lua = {
