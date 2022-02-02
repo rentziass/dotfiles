@@ -24,7 +24,6 @@ return require('packer').startup(function(use)
   use 'tami5/lspsaga.nvim' -- some UI for LSP <- under trial
   use {
     'nvim-treesitter/nvim-treesitter', -- just the best thing
-    branch = '0.5-compat',
     run = ':TSUpdate'
   }
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}} -- sick theme
