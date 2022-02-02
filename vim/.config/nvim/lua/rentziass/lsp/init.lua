@@ -1,8 +1,7 @@
 require('rentziass.lsp.keymaps')
-
--- LSP servers configurations
 require('rentziass.lsp.server_config')
 
+-- LSP servers configurations
 require('rentziass.lsp.bash')
 require('rentziass.lsp.docker')
 require('rentziass.lsp.golang')
