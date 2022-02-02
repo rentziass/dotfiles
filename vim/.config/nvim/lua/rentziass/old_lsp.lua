@@ -1,21 +1,3 @@
-require('rentziass.utils.keymaps')
-
--- keymaps
-local on_attach = function(_, bufnr)
-  BufNMap(bufnr, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  BufNMap(bufnr, '<space>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>")
-  BufNMap(bufnr, 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-  BufNMap(bufnr, 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-  BufNMap(bufnr, 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-  BufNMap(bufnr, 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>")
-  BufNMap(bufnr, '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-  BufNMap(bufnr, '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-  BufNMap(bufnr, ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-  BufNMap(bufnr, '<space>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>")
-  BufVMap(bufnr, '<space>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>")
-  BufNMap(bufnr, '<leader>dq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
-end
-
 -- Configure lua language server for neovim development
 local lua_settings = {
   Lua = {
@@ -37,21 +19,6 @@ local lua_settings = {
     },
   }
 }
-
--- config that activates keymaps and enables snippet support
-local function make_config()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  return {
-    -- enable snippet support
-    capabilities = capabilities,
-    -- map buffer local keybindings when the language server attaches
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 500,
-    }
-  }
-end
 
 -- lsp-install
 local function setup_servers()
@@ -137,32 +104,3 @@ local lsp_installer = require("nvim-lsp-installer")
 -- end)
 
 ------ GO ------
-function GoImports(timeout_ms)
-  local context = {only = {"source.organizeImports"}}
-  vim.validate { context = { context, "t", true } }
-
-  local params = vim.lsp.util.make_range_params()
-  params.context = context
-
-  -- See the implementation of the textDocument/codeAction callback
-  -- (lua/vim/lsp/handler.lua) for how to do this properly.
-  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
-  if not result or next(result) == nil then return end
-  local actions = result[1].result
-  if not actions then return end
-  local action = actions[1]
-
-  -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
-  -- is a CodeAction, it can have either an edit, a command or both. Edits
-  -- should be executed first.
-  if action.edit or type(action.command) == "table" then
-    if action.edit then
-      vim.lsp.util.apply_workspace_edit(action.edit)
-    end
-    if type(action.command) == "table" then
-      vim.lsp.buf.execute_command(action.command)
-    end
-  else
-    vim.lsp.buf.execute_command(action)
-  end
-end
