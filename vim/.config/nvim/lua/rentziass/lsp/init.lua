@@ -10,3 +10,6 @@ require('rentziass.lsp.rust')
 require('rentziass.lsp.terraform')
 require('rentziass.lsp.typescript')
 require('rentziass.lsp.yaml')
+
+-- WIP
+require('rentziass.lsp.protobuf')

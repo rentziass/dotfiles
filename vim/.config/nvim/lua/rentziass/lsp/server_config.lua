@@ -1,6 +1,7 @@
 require('rentziass.lsp.keymaps')
 
 function SetupServer(name, config)
+  config = config or DefaultServerConfig()
   local lsp_installer_servers = require('nvim-lsp-installer.servers')
   local server_available, server = lsp_installer_servers.get_server(name)
   if server_available then
