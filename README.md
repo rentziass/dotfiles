@@ -16,6 +16,7 @@
 - [Tmux](https://github.com/tmux/tmux/wiki)
 - [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) (>= 0.6.1,
   **very important**)
+- A [NERD font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.ttf) installed
 
 ## Getting started
 
