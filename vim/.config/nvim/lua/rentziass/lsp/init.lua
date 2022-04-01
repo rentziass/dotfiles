@@ -1,3 +1,6 @@
+vim.lsp.handlers["window/showMessage"] = require "rentziass.lsp.show_message"
+require('rentziass.lsp.go_tests')
+
 require('rentziass.lsp.keymaps')
 require('rentziass.lsp.server_config')
 
@@ -13,3 +16,4 @@ require('rentziass.lsp.yaml')
 
 -- WIP
 require('rentziass.lsp.protobuf')
+

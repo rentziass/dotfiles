@@ -14,4 +14,7 @@ LSPKeymaps = function(_, bufnr)
   BufNMap(bufnr, '<space>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>")
   BufVMap(bufnr, '<space>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>")
   BufNMap(bufnr, '<leader>dq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
+
+  -- Golang
+  BufNMap(bufnr, '<leader>tt', "<cmd>lua require('rentziass.lsp.go_tests').run_file()<CR>")
 end
