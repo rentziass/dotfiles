@@ -1,9 +1,21 @@
 local protocol = require "vim.lsp.protocol"
+local popup = require("plenary.popup")
 
 _LspMessageBuffer = _LspMessageBuffer or vim.api.nvim_create_buf(false, true)
 
 local bufnr = _LspMessageBuffer
 local border = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
+local bufnr = _LspMessageBuffer
+local border = {
+  { "╭", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│", "FloatBorder" },
+}
 
 local create_little_window = function(messages)
   local msg_lines = #messages
@@ -19,7 +31,7 @@ local create_little_window = function(messages)
   local win_height = math.min(50, msg_lines)
   local win_width = math.min(150, msg_width) + 5
 
-  return vim.api.nvim_open_win(bufnr, false, {
+  local win_id = vim.api.nvim_open_win(bufnr, false, {
     relative = "editor",
     style = "minimal",
     height = win_height,
@@ -29,6 +41,8 @@ local create_little_window = function(messages)
     col = ui_width - win_width - 2,
     border = border,
   })
+
+  return win_id
 end
 
 -- TODO: map this to a keybind :)
