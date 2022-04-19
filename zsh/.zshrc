@@ -212,5 +212,3 @@ alias watch='watch '
 
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
-
-eval "$(mcfly init zsh)"

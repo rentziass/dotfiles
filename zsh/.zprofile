@@ -88,4 +88,6 @@ export PATH=$PATH":$GOPATH/bin"
 export PATH=~/.local/bin:$PATH
 export PATH="$HOME/.fastlane/bin:$PATH"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [[ "$OSTYPE" == linux* ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
