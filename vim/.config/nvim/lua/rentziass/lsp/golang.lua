@@ -16,7 +16,7 @@ SetupServer(server_name, ServerConfig())
 
 -- Imports
 function GoImports(timeout_ms)
-  local context = {only = {"source.organizeImports"}}
+  local context = { only = { "source.organizeImports" } }
   vim.validate { context = { context, "t", true } }
 
   local params = vim.lsp.util.make_range_params()
@@ -28,6 +28,13 @@ function GoImports(timeout_ms)
   if not result or next(result) == nil then return end
   local actions = result[1].result
   if not actions then return end
+
+  local client_id
+  for id, _ in pairs(result) do
+    client_id = id
+    break
+  end
+
   local action = actions[1]
 
   -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
@@ -35,7 +42,7 @@ function GoImports(timeout_ms)
   -- should be executed first.
   if action.edit or type(action.command) == "table" then
     if action.edit then
-      vim.lsp.util.apply_workspace_edit(action.edit)
+      vim.lsp.util.apply_workspace_edit(action.edit, vim.lsp.get_client_by_id(client_id).offset_encoding)
     end
     if type(action.command) == "table" then
       vim.lsp.buf.execute_command(action.command)
