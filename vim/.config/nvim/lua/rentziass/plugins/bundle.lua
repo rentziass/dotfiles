@@ -63,4 +63,10 @@ return require('packer').startup(function(use)
   }
 
   use 'ThePrimeagen/harpoon'
+  use {
+    'ldelossa/gh.nvim' ,
+    requires = 'ldelossa/litee.nvim',
+  }
+
+  use 'stevearc/dressing.nvim'
 end)

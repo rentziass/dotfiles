@@ -1,5 +1,13 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "go", "rust", "typescript", "bash", "dockerfile", "graphql" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {
+    "go",
+    "rust",
+    "typescript",
+    "bash",
+    "dockerfile",
+    "graphql",
+    "hcl", -- Hashicorp language (used by Terraform)
+  },
   highlight = {
     enable = true, -- false will disable the whole extension
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
