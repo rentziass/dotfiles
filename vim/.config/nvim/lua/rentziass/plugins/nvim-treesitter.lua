@@ -1,4 +1,5 @@
 require'nvim-treesitter.configs'.setup {
+  indent = { enable = true },
   ensure_installed = {
     "go",
     "rust",
@@ -8,6 +9,7 @@ require'nvim-treesitter.configs'.setup {
     "graphql",
     "hcl", -- Hashicorp language (used by Terraform)
     "org", -- Orgmode
+    "markdown",
   },
   highlight = {
     enable = true, -- false will disable the whole extension
