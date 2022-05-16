@@ -7,6 +7,7 @@ require'nvim-treesitter.configs'.setup {
     "dockerfile",
     "graphql",
     "hcl", -- Hashicorp language (used by Terraform)
+    "org", -- Orgmode
   },
   highlight = {
     enable = true, -- false will disable the whole extension

@@ -12,12 +12,38 @@ require('rentziass.lsp')
 -- to become a require once general.vim is converted to lua too
 vim.cmd('source ~/.config/nvim/general.vim')
 
-vim.cmd([[
-augroup GoFormatting
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.go lua GoImports(1000)
-augroup END
+-- AUTO FORMATTING
+auto_formatting_group = vim.api.nvim_create_augroup("AutoFormatting", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.go", "*.rs", "*.lua", "*.ts" },
+  callback = function()
+    vim.lsp.buf.formatting()
+  end,
+  group = auto_formatting_group,
+})
 
+-- Go specific autocmds
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function ()
+    GoImports(1000)
+  end,
+  group = auto_formatting_group,
+})
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "go",
+--   callback = function ()
+--     vim.opt_local.ts = 2
+--     vim.opt_local.sw = 2
+--     vim.opt_local.noet = true
+--     vim.opt_local.nolist = true
+--     vim.opt_local.tabstop = true
+--   end
+-- })
+
+
+vim.cmd([[
 augroup RustFormatting
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()
 augroup END

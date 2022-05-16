@@ -69,4 +69,7 @@ return require('packer').startup(function(use)
   -- }
 
   use 'stevearc/dressing.nvim'
+
+  use 'nvim-orgmode/orgmode'
+
 end)
