@@ -2,7 +2,7 @@ require('rentziass.plugins.bundle')
 
 require('rentziass.plugins.cmp')
 require('rentziass.plugins.comment-nvim')
--- require('rentziass.plugins.gh')
+require('rentziass.plugins.gh')
 require('rentziass.plugins.harpoon')
 require('rentziass.plugins.lspkind')
 require('rentziass.plugins.lspsaga')
