@@ -4,11 +4,8 @@ local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
-  vim.o.runtimepath = vim.fn.stdpath('data') .. '/site/pack/*/start/*,' .. vim.o.runtimepath
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 end
-
-vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
@@ -70,4 +67,7 @@ return require('packer').startup(function(use)
 
   use 'nvim-orgmode/orgmode'
 
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
