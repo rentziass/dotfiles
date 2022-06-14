@@ -50,8 +50,6 @@
 [http]
 	postBuffer = 1048576000
 	cookiefile = /home/rentziass/.gitcookies
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [filter "strongbox"]
 	clean = strongbox -clean %f
 	smudge = strongbox -smudge %f
