@@ -1,5 +1,10 @@
 #!/bin/zsh
 
+# DEBIAN
+if [ -f "/etc/debian_version" ]; then
+   # do stuff
+fi
+
 stow bin
 stow git
 stow terminal
