@@ -2,7 +2,12 @@
 
 # DEBIAN
 if [ -f "/etc/debian_version" ]; then
-   # do stuff
+  sh <(curl -L https://nixos.org/nix/install) --no-daemon
+
+  # source nix-env in place
+  . /home/codespace/.nix-profile/etc/profile.d/nix.sh
+
+  nix-env -iA nixpkgs.neovim nixpkgs.starship nixpkgs.zsh-prezto
 fi
 
 stow bin
