@@ -11,8 +11,11 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
+  'history' \
   'directory' \
+  'utility' \
   'completion' \
+  'history-substring-search' \
   'syntax-highlighting'
 
 # Set the prompt theme to load.
