@@ -3,22 +3,22 @@
 export USERNAME=`whoami`
 sudo chsh -s /usr/bin/zsh $USERNAME
 
-# Install nix
-if ! command -v nix-env &> /dev/null
-then
-  sh <(curl -L https://nixos.org/nix/install) --no-daemon
-
-  # source nix-env in place
-
-fi
-
-. ~/.nix-profile/etc/profile.d/nix.sh
-nix-env -iA nixpkgs.stow
-
 # DEBIAN specific
 if [ -f "/etc/debian_version" ]; then
-
+  sudo apt update
+  sudo apt install -y \
+    stow \
+    tmux \
+    fzf \
+    ripgrep \
+    neovim
 fi
+
+## Install starship
+curl -sS https://starship.rs/install.sh | sh
+
+## Install prezto
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 rm -f ~/.zshrc # remove any default .zshrc so that stow won't fail
 
@@ -28,12 +28,3 @@ stow terminal
 stow tmux
 stow vim
 stow zsh
-
-nix-env -iA \
-  nixpkgs.starship \
-  nixpkgs.tmux \
-  nixpkgs.jetbrains-mono
-  # nixpkgs.neovim \
-
-# Install prezto
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
