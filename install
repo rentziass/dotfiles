@@ -13,21 +13,14 @@ then
 
 fi
 
-nix-env -iA \
-  # nixpkgs.neovim \
-  nixpkgs.stow \
-  nixpkgs.starship \
-  nixpkgs.zsh-prezto \
-  nixpkgs.tmux \
-  nixpkgs.jetbrains-mono
+nix-env -iA nixpkgs.stow
 
-
-# DEBIAN
+# DEBIAN specific
 if [ -f "/etc/debian_version" ]; then
 
 fi
 
-rm ~/.zshrc # remove any default .zshrc so that stow won't fail
+rm -f ~/.zshrc # remove any default .zshrc so that stow won't fail
 
 stow bin
 stow git
@@ -35,3 +28,10 @@ stow terminal
 stow tmux
 stow vim
 stow zsh
+
+nix-env -iA \
+  nixpkgs.starship \
+  nixpkgs.zsh-prezto \
+  nixpkgs.tmux \
+  nixpkgs.jetbrains-mono
+  # nixpkgs.neovim \
