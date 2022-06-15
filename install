@@ -3,7 +3,7 @@
 export USERNAME=`whoami`
 sudo chsh -s /usr/bin/zsh $USERNAME
 
-if [ "${CODESPACES}" == "true" ]; then
+if [ -n "${CODESPACES}" ]; then
   echo `whomai`
   echo $HOME
 fi
