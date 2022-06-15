@@ -21,8 +21,8 @@ if [ -f "/etc/debian_version" ]; then
 fi
 
 ## Running twice to install packer first, then plugins
-nvim --headless +PackerInstall +qa
-nvim --headless +PackerInstall +qa
+nvim --headless
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 nvim --headless +TSUpdate +qa
 
 ## Install starship
