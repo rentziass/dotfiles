@@ -9,10 +9,10 @@ then
   sh <(curl -L https://nixos.org/nix/install) --no-daemon
 
   # source nix-env in place
-  . /home/codespace/.nix-profile/etc/profile.d/nix.sh
 
 fi
 
+. ~/.nix-profile/etc/profile.d/nix.sh
 nix-env -iA nixpkgs.stow
 
 # DEBIAN specific
