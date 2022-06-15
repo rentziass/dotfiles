@@ -3,6 +3,11 @@
 export USERNAME=`whoami`
 sudo chsh -s /usr/bin/zsh $USERNAME
 
+if [ "${CODESPACES}" == "true" ]; then
+  echo `whomai`
+  echo $HOME
+fi
+
 # DEBIAN specific
 if [ -f "/etc/debian_version" ]; then
   sudo apt update
