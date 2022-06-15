@@ -31,7 +31,9 @@ stow zsh
 
 nix-env -iA \
   nixpkgs.starship \
-  nixpkgs.zsh-prezto \
   nixpkgs.tmux \
   nixpkgs.jetbrains-mono
   # nixpkgs.neovim \
+
+# Install prezto
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
