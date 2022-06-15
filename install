@@ -1,14 +1,33 @@
 #!/bin/zsh
 
-# DEBIAN
-if [ -f "/etc/debian_version" ]; then
+export USERNAME=`whoami`
+sudo chsh -s /usr/bin/zsh $USERNAME
+
+# Install nix
+if ! command -v nix-env &> /dev/null
+then
   sh <(curl -L https://nixos.org/nix/install) --no-daemon
 
   # source nix-env in place
   . /home/codespace/.nix-profile/etc/profile.d/nix.sh
 
-  nix-env -iA nixpkgs.neovim nixpkgs.starship nixpkgs.zsh-prezto
 fi
+
+nix-env -iA \
+  # nixpkgs.neovim \
+  nixpkgs.stow \
+  nixpkgs.starship \
+  nixpkgs.zsh-prezto \
+  nixpkgs.tmux \
+  nixpkgs.jetbrains-mono
+
+
+# DEBIAN
+if [ -f "/etc/debian_version" ]; then
+
+fi
+
+rm ~/.zshrc # remove any default .zshrc so that stow won't fail
 
 stow bin
 stow git
