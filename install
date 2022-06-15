@@ -20,12 +20,6 @@ if [ -f "/etc/debian_version" ]; then
   sudo apt install -y ./nvim-linux64.deb
 fi
 
-## Running twice to install packer first, then plugins
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim --headless +TSUpdate +qa
-
 ## Install starship
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
@@ -35,3 +29,9 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 rm -f ~/.zshrc # remove any default .zshrc so that stow won't fail
 
 stow bin git terminal tmux vim zsh -t $HOME
+
+## NEOVIM setup
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless +TSUpdate +qa
