@@ -3,9 +3,8 @@
 export USERNAME=`whoami`
 sudo chsh -s /usr/bin/zsh $USERNAME
 
+# GitHub Codespaces specific
 if [ -n "${CODESPACES}" ]; then
-  echo `whomai`
-  echo $HOME
 fi
 
 # DEBIAN specific
@@ -16,20 +15,17 @@ if [ -f "/etc/debian_version" ]; then
     tmux \
     fzf \
     ripgrep \
-    neovim
+
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
+  sudo apt install -y ./nvim-linux64.deb
 fi
 
 ## Install starship
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 ## Install prezto
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 rm -f ~/.zshrc # remove any default .zshrc so that stow won't fail
 
-stow bin
-stow git
-stow terminal
-stow tmux
-stow vim
-stow zsh
+stow bin git terminal tmux vim zsh -t $HOME
