@@ -34,10 +34,10 @@ export EDITOR=$VISUAL
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # env vars
-source ~/.env
+[[ -f ~/.vn ]] && source ~/.env
 
 # functions
-for function in $MY_DOTFILES_PATH/zsh/functions/*; do
+for function in $HOME/functions/*; do
   source $function
 done
 
