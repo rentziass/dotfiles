@@ -1,5 +1,4 @@
 require'nvim-treesitter.configs'.setup {
-  indent = { enable = true },
   ensure_installed = {
     "go",
     "rust",

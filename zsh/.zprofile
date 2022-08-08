@@ -87,3 +87,4 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH":$GOPATH/bin"
 export PATH=~/.local/bin:$PATH
 export PATH="$HOME/.fastlane/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
