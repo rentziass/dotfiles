@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 export USERNAME=`whoami`
-sudo chsh -s /usr/bin/zsh $USERNAME
+sudo chsh -s $(which zsh) $USERNAME
 
 # GitHub Codespaces specific
 if [ -n "${CODESPACES}" ]; then
