@@ -1,9 +1,9 @@
 -- Go Imports on save
-goimports = vim.api.nvim_create_augroup("GoImports", { clear = true })
+local goimports = vim.api.nvim_create_augroup("GoImports", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.go" },
   callback = function()
-    GoImports(1000)
+    Go_org_imports(1000)
   end,
   group = goimports,
 })
