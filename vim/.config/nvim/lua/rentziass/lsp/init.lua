@@ -6,6 +6,7 @@ require('rentziass.lsp.server_config')
 
 -- LSP servers configurations
 require('rentziass.lsp.bash')
+require('rentziass.lsp.c#')
 require('rentziass.lsp.docker')
 require('rentziass.lsp.golang')
 require('rentziass.lsp.lua')

@@ -66,4 +66,5 @@ alias watch='watch '
 
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="/Users/francescorenzi/.gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
