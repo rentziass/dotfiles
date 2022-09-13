@@ -1,6 +1,7 @@
 require('rentziass.utils')
 require('rentziass.editor.formatting')
 require('rentziass.editor.golang')
+require('rentziass.editor.csharp')
 
 vim.cmd('colorscheme gruvbox')
 

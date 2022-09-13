@@ -14,7 +14,14 @@ local load = function(mod)
   return require(mod)
 end
 
-load 'rentziass.utils'
-load 'rentziass.plugins'
-load 'rentziass.editor'
-load 'rentziass.lsp'
+if vim.g.vscode then
+  -- VSCode extension
+  load 'rentziass.vscode'
+else
+  -- ordinary Neovim
+  load 'rentziass.utils'
+  load 'rentziass.plugins'
+  load 'rentziass.editor'
+  load 'rentziass.lsp'
+end
+

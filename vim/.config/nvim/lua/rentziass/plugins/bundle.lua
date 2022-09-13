@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter', -- just the best thing
     run = ':TSUpdate'
   }
+  use 'nvim-treesitter/nvim-treesitter-context'
   use { 'npxbr/gruvbox.nvim', requires = { 'rktjmp/lush.nvim' } } -- sick theme
   use 'joshdick/onedark.vim' -- Atom's theme
 

@@ -1,6 +1,7 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "go",
+    "c_sharp",
     "rust",
     "typescript",
     "bash",
