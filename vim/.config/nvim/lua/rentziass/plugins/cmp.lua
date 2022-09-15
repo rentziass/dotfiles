@@ -96,9 +96,6 @@ cmp.setup {
   },
 
   experimental = {
-    -- I like the new menu better! Nice work hrsh7th
-    native_menu = false,
-
     -- Let's play with this for a day or two
     ghost_text = true,
   },
@@ -113,9 +110,9 @@ cmp.setup.cmdline('/', {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
-  }),
+  -- mapping = cmp.mapping.preset.insert({
+  --   ['<CR>'] = cmp.mapping.confirm({ select = false }),
+  -- }),
   sources = cmp.config.sources({
     { name = 'path' }
   }, {

@@ -18,6 +18,10 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
   use 'nvim-treesitter/nvim-treesitter-context'
+  use 'williamboman/mason.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'jayp0521/mason-null-ls.nvim'
+
   use { 'npxbr/gruvbox.nvim', requires = { 'rktjmp/lush.nvim' } } -- sick theme
   use 'joshdick/onedark.vim' -- Atom's theme
 
