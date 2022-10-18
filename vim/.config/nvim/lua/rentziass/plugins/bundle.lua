@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
   use 'jayp0521/mason-null-ls.nvim'
 
   use { 'npxbr/gruvbox.nvim', requires = { 'rktjmp/lush.nvim' } } -- sick theme
-  use 'joshdick/onedark.vim' -- Atom's theme
+  use 'folke/tokyonight.nvim'
 
   -- Completion
   use 'hrsh7th/nvim-cmp'
