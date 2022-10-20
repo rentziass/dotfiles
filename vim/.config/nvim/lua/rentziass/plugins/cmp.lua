@@ -66,7 +66,6 @@ cmp.setup {
   },
 
   sources = {
-    { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "vsnip" },
     { name = "orgmode" },

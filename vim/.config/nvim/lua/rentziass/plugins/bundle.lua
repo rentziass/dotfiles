@@ -50,21 +50,21 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope.nvim'
   use 'kyazdani42/nvim-web-devicons'
 
-  -- use 'github/copilot.vim'
-  use {
-    'zbirenbaum/copilot.lua',
-    requires = {{"github/copilot.vim"}},
-    event = {"VimEnter"},
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup()
-      end, 100)
-    end
-  }
-  use {
-    'zbirenbaum/copilot-cmp',
-    requires = {{'zbirenbaum/copilot.lua'}}
-  }
+  use 'github/copilot.vim'
+  -- use {
+  --   'zbirenbaum/copilot.lua',
+  --   requires = {{"github/copilot.vim"}},
+  --   event = {"VimEnter"},
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup()
+  --     end, 100)
+  --   end
+  -- }
+  -- use {
+  --   'zbirenbaum/copilot-cmp',
+  --   requires = {{'zbirenbaum/copilot.lua'}}
+  -- }
 
   use {
     'kyazdani42/nvim-tree.lua',
