@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
   use 'jayp0521/mason-null-ls.nvim'
 
   -- Colorschemes
-  use { 'npxbr/gruvbox.nvim', requires = { 'rktjmp/lush.nvim' } }
+  use 'ellisonleao/gruvbox.nvim'
   use 'folke/tokyonight.nvim'
   use 'projekt0n/github-nvim-theme'
 

@@ -3,7 +3,7 @@ require('rentziass.editor.formatting')
 require('rentziass.editor.golang')
 require('rentziass.editor.csharp')
 
-vim.cmd('colorscheme github_dark_default')
+vim.cmd('colorscheme tokyonight-night')
 
 -- Mappings
 NMap('<C-s>', ':source $MYVIMRC<CR>') -- Reload configuration
