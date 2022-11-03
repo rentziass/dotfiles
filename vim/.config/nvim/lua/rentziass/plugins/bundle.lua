@@ -22,8 +22,10 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jayp0521/mason-null-ls.nvim'
 
-  use { 'npxbr/gruvbox.nvim', requires = { 'rktjmp/lush.nvim' } } -- sick theme
+  -- Colorschemes
+  use { 'npxbr/gruvbox.nvim', requires = { 'rktjmp/lush.nvim' } }
   use 'folke/tokyonight.nvim'
+  use 'projekt0n/github-nvim-theme'
 
   -- Completion
   use 'hrsh7th/nvim-cmp'
