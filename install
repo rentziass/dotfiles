@@ -15,6 +15,7 @@ if [ -f "/etc/debian_version" ]; then
     tmux \
     fzf \
     ripgrep \
+    kitty-terminfo
 
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
   sudo apt install -y ./nvim-linux64.deb
@@ -26,7 +27,7 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes
 ## Install prezto
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-rm -f ~/.zshrc # remove any default .zshrc so that stow won't fail
+rm -f ~/.zshrc ~/.gitconfig # remove any default .zshrc so that stow won't fail
 
 stow bin git terminal tmux vim zsh -t $HOME
 
