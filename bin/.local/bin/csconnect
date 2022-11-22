@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(gh cs list | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0;
+fi
+
+selected_name=$(echo $selected | awk '{print $1}')
+
+gh cs ports forward 80:80 -c "$selected_name" & pid=$!
+rdm server &
+gh cs ssh -c "$selected_name" -- -R 127.0.0.1:7391:$(rdm socket)
+
+kill -s TERM "$pid"
+rdm stop
