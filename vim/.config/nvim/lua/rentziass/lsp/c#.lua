@@ -1,8 +1,5 @@
--- Server setup
-local server_name = 'omnisharp'
-local function ServerConfig()
-  local config = DefaultServerConfig()
-  return config
-end
+local lspconfig = require("lspconfig")
+local cfg = require("rentziass.lsp.default_config")
+local config = cfg.defaults()
 
-SetupServer(server_name, ServerConfig())
+lspconfig.omnisharp.setup(config)

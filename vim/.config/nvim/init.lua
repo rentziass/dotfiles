@@ -22,6 +22,5 @@ else
   load 'rentziass.utils'
   load 'rentziass.plugins'
   load 'rentziass.editor'
-  load 'rentziass.lsp'
 end
 

@@ -1,4 +1,4 @@
-require('rentziass.lsp.keymaps')
+local keymaps = require('rentziass.lsp.keymaps')
 
 function SetupServer(name, config)
   config = config or DefaultServerConfig()
@@ -22,7 +22,7 @@ function DefaultServerConfig()
     -- enable snippet support
     capabilities = capabilities,
     -- map buffer local keybindings when the language server attaches
-    on_attach = LSPKeymaps,
+    on_attach = keymaps,
     flags = {
       debounce_text_changes = 500,
     }

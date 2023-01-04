@@ -1,30 +1,25 @@
--- Server setup
-local server_name = 'gopls'
-local function ServerConfig()
-  local config = DefaultServerConfig()
-  config.settings = {
-    gopls = {
-      usePlaceholders = true,
-      gofumpt = true,
-      semanticTokens = true,
-    }
-  }
-  return config
-end
+local features = require("rentziass.features")
+local lspconfig = require("lspconfig")
+local cfg = require("rentziass.lsp.default_config")
+local config = cfg.defaults()
 
-SetupServer(server_name, ServerConfig())
-
--- Imports
-function Go_org_imports(wait_ms)
-  local params = vim.lsp.util.make_range_params()
-  params.context = {only = {"source.organizeImports"}}
-  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-  for cid, res in pairs(result or {}) do
-    for _, r in pairs(res.result or {}) do
-      if r.edit then
-        local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-        vim.lsp.util.apply_workspace_edit(r.edit, enc)
-      end
-    end
+config.on_attach = function(client, bufnr)
+  if not features.gofumpt then
+    -- disable  formatting for gopls so that goimports handles it through
+    -- null-ls
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
+
+  cfg.on_attach(client, bufnr)
 end
+
+config.settings = {
+  gopls = {
+    usePlaceholders = true,
+    gofumpt = features.gofumpt,
+    semanticTokens = true,
+  }
+}
+
+lspconfig.gopls.setup(config)

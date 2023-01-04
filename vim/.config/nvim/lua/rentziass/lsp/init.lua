@@ -1,23 +1,48 @@
-vim.lsp.handlers["window/showMessage"] = require "rentziass.lsp.show_message"
-require('rentziass.lsp.go_tests')
+return function ()
+  require("mason").setup({
+    ui = { border = "rounded" },
+  })
 
-require('rentziass.lsp.keymaps')
-require('rentziass.lsp.server_config')
+  require("mason-lspconfig").setup({
+    ensure_installed = {
+      "gopls",
+      "marksman",
+      "sumneko_lua",
+      "tsserver",
+      "yamlls",
+      "dockerls",
+    },
+  })
 
--- LSP servers configurations
-require('rentziass.lsp.bash')
-require('rentziass.lsp.c#')
-require('rentziass.lsp.docker')
-require('rentziass.lsp.golang')
-require('rentziass.lsp.lua')
-require('rentziass.lsp.solargraph')
-require('rentziass.lsp.sorbet')
-require('rentziass.lsp.ruby')
-require('rentziass.lsp.rust')
-require('rentziass.lsp.terraform')
-require('rentziass.lsp.typescript')
-require('rentziass.lsp.yaml')
+  -- require("rentziass.lsp.null-ls")
 
--- WIP
-require('rentziass.lsp.protobuf')
+  require('lspkind').init({})
 
+  require('lspsaga').init_lsp_saga({
+    code_action_keys = {
+      quit = {'q', '<esc>', '<C-c>'}, exec = '<CR>'
+    },
+    rename_action_keys = {
+      quit = {'<esc>', '<C-c>'}, exec = '<CR>'
+    },
+  })
+
+  -- require('rentziass.lsp.go_tests')
+  -- require('rentziass.lsp.keymaps')
+  -- require('rentziass.lsp.server_config')
+
+  -- LSP servers configurations
+  require('rentziass.lsp.c#')
+  require('rentziass.lsp.docker')
+  require('rentziass.lsp.golang')
+  require('rentziass.lsp.lua')
+  require('rentziass.lsp.solargraph')
+  require('rentziass.lsp.sorbet')
+  require('rentziass.lsp.rust')
+  require('rentziass.lsp.typescript')
+  require('rentziass.lsp.yaml')
+
+  -- WIP
+  -- require('rentziass.lsp.protobuf')
+
+end

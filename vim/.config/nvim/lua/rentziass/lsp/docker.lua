@@ -1,7 +1,5 @@
--- Server setup
-local server_name = 'dockerls'
-local function ServerConfig()
-  return DefaultServerConfig()
-end
+local lspconfig = require("lspconfig")
+local cfg = require("rentziass.lsp.default_config")
+local config = cfg.defaults()
 
-SetupServer(server_name, ServerConfig())
+lspconfig.dockerls.setup(config)

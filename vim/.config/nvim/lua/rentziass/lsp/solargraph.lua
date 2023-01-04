@@ -1,18 +1,24 @@
--- Server setup
-local server_name = 'solargraph'
-local function ServerConfig()
-  local config = DefaultServerConfig()
-  config.cmd = { "bin/srb", "tc", "--lsp" }
-  -- config.settings = { solargraph = { diagnostics = not features.rubocop } }
-  config.cmd = { "bin/solargraph", "stdio" }
-  config.on_attach = function(client, bufnr)
-    -- disable  formatting for solargraph so that rubocop handles it through
-    -- null-ls
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-  end
+local features = require("rentziass.features")
 
-  return config
+-- I don't want solargraph or rubocop to be automatically setup. Only if the
+-- project  is using them and has them as binstubs.
+if not features.solargraph then
+  return
 end
 
-SetupServer(server_name, ServerConfig())
+local lspconfig = require("lspconfig")
+local cfg = require("rentziass.lsp.default_config")
+local config = cfg.defaults()
+
+config.settings = { solargraph = { diagnostics = not features.rubocop } }
+config.cmd = { "bin/solargraph", "stdio" }
+config.on_attach = function(client, bufnr)
+  -- disable  formatting for solargraph so that rubocop handles it through
+  -- null-ls
+  client.server_capabilities.documentFormattingProvider = features.rubucop
+  client.server_capabilities.documentRangeFormattingProvider = features.rubocop
+
+  cfg.on_attach(client, bufnr)
+end
+
+lspconfig.solargraph.setup(config)

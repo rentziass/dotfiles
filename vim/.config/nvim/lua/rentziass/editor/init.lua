@@ -10,11 +10,16 @@ vim.cmd('colorscheme tokyonight-night')
 NMap('<C-s>', ':source $MYVIMRC<CR>') -- Reload configuration
 NMap('<Leader>s', ':update<CR>') -- save file
 NMap('<Leader>q', ':qall<CR>') -- close all files (and vim)
+NMap('<Leader><esc>', ':noh<CR>') -- remove search highlighting
 
 vim.o.swapfile = false
 vim.o.history = 500
 vim.o.termguicolors = true
 vim.o.autowrite = true
+
+-- Conceal
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
 
 -- Whitespace
 vim.opt.list = true

@@ -1,10 +1,34 @@
-require('rentziass.utils.keymaps')
+local telescope = require("telescope")
+local builtin = require("telescope.builtin")
 
-NMap('<Leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' , '-g', '!vendor'}})<cr>")
-NMap('<Leader>fg', ":lua require'telescope.builtin'.live_grep({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' , '-g', '!vendor'}})<CR>")
+vim.keymap.set("n", "<leader>f", builtin.find_files)
+vim.keymap.set("n", "<leader>g", builtin.live_grep)
+vim.keymap.set("n", "<leader>F", builtin.resume)
+vim.keymap.set("n", "<leader>B", builtin.buffers)
 
-NMap('<Leader>fb', ':Telescope git_branches<CR>')
-NMap('<Leader>fc', ':Telescope git_commits<CR>')
-NMap('<Leader>gs', ':Telescope git_status<CR>')
+telescope.setup({
+  pickers = {
+        find_files = {
+          find_command = {
+            "rg",
+            "--files",
+            "--hidden",
+            "--glob", "!**/.git/*",
+            "--glob", "!vendor",
+            "--glob", "!node_modules",
+          },
+        },
+        live_grep = {
+            additional_args = function(opts)
+                return {
+                  "--hidden",
+                  "--glob", "!.git/*",
+                  "--glob", "!vendor",
+                  "--glob", "!node_modules",
+                }
+            end
+        },
+    },
+})
 
-NMap('<Leader>cs', "<cmd>lua require'telescope.builtin'.colorscheme()<cr>")
+telescope.load_extension("ui-select")

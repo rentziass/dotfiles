@@ -7,12 +7,22 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- LSP
-  use 'neovim/nvim-lspconfig' -- bootstrap LSP configuration
-  use 'williamboman/nvim-lsp-installer' -- install any LSP server
+  use({
+    "neovim/nvim-lspconfig",
+    requires = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "folke/trouble.nvim",
+      "folke/neodev.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+      "onsails/lspkind-nvim",
+      "tami5/lspsaga.nvim",
+    },
+    config = require("rentziass.lsp"),
+  })
+
   use 'hrsh7th/vim-vsnip' -- LSP based snippets
   use 'hrsh7th/vim-vsnip-integ'
-  use 'onsails/lspkind-nvim' -- add pictograms to autocompletion LSP results
-  use 'tami5/lspsaga.nvim' -- some UI for LSP <- under trial
   use {
     'nvim-treesitter/nvim-treesitter', -- just the best thing
     run = ':TSUpdate'
@@ -21,6 +31,41 @@ return require('packer').startup(function(use)
   use 'williamboman/mason.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jayp0521/mason-null-ls.nvim'
+
+  use({
+    "lewis6991/gitsigns.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("gitsigns").setup({
+        on_attach = function(bufnr)
+          local gs = package.loaded.gitsigns
+
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+          end
+
+          -- Navigation
+          map('n', ']c', function()
+            if vim.wo.diff then return ']c' end
+            vim.schedule(function() gs.next_hunk() end)
+            return '<Ignore>'
+          end, {expr=true})
+
+          map('n', '[c', function()
+            if vim.wo.diff then return '[c' end
+            vim.schedule(function() gs.prev_hunk() end)
+            return '<Ignore>'
+          end, {expr=true})
+
+          -- Actions
+          map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+          map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+        end
+      })
+    end,
+  })
 
   -- Colorschemes
   use 'ellisonleao/gruvbox.nvim'
@@ -49,7 +94,12 @@ return require('packer').startup(function(use)
   use 'tjdevries/colorbuddy.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
+  })
   use 'kyazdani42/nvim-web-devicons'
 
   use 'github/copilot.vim'
