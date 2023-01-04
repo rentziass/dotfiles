@@ -12,7 +12,10 @@ local function on_attach(client, _bufnr)
 
   -- Using Telescope
   h.nnoremap("<Leader>o", builtin.lsp_dynamic_workspace_symbols)
-  h.nnoremap("gr", builtin.lsp_references)
+  h.nnoremap("gr", function ()
+    builtin.lsp_references({include_current_line = true})
+  end)
+
   h.nnoremap("gI", builtin.lsp_implementations)
   h.nnoremap("<Leader>ca", vim.lsp.buf.code_action)
   h.xnoremap("<Leader>ca", vim.lsp.buf.range_code_action)
