@@ -8,7 +8,7 @@ local function on_attach(client, _bufnr)
   h.nnoremap("<Leader>rn", vim.lsp.buf.rename)
   h.nnoremap("<Leader>t", vim.lsp.buf.type_definition)
   h.nnoremap("K", vim.lsp.buf.hover)
-  h.nnoremap("<Leader>k", vim.lsp.buf.signature_help)
+  h.nnoremap("<Leader>K", vim.lsp.buf.signature_help)
 
   -- Using Telescope
   h.nnoremap("<Leader>o", builtin.lsp_dynamic_workspace_symbols)
