@@ -20,6 +20,7 @@ local function on_attach(client, _bufnr)
   h.nnoremap("<Leader>ca", vim.lsp.buf.code_action)
   h.xnoremap("<Leader>ca", vim.lsp.buf.range_code_action)
 
+  h.nnoremap("<Leader>D", builtin.diagnostics)
   h.nnoremap("<Leader>d", function()
     vim.diagnostic.open_float(nil, { focus = false, border = "rounded" })
   end)
