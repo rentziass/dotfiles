@@ -9,7 +9,7 @@ cmp.setup {
     ["<CR>"] = cmp.mapping(
       cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
-        select = true,
+        select = false,
       },
       { "i", "c" }
     ),
