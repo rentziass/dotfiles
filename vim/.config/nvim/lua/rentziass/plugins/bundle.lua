@@ -32,6 +32,12 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jayp0521/mason-null-ls.nvim'
 
+  -- Center buffer on big screens
+  use {
+    "shortcuts/no-neck-pain.nvim",
+    tag = "*",
+  }
+
   use({
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
