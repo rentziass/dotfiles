@@ -11,7 +11,9 @@ local function on_attach(client, _bufnr)
   h.nnoremap("<Leader>K", vim.lsp.buf.signature_help)
 
   -- Using Telescope
-  h.nnoremap("<Leader>o", builtin.lsp_dynamic_workspace_symbols)
+  h.nnoremap("<Leader>o", function ()
+    builtin.lsp_document_symbols({ sort_lastused = true })
+  end)
   h.nnoremap("gr", function ()
     builtin.lsp_references({include_current_line = true})
   end)
