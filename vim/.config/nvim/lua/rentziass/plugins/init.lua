@@ -8,6 +8,7 @@ require('rentziass.plugins.nvim-treesitter')
 require('rentziass.plugins.nvim_tree')
 require('rentziass.plugins.orgmode')
 require('rentziass.plugins.telescope')
+require('rentziass.plugins.todo-comments')
 require('rentziass.plugins.vsnip')
 
 vim.g.copilot_no_tab_map = true

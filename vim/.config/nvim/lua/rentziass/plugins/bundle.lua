@@ -73,6 +73,13 @@ return require('packer').startup(function(use)
     end,
   })
 
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+    end
+  }
+
   -- Colorschemes
   use 'ellisonleao/gruvbox.nvim'
   use 'folke/tokyonight.nvim'
