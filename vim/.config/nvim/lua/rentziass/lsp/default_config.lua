@@ -6,7 +6,7 @@ local function on_attach(client, _bufnr)
   h.nnoremap("gD", vim.lsp.buf.declaration)
   h.nnoremap("gd", vim.lsp.buf.definition)
   h.nnoremap("<Leader>rn", vim.lsp.buf.rename)
-  h.nnoremap("<Leader>t", vim.lsp.buf.type_definition)
+  h.nnoremap("<Leader>td", vim.lsp.buf.type_definition)
   h.nnoremap("K", vim.lsp.buf.hover)
   h.nnoremap("<Leader>K", vim.lsp.buf.signature_help)
 
@@ -31,6 +31,10 @@ local function on_attach(client, _bufnr)
   end)
   h.nnoremap("[d", function()
     vim.diagnostic.goto_prev({ float = { focus = false, border = "rounded" } })
+  end)
+
+  h.nnoremap("<leader>tt", function()
+    vim.api.nvim_command("GoTest")
   end)
 
   -- Disable virtual diagnostics because they are mostly annoying
