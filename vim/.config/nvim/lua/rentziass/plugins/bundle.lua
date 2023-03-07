@@ -156,6 +156,8 @@ return require('packer').startup(function(use)
   })
   use 'kyazdani42/nvim-web-devicons'
 
+  use 'towolf/vim-helm'
+
   use 'github/copilot.vim'
   -- use {
   --   'zbirenbaum/copilot.lua',

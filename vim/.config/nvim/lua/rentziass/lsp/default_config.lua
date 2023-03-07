@@ -1,4 +1,4 @@
-local function on_attach(client, _bufnr)
+local function on_attach(client, bufnr)
   local builtin = require("telescope.builtin")
   local h = require("rentziass.h")
 
@@ -39,6 +39,14 @@ local function on_attach(client, _bufnr)
 
   -- Disable virtual diagnostics because they are mostly annoying
   vim.diagnostic.config({ virtual_text = false })
+
+  -- Disable diagnostics for helm buffers
+  if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+    vim.diagnostic.disable(bufnr)
+    vim.defer_fn(function()
+      vim.diagnostic.reset(nil, bufnr)
+    end, 1000)
+  end
 end
 
 local M = {}
