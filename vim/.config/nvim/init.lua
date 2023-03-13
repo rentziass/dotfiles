@@ -9,18 +9,14 @@
 
 vim.g.mapleader = ' '
 
-local load = function(mod)
-  package.loaded[mod] = nil
-  return require(mod)
-end
-
 if vim.g.vscode then
   -- VSCode extension
-  load 'rentziass.vscode'
+  require 'rentziass.vscode'
 else
   -- ordinary Neovim
-  load 'rentziass.utils'
-  load 'rentziass.plugins'
-  load 'rentziass.editor'
+  require 'rentziass.utils'
+  require 'rentziass.plugins'
+  require 'rentziass.editor'
 end
 
+vim.keymap.set("n", "<leader>z", require("lazy").home)

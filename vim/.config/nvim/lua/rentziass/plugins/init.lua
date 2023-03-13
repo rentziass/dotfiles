@@ -1,6 +1,5 @@
 require('rentziass.plugins.bundle')
 
-require('rentziass.plugins.cmp')
 require('rentziass.plugins.orgmode')
 require('rentziass.plugins.todo-comments')
 require('rentziass.plugins.vsnip')
