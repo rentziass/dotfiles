@@ -16,9 +16,6 @@ require('lazy').setup({
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "folke/neodev.nvim",
       "jose-elias-alvarez/null-ls.nvim",
       "onsails/lspkind-nvim",
       "tami5/lspsaga.nvim",
@@ -26,6 +23,12 @@ require('lazy').setup({
       'hrsh7th/vim-vsnip-integ',
     },
     config = require("rentziass.lsp"),
+  },
+
+
+  {
+    "folke/neodev.nvim",
+    ft = "lua",
   },
 
   {
@@ -54,11 +57,12 @@ require('lazy').setup({
           additional_vim_regex_highlighting = false,
         },
       }
-    end
+    end,
   },
 
   {
     'nvim-treesitter/nvim-treesitter-context',
+    event = "BufReadPre",
     config = true,
   },
 
@@ -69,47 +73,46 @@ require('lazy').setup({
       'jayp0521/mason-null-ls.nvim',
     }
   },
+  "williamboman/mason-lspconfig.nvim",
 
   {
     'crispgm/nvim-go',
     ft = 'go',
-    config = function ()
-      require('go').setup({
-        -- notify: use nvim-notify
-        notify = false,
-        -- auto commands
-        auto_format = false,
-        auto_lint = false,
-        -- linters: revive, errcheck, staticcheck, golangci-lint
-        linter = 'golangci-lint',
-        -- linter_flags: e.g., {revive = {'-config', '/path/to/config.yml'}}
-        linter_flags = {},
-        -- lint_prompt_style: qf (quickfix), vt (virtual text)
-        lint_prompt_style = 'qf',
-        -- formatter: goimports, gofmt, gofumpt, lsp
-        formatter = 'gofumpt',
-        -- maintain cursor position after formatting loaded buffer
-        maintain_cursor_pos = true,
-        -- test flags: -count=1 will disable cache
-        test_flags = {'-v'},
-        test_timeout = '0',
-        test_env = {},
-        -- show test result with popup window
-        test_popup = true,
-        test_popup_auto_leave = false,
-        test_popup_width = 80,
-        test_popup_height = 10,
-        -- test open
-        test_open_cmd = 'edit',
-        -- struct tags
-        tags_name = 'json',
-        tags_options = {'json=omitempty'},
-        tags_transform = 'snakecase',
-        tags_flags = {'-skip-unexported'},
-        -- quick type
-        quick_type_flags = {'--just-types'},
-      })
-    end
+    opts = {
+      -- notify: use nvim-notify
+      notify = false,
+      -- auto commands
+      auto_format = false,
+      auto_lint = false,
+      -- linters: revive, errcheck, staticcheck, golangci-lint
+      linter = 'golangci-lint',
+      -- linter_flags: e.g., {revive = {'-config', '/path/to/config.yml'}}
+      linter_flags = {},
+      -- lint_prompt_style: qf (quickfix), vt (virtual text)
+      lint_prompt_style = 'qf',
+      -- formatter: goimports, gofmt, gofumpt, lsp
+      formatter = 'gofumpt',
+      -- maintain cursor position after formatting loaded buffer
+      maintain_cursor_pos = true,
+      -- test flags: -count=1 will disable cache
+      test_flags = {'-v'},
+      test_timeout = '0',
+      test_env = {},
+      -- show test result with popup window
+      test_popup = true,
+      test_popup_auto_leave = false,
+      test_popup_width = 80,
+      test_popup_height = 10,
+      -- test open
+      test_open_cmd = 'edit',
+      -- struct tags
+      tags_name = 'json',
+      tags_options = {'json=omitempty'},
+      tags_transform = 'snakecase',
+      tags_flags = {'-skip-unexported'},
+      -- quick type
+      quick_type_flags = {'--just-types'},
+    },
   },
 
   -- Center buffer on big screens
@@ -120,11 +123,9 @@ require('lazy').setup({
     keys = {
       {'<leader>np', '<cmd>NoNeckPain<cr>'},
     },
-    config = function ()
-      require("no-neck-pain").setup({
-        width = 120,
-      })
-    end,
+    opts = {
+      width = 120,
+    }
   },
 
   {
@@ -192,7 +193,6 @@ require('lazy').setup({
   {
     'hrsh7th/nvim-cmp',
     -- load cmp on InsertEnter
-    event = "InsertEnter",
     dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
@@ -338,7 +338,6 @@ require('lazy').setup({
   },
 
   'jiangmiao/auto-pairs',
-  'tpope/vim-sensible',
   'myusuf3/numbers.vim',
   'danishprakash/vim-githubinator',
   {
@@ -472,27 +471,33 @@ telescope.load_extension("ui-select")
       { '<leader>;', ':lua require("harpoon.ui").nav_file(4)<CR>' },
     }
   },
+
   'stevearc/dressing.nvim',
-  'nvim-orgmode/orgmode',
-}, {
-  ui = {
-    custom_keys = {
-      -- you can define custom key maps here.
-      -- To disable one of the defaults, set it to false
 
-      -- open lazygit log
-      ["<leader>u"] = function(plugin)
-        require("lazy.util").float_term({ "lazygit", "log" }, {
-          cwd = plugin.dir,
-        })
-      end,
+  {
+    'nvim-orgmode/orgmode',
+    config = function()
+      local orgmode = require('orgmode')
+      local default_refile = '~/Dropbox/org/refile.org'
 
-      -- open a terminal for the plugin dir
-      ["<localleader>t"] = function(plugin)
-        require("lazy.util").float_term(nil, {
-          cwd = plugin.dir,
-        })
-      end,
-    },
+      orgmode.setup_ts_grammar()
+      orgmode.setup({
+        org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
+        org_default_notes_file = default_refile,
+        org_agenda_templates = {
+          t = {
+            description = 'TODO',
+            template = '* TODO %?\n  DEADLINE: %t\n  %u',
+            target = default_refile,
+          },
+          b = {
+            description = 'GitHub Backlog',
+            template = '** TODO %?\n   DEADLINE: %t\n   %u',
+            target = default_refile,
+            headline= 'GitHub Backlog',
+          },
+        },
+      })
+    end,
   },
 })
