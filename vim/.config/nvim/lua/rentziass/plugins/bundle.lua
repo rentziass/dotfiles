@@ -31,10 +31,36 @@ require('lazy').setup({
 
   {
     'nvim-treesitter/nvim-treesitter', -- just the best thing
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-context',
-    },
-    build = ':TSUpdate'
+    build = ':TSUpdate',
+    config = function ()
+      require'nvim-treesitter.configs'.setup {
+        ensure_installed = {
+          "go",
+          "c_sharp",
+          "rust",
+          "typescript",
+          "bash",
+          "dockerfile",
+          "graphql",
+          "hcl", -- Hashicorp language (used by Terraform)
+          "org", -- Orgmode
+          "markdown",
+        },
+        highlight = {
+          enable = true, -- false will disable the whole extension
+          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+          -- Using this option may slow down your editor, and you may see some duplicate highlights.
+          -- Instead of true it can also be a list of languages
+          additional_vim_regex_highlighting = false,
+        },
+      }
+    end
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    config = true,
   },
 
   {
@@ -90,6 +116,12 @@ require('lazy').setup({
   {
     'shortcuts/no-neck-pain.nvim',
     version = "*",
+    cmd = 'NoNeckPain',
+    config = function ()
+      require("no-neck-pain").setup({
+        width = 120,
+      })
+    end,
   },
 
   {
@@ -142,7 +174,7 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       vim.cmd([[ colorscheme tokyonight ]])
-    end
+    end,
   },
   'ellisonleao/gruvbox.nvim',
   'projekt0n/github-nvim-theme',
@@ -150,6 +182,8 @@ require('lazy').setup({
   -- Completion
   {
     'hrsh7th/nvim-cmp',
+    -- load cmp on InsertEnter
+    event = "InsertEnter",
     dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
@@ -165,20 +199,81 @@ require('lazy').setup({
   'tpope/vim-sensible',
   'myusuf3/numbers.vim',
   'danishprakash/vim-githubinator',
-  'tpope/vim-fugitive',
-  'numToStr/Comment.nvim',
+  {
+    'tpope/vim-fugitive',
+    -- load on :G
+    cmd = "G",
+  },
+  {
+    'numToStr/Comment.nvim',
+    config = true,
+  },
   'tpope/vim-surround',
   'AndrewRadev/splitjoin.vim',
 
   'tjdevries/colorbuddy.nvim',
   'nvim-lua/popup.nvim',
   'nvim-lua/plenary.nvim',
+
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-telescope/telescope-ui-select.nvim',
     },
+    keys = {
+      { "<leader>f" },
+      { "<leader>g" },
+      { "<leader>F" },
+      { "<leader>B" },
+      { '<leader>"' },
+    },
+    config = function()
+      local telescope = require("telescope")
+      local builtin = require("telescope.builtin")
+      local themes = require("telescope.themes")
+
+      vim.keymap.set("n", "<leader>f", builtin.find_files)
+      vim.keymap.set("n", "<leader>g", builtin.live_grep)
+      vim.keymap.set("n", "<leader>F", builtin.resume)
+      vim.keymap.set("n", "<leader>B", builtin.buffers)
+      vim.keymap.set("n", '<leader>"', function()
+        builtin.registers(themes.get_cursor())
+      end)
+
+      telescope.setup({
+        pickers = {
+          find_files = {
+            find_command = {
+              "rg",
+              "--files",
+              "--hidden",
+              "--glob", "!**/.git/*",
+              "--glob", "!vendor",
+              "--glob", "!node_modules",
+            },
+          },
+          live_grep = {
+            additional_args = function(opts)
+              return {
+                "--hidden",
+                "--glob", "!.git/*",
+                "--glob", "!vendor",
+                "--glob", "!node_modules",
+              }
+            end
+          },
+        },
+        extensions = {
+          ["ui-select"] = {
+            themes.get_cursor({}),
+          },
+        },
+      })
+
+telescope.load_extension("ui-select")
+    end
   },
+
   'kyazdani42/nvim-web-devicons',
   'towolf/vim-helm',
   'github/copilot.vim',
@@ -200,9 +295,34 @@ require('lazy').setup({
   {
     'kyazdani42/nvim-tree.lua',
     dependencies = 'kyazdani42/nvim-web-devicons',
+    keys = {
+      {'<C-n>', ':NvimTreeToggle<CR>'},
+      {'<Leader>nf', ':NvimTreeFindFile<CR>'},
+      {'<Leader>r', ':NvimTreeRefresh<CR>'},
+    },
+    config = function()
+      require('nvim-tree').setup({
+        actions = {
+          open_file = {
+            quit_on_open = true,
+          }
+        }
+      })
+    end
   },
 
-  'ThePrimeagen/harpoon',
+  {
+    'ThePrimeagen/harpoon',
+    keys = {
+      { '<leader>a', ':lua require("harpoon.mark").add_file()<CR>' },
+      { '<C-e>', ':lua require("harpoon.ui").toggle_quick_menu()<CR>' },
+
+      { '<leader>j', ':lua require("harpoon.ui").nav_file(1)<CR>' },
+      { '<leader>k', ':lua require("harpoon.ui").nav_file(2)<CR>' },
+      { '<leader>l', ':lua require("harpoon.ui").nav_file(3)<CR>' },
+      { '<leader>;', ':lua require("harpoon.ui").nav_file(4)<CR>' },
+    }
+  },
   'stevearc/dressing.nvim',
   'nvim-orgmode/orgmode',
 })
