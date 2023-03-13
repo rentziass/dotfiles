@@ -29,8 +29,8 @@
   editor = nvim
   excludesfile = ~/.gitignore
   autocrlf = input
-[merge]
-  ff = only
+; [merge]
+;   ff = only
 [pull]
   ff = only
 [include]
@@ -56,3 +56,7 @@
 	required = true
 [diff "strongbox"]
 	textconv = strongbox -diff
+[branch "main"]
+	mergeOptions = ff = only
+[branch "master"]
+	mergeOptions = ff = only
