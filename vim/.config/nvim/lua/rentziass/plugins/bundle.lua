@@ -117,6 +117,9 @@ require('lazy').setup({
     'shortcuts/no-neck-pain.nvim',
     version = "*",
     cmd = 'NoNeckPain',
+    keys = {
+      {'<leader>np', '<cmd>NoNeckPain<cr>'},
+    },
     config = function ()
       require("no-neck-pain").setup({
         width = 120,

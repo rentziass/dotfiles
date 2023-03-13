@@ -43,3 +43,14 @@ exit
 
 - Start a new session, `ctrl + f` and start :shipit: (assuming you keep your
   projects in `~/dev` :trollface:)
+
+## Troubleshoot
+If treesitter keeps compiling parsers (after switching from packer to lazy)
+
+  ```
+  cd ~/.local/share/nvim
+  rm -fr *
+# check your XDG_* env vars for this
+  cd ~/.cache/nvim
+  rm -fr *
+  ```
