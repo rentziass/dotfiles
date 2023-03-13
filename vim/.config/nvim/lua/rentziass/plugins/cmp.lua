@@ -123,7 +123,7 @@ cmp.setup.cmdline(':', {
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local servers = { 'gopls', 'sumneko_lua', 'tsserver', 'yamlls', 'rust_analyzer' }
+local servers = { 'gopls', 'lua_ls', 'tsserver', 'yamlls', 'rust_analyzer' }
 for _, server in pairs(servers) do
   require('lspconfig')[server].setup {
     capabilities = capabilities

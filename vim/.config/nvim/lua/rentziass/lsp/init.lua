@@ -7,7 +7,7 @@ return function ()
     ensure_installed = {
       "gopls",
       "marksman",
-      "sumneko_lua",
+      "lua_ls",
       "tsserver",
       "yamlls",
       "dockerls",

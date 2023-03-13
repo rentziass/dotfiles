@@ -1,15 +1,21 @@
--- To install packer:
--- git clone --depth 1 https://github.com/wbthomason/packer.nvim\
---  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-
+require('lazy').setup({
   -- LSP
-  use({
+  {
     "neovim/nvim-lspconfig",
-    requires = {
+    dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "folke/trouble.nvim",
@@ -17,22 +23,29 @@ return require('packer').startup(function(use)
       "jose-elias-alvarez/null-ls.nvim",
       "onsails/lspkind-nvim",
       "tami5/lspsaga.nvim",
+      'hrsh7th/vim-vsnip',
+      'hrsh7th/vim-vsnip-integ',
     },
     config = require("rentziass.lsp"),
-  })
+  },
 
-  use 'hrsh7th/vim-vsnip' -- LSP based snippets
-  use 'hrsh7th/vim-vsnip-integ'
-  use {
+  {
     'nvim-treesitter/nvim-treesitter', -- just the best thing
-    run = ':TSUpdate'
-  }
-  use 'nvim-treesitter/nvim-treesitter-context'
-  use 'williamboman/mason.nvim'
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use 'jayp0521/mason-null-ls.nvim'
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-context',
+    },
+    build = ':TSUpdate'
+  },
 
-  use({
+  {
+    'williamboman/mason.nvim',
+    dependencies = {
+      'jose-elias-alvarez/null-ls.nvim',
+      'jayp0521/mason-null-ls.nvim',
+    }
+  },
+
+  {
     'crispgm/nvim-go',
     config = function ()
       require('go').setup({
@@ -71,17 +84,19 @@ return require('packer').startup(function(use)
         quick_type_flags = {'--just-types'},
       })
     end
-  })
+  },
 
   -- Center buffer on big screens
-  use {
-    "shortcuts/no-neck-pain.nvim",
-    tag = "*",
-  }
+  {
+    'shortcuts/no-neck-pain.nvim',
+    version = "*",
+  },
 
-  use({
-    "lewis6991/gitsigns.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
+  {
+    'lewis6991/gitsigns.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
     config = function()
       require("gitsigns").setup({
         on_attach = function(bufnr)
@@ -112,53 +127,61 @@ return require('packer').startup(function(use)
         end
       })
     end,
-  })
+  },
 
-  use {
+  {
     "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-    end
-  }
+    dependencies = "nvim-lua/plenary.nvim",
+    config = true,
+  },
 
   -- Colorschemes
-  use 'ellisonleao/gruvbox.nvim'
-  use 'folke/tokyonight.nvim'
-  use 'projekt0n/github-nvim-theme'
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[ colorscheme tokyonight ]])
+    end
+  },
+  'ellisonleao/gruvbox.nvim',
+  'projekt0n/github-nvim-theme',
 
   -- Completion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lsp-document-symbol'
-  use 'hrsh7th/cmp-vsnip'
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp-document-symbol',
+      'hrsh7th/cmp-vsnip',
+    }
+  },
 
-  use 'jiangmiao/auto-pairs'
-  use 'tpope/vim-sensible'
-  use 'myusuf3/numbers.vim'
-  use 'danishprakash/vim-githubinator'
-  use 'tpope/vim-fugitive'
-  use 'numToStr/Comment.nvim'
-  use 'tpope/vim-surround'
-  use 'AndrewRadev/splitjoin.vim'
+  'jiangmiao/auto-pairs',
+  'tpope/vim-sensible',
+  'myusuf3/numbers.vim',
+  'danishprakash/vim-githubinator',
+  'tpope/vim-fugitive',
+  'numToStr/Comment.nvim',
+  'tpope/vim-surround',
+  'AndrewRadev/splitjoin.vim',
 
-  use 'tjdevries/colorbuddy.nvim'
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use({
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      "nvim-telescope/telescope-ui-select.nvim",
+  'tjdevries/colorbuddy.nvim',
+  'nvim-lua/popup.nvim',
+  'nvim-lua/plenary.nvim',
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = {
+      'nvim-telescope/telescope-ui-select.nvim',
     },
-  })
-  use 'kyazdani42/nvim-web-devicons'
-
-  use 'towolf/vim-helm'
-
-  use 'github/copilot.vim'
+  },
+  'kyazdani42/nvim-web-devicons',
+  'towolf/vim-helm',
+  'github/copilot.vim',
   -- use {
   --   'zbirenbaum/copilot.lua',
   --   requires = {{"github/copilot.vim"}},
@@ -174,14 +197,12 @@ return require('packer').startup(function(use)
   --   requires = {{'zbirenbaum/copilot.lua'}}
   -- }
 
-  use {
+  {
     'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-  }
+    dependencies = 'kyazdani42/nvim-web-devicons',
+  },
 
-  use 'ThePrimeagen/harpoon'
-
-  use 'stevearc/dressing.nvim'
-
-  use 'nvim-orgmode/orgmode'
-end)
+  'ThePrimeagen/harpoon',
+  'stevearc/dressing.nvim',
+  'nvim-orgmode/orgmode',
+})
