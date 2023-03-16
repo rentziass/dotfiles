@@ -20,3 +20,5 @@ else
 end
 
 vim.keymap.set("n", "<leader>z", require("lazy").home)
+
+require('rentziass.lsp')()

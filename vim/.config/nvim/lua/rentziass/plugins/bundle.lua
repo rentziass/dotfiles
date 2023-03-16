@@ -15,6 +15,7 @@ require('lazy').setup({
   -- LSP
   {
     "neovim/nvim-lspconfig",
+    event = 'BufReadPre',
     dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
       "onsails/lspkind-nvim",
@@ -22,7 +23,8 @@ require('lazy').setup({
       'hrsh7th/vim-vsnip',
       'hrsh7th/vim-vsnip-integ',
     },
-    config = require("rentziass.lsp"),
+    -- Lazy caching is sabotaging using this as config
+    -- config = require("rentziass.lsp"),
   },
 
 
@@ -181,11 +183,12 @@ require('lazy').setup({
     end,
   },
   {
-    'ellisonleao/gruvbox.nvim',
-    lazy = true,
+    'projekt0n/github-nvim-theme',
+    lazy = false,
+    priority = 1000,
   },
   {
-    'projekt0n/github-nvim-theme',
+    'ellisonleao/gruvbox.nvim',
     lazy = true,
   },
 
