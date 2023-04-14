@@ -389,6 +389,11 @@ require('lazy').setup({
       end)
 
       telescope.setup({
+        defaults = {
+          preview = {
+            treesitter = false,
+          },
+        },
         pickers = {
           find_files = {
             find_command = {
