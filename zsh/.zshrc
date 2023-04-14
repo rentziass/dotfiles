@@ -44,13 +44,8 @@ done
 bindkey -s "^F" "tmux-sessionizer\n"
 bindkey -s "^T" "dotfiles\n"
 
-export PATH=$PATH":$HOME/bin"
-
 # GOLANG
-export PATH=$PATH:/usr/local/opt/go/libexec/bin # 1.11
 export GOPATH=~/go
-export PATH=$PATH":$GOPATH/bin"
-export PATH=~/.local/bin:$PATH
 
 # Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
@@ -63,11 +58,6 @@ bindkey "^[f" forward-word
 bindkey "^[b" backward-word
 
 alias watch='watch '
-
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
-export PATH="$HOME/.dotnet/tools:$PATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

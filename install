@@ -18,8 +18,8 @@ if [ -f "/etc/debian_version" ]; then
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
   ./nvim.appimage --appimage-extract
-  mv ./squashfs-root/usr/bin/nvim ~/bin/nvim
-  rm -rf ./squashfs nvim.appimage
+  ln -s "$(pwd)/squashfs-root/usr/bin/nvim" ~/bin/nvim
+  rm -f nvim.appimage
 
   wget https://github.com/BlakeWilliams/remote-development-manager/releases/latest/download/rdm-linux-amd64
   mv rdm-linux-amd64 ~/bin/rdm

@@ -1,10 +1,3 @@
-#
-# Executes commands at login post-zshrc.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Execute code that does not affect the current session in the background.
 {
   # Compile the completion dump to increase startup speed.
@@ -25,3 +18,13 @@ if (( $+commands[fortune] )); then
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# PATH
+export PATH=$PATH":$HOME/bin"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin # 1.11
+export PATH=$PATH":$GOPATH/bin"
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH"/usr/local/opt/python/libexec/bin"
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
