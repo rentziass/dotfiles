@@ -15,8 +15,11 @@ if [ -f "/etc/debian_version" ]; then
     ripgrep \
     kitty-terminfo
 
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
-  sudo apt install -y ./nvim-linux64.deb
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  chmod u+x nvim.appimage
+  ./nvim.appimage --appimage-extract
+  mv ./squashfs/root/usr/bin/nvim ~/bin/nvim
+  rm -rf ./squashfs nvim.appimage
 
   wget https://github.com/BlakeWilliams/remote-development-manager/releases/latest/download/rdm-linux-amd64
   mv rdm-linux-amd64 ~/bin/rdm

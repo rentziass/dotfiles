@@ -87,5 +87,13 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH":$GOPATH/bin"
 export PATH=~/.local/bin:$PATH
 export PATH="$HOME/.fastlane/bin:$PATH"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Eval linuxbrew if installed
+if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+# Eval homebrew if installed
+if [[ -d "/opt/homebrew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
