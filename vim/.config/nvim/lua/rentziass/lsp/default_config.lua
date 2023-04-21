@@ -20,7 +20,6 @@ local function on_attach(client, bufnr)
 
   h.nnoremap("gI", builtin.lsp_implementations)
   h.nnoremap("<Leader>ca", vim.lsp.buf.code_action)
-  h.xnoremap("<Leader>ca", vim.lsp.buf.range_code_action)
 
   h.nnoremap("<Leader>D", builtin.diagnostics)
   h.nnoremap("<Leader>d", function()
