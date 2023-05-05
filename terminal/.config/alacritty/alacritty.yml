@@ -23,7 +23,7 @@ fonts:
       y: 5
     normal:
       family: JetBrainsMono Nerd Font Mono
-    size: 12
+    size: 15
 
 
 schemes:
