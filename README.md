@@ -1,4 +1,5 @@
-![dotfiles](https://media.giphy.com/media/K6nPw4pe3r6Bq/giphy.gif)
+![_34c59d00-10fc-41c6-9766-80081b4e6fce-removebg-preview](https://github.com/rentziass/dotfiles/assets/6207785/8d17769f-69be-492a-b0bb-c2a4caca4cc7)
+
 
 # dotfiles
 
