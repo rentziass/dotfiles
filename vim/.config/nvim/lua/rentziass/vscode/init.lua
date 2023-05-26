@@ -36,6 +36,7 @@ keymap('n', '<Leader>nf', notify 'workbench.files.action.showActiveFileInExplore
 
 keymap('n', '<Leader>th', notify 'workbench.action.toggleAuxiliaryBar', { silent = true }) -- toggle docview (help page)
 keymap('n', '<C-w>o', notify 'workbench.action.closeOtherEditors', { silent = true }) -- close everything but current "split"
+keymap('n', '<C-v>', notify 'workbench.action.openViewToSide', { silent = true }) -- open in new side split
 
 -- Splits navigation
 keymap('n', '<C-j>', '<C-w>j', { silent = true })
