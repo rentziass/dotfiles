@@ -35,3 +35,4 @@ keymap('n', '<C-n>', notify 'workbench.action.toggleSidebarVisibility', { silent
 keymap('n', '<Leader>nf', notify 'workbench.files.action.showActiveFileInExplorer', { silent = true })
 
 keymap('n', '<Leader>th', notify 'workbench.action.toggleAuxiliaryBar', { silent = true }) -- toggle docview (help page)
+keymap('n', '<C-w>o', notify 'workbench.action.closeOtherEditors .', { silent = true }) -- close everything but current "split"
