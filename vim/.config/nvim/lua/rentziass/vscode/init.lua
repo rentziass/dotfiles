@@ -27,7 +27,7 @@ keymap('v', '<Leader>ca', v_notify 'editor.action.refactor', { silent = true })
 keymap('n', '<Leader>f', notify 'workbench.action.quickOpen', { silent = true }) -- find files
 keymap('n', '<Leader>g', notify 'workbench.action.findInFiles', { silent = true }) -- search in files
 keymap('n', '<Leader>o', notify 'workbench.action.gotoSymbol', { silent = true }) -- search symbols in file
-keymap('v', '<Leader>p', v_notify 'workbench.action.showCommands', { silent = true })
+keymap('n', '<Leader>p', v_notify 'workbench.action.showCommands', { silent = true })
 
 -- VSCode view management
 -- Nvim tree equivalents
@@ -35,8 +35,7 @@ keymap('n', '<C-n>', notify 'workbench.action.toggleSidebarVisibility', { silent
 keymap('n', '<Leader>nf', notify 'workbench.files.action.showActiveFileInExplorer', { silent = true })
 
 keymap('n', '<Leader>th', notify 'workbench.action.toggleAuxiliaryBar', { silent = true }) -- toggle docview (help page)
-keymap('n', '<C-w>o', notify 'workbench.action.closeOtherEditors', { silent = true }) -- close everything but current "split"
-keymap('n', '<C-v>', notify 'workbench.action.openViewToSide', { silent = true }) -- open in new side split
+keymap('n', '<C-w>o', notify 'workbench.action.closeEditorsInOtherGroups', { silent = true }) -- close everything but current "split"
 
 -- Splits navigation
 keymap('n', '<C-j>', '<C-w>j', { silent = true })
