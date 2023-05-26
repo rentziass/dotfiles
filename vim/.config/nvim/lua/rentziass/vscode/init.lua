@@ -38,7 +38,7 @@ keymap('n', '<Leader>th', notify 'workbench.action.toggleAuxiliaryBar', { silent
 keymap('n', '<C-w>o', notify 'workbench.action.closeOtherEditors', { silent = true }) -- close everything but current "split"
 
 -- Splits navigation
-keymap('n', '<C-j>', '<C-w><C-j>', { silent = true })
-keymap('n', '<C-k>', '<C-w><C-k>', { silent = true })
-keymap('n', '<C-l>', '<C-w><C-l>', { silent = true })
-keymap('n', '<C-h>', '<C-w><C-h>', { silent = true })
+keymap('n', '<C-j>', '<C-w>j', { silent = true })
+keymap('n', '<C-k>', '<C-w>k', { silent = true })
+keymap('n', '<C-l>', '<C-w>l', { silent = true })
+keymap('n', '<C-h>', '<C-w>h', { silent = true })
