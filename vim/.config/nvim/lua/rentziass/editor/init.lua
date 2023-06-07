@@ -18,7 +18,7 @@ vim.o.termguicolors = true
 vim.o.autowrite = true
 
 -- Conceal
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 vim.opt.concealcursor = 'nc'
 
 -- Whitespace
