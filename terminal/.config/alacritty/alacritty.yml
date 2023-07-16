@@ -23,6 +23,13 @@ fonts:
       y: 5
     normal:
       family: JetBrainsMono Nerd Font Mono
+    size: 15
+
+  monaco: &monaco
+    # offset:
+    #   y: 5
+    normal:
+      family: Monaco
     size: 14
 
 
@@ -59,5 +66,5 @@ schemes:
       - { index: 16, color: '0xd18616' }
       - { index: 17, color: '0xff938a' }
 
-#colors: *github_dimmed
+# colors: *github_dimmed
 font: *jetbrains_mono
