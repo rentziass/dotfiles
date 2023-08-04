@@ -340,7 +340,11 @@ require('lazy').setup({
     end
   },
 
-  'jiangmiao/auto-pairs',
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {},
+  },
   'myusuf3/numbers.vim',
   'danishprakash/vim-githubinator',
   {
@@ -458,6 +462,9 @@ telescope.load_extension("ui-select")
     },
     config = function()
       require('nvim-tree').setup({
+        view = {
+          adaptive_size = true,
+        },
         actions = {
           open_file = {
             quit_on_open = true,
