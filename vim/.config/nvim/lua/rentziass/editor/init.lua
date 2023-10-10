@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Automatically wrap at 80 characters for Markdown
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
   pattern = { "*.md" },
   callback = function()
     vim.opt_local.textwidth = 80
