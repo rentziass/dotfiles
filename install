@@ -38,6 +38,14 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 
 rm -f ~/.zshrc ~/.gitconfig # remove any default .zshrc so that stow won't fail
 
+# if ~/.zprofile already exists then append its contents to zsh/.zprofile
+if [ -f ~/.zprofile ]; then
+  echo "" >> zsh/.zprofile
+  echo "# Appended from pre-existing ~/.zprofile" >> zsh/.zprofile
+  cat ~/.zprofile >> zsh/.zprofile
+  rm -f ~/.zprofile
+fi
+
 stow bin git terminal tmux vim zsh -t $HOME
 
 ## NEOVIM setup
