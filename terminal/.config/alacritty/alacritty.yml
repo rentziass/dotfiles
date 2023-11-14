@@ -35,7 +35,6 @@ fonts:
   gh_argon: &gh_argon
     offset:
       y: 4
-      x: 1
     normal:
       family: Monaspace Argon Var
       style: Light
