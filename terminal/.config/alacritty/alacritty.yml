@@ -34,10 +34,17 @@ fonts:
 
   gh_argon: &gh_argon
     offset:
-      y: 5
+      y: 3
     normal:
       family: Monaspace Argon Var
-    size: 15
+      style: Regular
+    bold:
+      family: Monaspace Argon Var
+      style: Bold
+    italic:
+      family: Monaspace Argon Var
+      style: Regular
+    size: 16
 
   gh_neon: &gh_neon
     offset:
@@ -88,4 +95,4 @@ schemes:
       - { index: 17, color: '0xff938a' }
 
 # colors: *github_dimmed
-font: *gh_neon
+font: *gh_argon
