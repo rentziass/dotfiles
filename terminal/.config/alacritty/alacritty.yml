@@ -41,10 +41,10 @@ fonts:
       style: Light
     bold:
       family: Monaspace Argon Var
-      style: Bold
+      style: Medium
     italic:
       family: Monaspace Argon Var
-      style: Bold
+      style: SemiBold
     size: 16
 
   gh_neon: &gh_neon
