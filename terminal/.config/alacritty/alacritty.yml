@@ -32,6 +32,27 @@ fonts:
       family: Monaco
     size: 14
 
+  gh_argon: &gh_argon
+    offset:
+      y: 5
+    normal:
+      family: Monaspace Argon Var
+    size: 15
+
+  gh_neon: &gh_neon
+    offset:
+      y: 3
+    normal:
+      family: Monaspace Neon Var
+      style: Regular
+    bold:
+      family: Monaspace Neon Var
+      style: Bold
+    italic:
+      family: Monaspace Neon Var
+      style: Regular
+    size: 16
+
 
 schemes:
   github_dimmed: &github_dimmed
@@ -67,4 +88,4 @@ schemes:
       - { index: 17, color: '0xff938a' }
 
 # colors: *github_dimmed
-font: *jetbrains_mono
+font: *gh_neon
