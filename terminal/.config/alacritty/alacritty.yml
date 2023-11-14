@@ -34,16 +34,17 @@ fonts:
 
   gh_argon: &gh_argon
     offset:
-      y: 3
+      y: 4
+      x: 1
     normal:
       family: Monaspace Argon Var
-      style: Regular
+      style: Light
     bold:
       family: Monaspace Argon Var
       style: Bold
     italic:
       family: Monaspace Argon Var
-      style: Regular
+      style: Bold
     size: 16
 
   gh_neon: &gh_neon
