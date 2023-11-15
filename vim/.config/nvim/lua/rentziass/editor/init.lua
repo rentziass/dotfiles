@@ -4,8 +4,6 @@ require('rentziass.editor.formatting')
 require('rentziass.editor.golang')
 require('rentziass.editor.csharp')
 
-vim.cmd('colorscheme tokyonight-night')
-
 -- Mappings
 NMap('<C-s>', ':source $MYVIMRC<CR>') -- Reload configuration
 NMap('<Leader>s', ':update<CR>') -- save file

@@ -43,7 +43,7 @@ fonts:
       style: Medium
     italic:
       family: Monaspace Argon Var
-      style: SemiBold
+      style: Regular
     size: 16
 
   gh_neon: &gh_neon
