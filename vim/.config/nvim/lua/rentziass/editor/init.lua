@@ -77,3 +77,13 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
   end,
   group = editor_group,
 })
+
+-- zmk keymap files
+vim.filetype.add({ extension = { keymap = "devicetree" } })
+-- disable line wrappping
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = {'*.keymap'},
+  group = group,
+  command = 'setlocal nowrap'
+})
+

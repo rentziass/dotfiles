@@ -49,6 +49,7 @@ require('lazy').setup({
           "hcl", -- Hashicorp language (used by Terraform)
           "org", -- Orgmode
           "markdown",
+          "devicetree",
         },
         highlight = {
           enable = true, -- false will disable the whole extension
@@ -525,4 +526,23 @@ telescope.load_extension("ui-select")
       })
     end,
   },
+
+  {
+    'codethread/qmk.nvim',
+    config = function()
+      require('qmk').setup({
+        name = 'Glove80',
+        layout = {
+          'x x x x x _ _ _ _ _ _ _ _ x x x x x',
+          'x x x x x x _ _ _ _ _ _ x x x x x x',
+          'x x x x x x _ _ _ _ _ _ x x x x x x',
+          'x x x x x x _ _ _ _ _ _ x x x x x x',
+          'x x x x x x _ _ _ _ _ _ x x x x x x',
+          'x x x x x _ _ _ _ _ _ _ _ x x x x x',
+          '_ _ _ _ _ x x x _ x x x _ _ _ _ _ _',
+          '_ _ _ _ _ x x x _ x x x _ _ _ _ _ _',
+        }
+      })
+    end,
+  }
 })
