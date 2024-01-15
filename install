@@ -38,9 +38,20 @@ fi
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 ## Install prezto
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+# if prezto folder does not exist then clone it
+if [ ! -d ~/.zprezto ]; then
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+fi
 
-rm -f ~/.zshrc ~/.gitconfig # remove any default .zshrc so that stow won't fail
+rm -f ~/.gitconfig # remove any default .zshrc so that stow won't fail
+
+# if ~/.zshrc already exists then append its contents to zsh/.zshrc
+if [ -f ~/.zshrc ]; then
+  echo "" >> zsh/.zshrc
+  echo "# Appended from pre-existing ~/.zshrc" >> zsh/.zshrc
+  cat ~/.zshrc >> zsh/.zshrc
+  rm -f ~/.zshrc
+fi
 
 # if ~/.zprofile already exists then append its contents to zsh/.zprofile
 if [ -f ~/.zprofile ]; then
