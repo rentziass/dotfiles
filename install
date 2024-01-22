@@ -61,12 +61,7 @@ if [ -f ~/.zprofile ]; then
   rm -f ~/.zprofile
 fi
 
-stow bin git terminal tmux vim -t $HOME
-
-# if CODESPACES is not set then install zsh config
-if [ -z "${CODESPACES}" ]; then
-  stow zsh -t $HOME
-fi
+stow bin git terminal tmux vim zsh -t $HOME
 
 ## NEOVIM setup
 nvim --headless "+Lazy! sync" +qa
