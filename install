@@ -47,9 +47,9 @@ rm -f ~/.gitconfig # remove any default .zshrc so that stow won't fail
 
 # if ~/.zshrc already exists then append its contents to zsh/.zshrc
 if [ -f ~/.zshrc ]; then
-  echo "" >> zsh/.zshrc
-  echo "# Appended from pre-existing ~/.zshrc" >> zsh/.zshrc
-  cat ~/.zshrc >> zsh/.zshrc
+  # echo "" >> zsh/.zshrc
+  # echo "# Appended from pre-existing ~/.zshrc" >> zsh/.zshrc
+  # cat ~/.zshrc >> zsh/.zshrc
   rm -f ~/.zshrc
 fi
 
