@@ -7,6 +7,7 @@ require('rentziass.editor.csharp')
 -- Mappings
 NMap('<C-s>', ':source $MYVIMRC<CR>') -- Reload configuration
 NMap('<Leader>s', ':update<CR>') -- save file
+NMap('<Leader>x', ':wq<CR>') -- save and close file
 NMap('<Leader>q', ':qall<CR>') -- close all files (and vim)
 NMap('<Leader><esc>', ':noh<CR>') -- remove search highlighting
 
