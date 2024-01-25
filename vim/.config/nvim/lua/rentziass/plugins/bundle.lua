@@ -372,7 +372,7 @@ require('lazy').setup({
 
   {
     'Wansmer/treesj',
-    keys = { '<space>m' },
+    keys = { '<space>m', '<F9>', '<F10>' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('treesj').setup({--[[ your config ]]})
