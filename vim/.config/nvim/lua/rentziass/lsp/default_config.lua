@@ -12,7 +12,7 @@ local function on_attach(client, bufnr)
 
   -- Using Telescope
   h.nnoremap("<Leader>o", function ()
-    builtin.lsp_document_symbols({ sort_lastused = true })
+    builtin.lsp_document_symbols({ sort_lastused = true, layout_config = { width = 0.8 }, symbol_width = 50 })
   end)
   h.nnoremap("gr", function ()
     builtin.lsp_references({include_current_line = true})
