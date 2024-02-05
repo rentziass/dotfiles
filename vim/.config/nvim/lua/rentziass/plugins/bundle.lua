@@ -507,32 +507,32 @@ telescope.load_extension("ui-select")
 
   'stevearc/dressing.nvim',
 
-  {
-    'nvim-orgmode/orgmode',
-    config = function()
-      local orgmode = require('orgmode')
-      local default_refile = '~/Dropbox/org/refile.org'
-
-      orgmode.setup_ts_grammar()
-      orgmode.setup({
-        org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
-        org_default_notes_file = default_refile,
-        org_agenda_templates = {
-          t = {
-            description = 'TODO',
-            template = '* TODO %?\n  DEADLINE: %t\n  %u',
-            target = default_refile,
-          },
-          b = {
-            description = 'GitHub Backlog',
-            template = '** TODO %?\n   DEADLINE: %t\n   %u',
-            target = default_refile,
-            headline= 'GitHub Backlog',
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   'nvim-orgmode/orgmode',
+  --   config = function()
+  --     local orgmode = require('orgmode')
+  --     local default_refile = '~/Dropbox/org/refile.org'
+  --
+  --     orgmode.setup_ts_grammar()
+  --     orgmode.setup({
+  --       org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
+  --       org_default_notes_file = default_refile,
+  --       org_agenda_templates = {
+  --         t = {
+  --           description = 'TODO',
+  --           template = '* TODO %?\n  DEADLINE: %t\n  %u',
+  --           target = default_refile,
+  --         },
+  --         b = {
+  --           description = 'GitHub Backlog',
+  --           template = '** TODO %?\n   DEADLINE: %t\n   %u',
+  --           target = default_refile,
+  --           headline= 'GitHub Backlog',
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 
   {
     'codethread/qmk.nvim',
