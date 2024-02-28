@@ -50,6 +50,7 @@ require('lazy').setup({
           "org", -- Orgmode
           "markdown",
           "devicetree",
+          "ruby",
         },
         highlight = {
           enable = true, -- false will disable the whole extension
