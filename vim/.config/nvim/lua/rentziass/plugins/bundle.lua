@@ -472,28 +472,6 @@ telescope.load_extension("ui-select")
   -- }
 
   {
-    'kyazdani42/nvim-tree.lua',
-    dependencies = 'kyazdani42/nvim-web-devicons',
-    keys = {
-      {'<C-n>', ':NvimTreeToggle<CR>'},
-      {'<Leader>nf', ':NvimTreeFindFile<CR>'},
-      {'<Leader>r', ':NvimTreeRefresh<CR>'},
-    },
-    config = function()
-      require('nvim-tree').setup({
-        view = {
-          adaptive_size = true,
-        },
-        actions = {
-          open_file = {
-            quit_on_open = true,
-          }
-        }
-      })
-    end
-  },
-
-  {
     'ThePrimeagen/harpoon',
     keys = {
       { '<leader>a', ':lua require("harpoon.mark").add_file()<CR>' },
@@ -506,51 +484,36 @@ telescope.load_extension("ui-select")
     }
   },
 
-  'stevearc/dressing.nvim',
+  { 'stevearc/dressing.nvim' },
 
-  -- {
-  --   'nvim-orgmode/orgmode',
-  --   config = function()
-  --     local orgmode = require('orgmode')
-  --     local default_refile = '~/Dropbox/org/refile.org'
-  --
-  --     orgmode.setup_ts_grammar()
-  --     orgmode.setup({
-  --       org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
-  --       org_default_notes_file = default_refile,
-  --       org_agenda_templates = {
-  --         t = {
-  --           description = 'TODO',
-  --           template = '* TODO %?\n  DEADLINE: %t\n  %u',
-  --           target = default_refile,
-  --         },
-  --         b = {
-  --           description = 'GitHub Backlog',
-  --           template = '** TODO %?\n   DEADLINE: %t\n   %u',
-  --           target = default_refile,
-  --           headline= 'GitHub Backlog',
-  --         },
-  --       },
-  --     })
-  --   end,
-  -- },
+  { "tjdevries/standard.vim", lazy = false, priority = 100 },
+  { "tjdevries/conf.vim", lazy = false, priority = 90 },
 
   {
-    'codethread/qmk.nvim',
+    "tjdevries/edit_alternate.vim",
     config = function()
-      require('qmk').setup({
-        name = 'Glove80',
-        layout = {
-          'x x x x x _ _ _ _ _ _ _ _ x x x x x',
-          'x x x x x x _ _ _ _ _ _ x x x x x x',
-          'x x x x x x _ _ _ _ _ _ x x x x x x',
-          'x x x x x x _ _ _ _ _ _ x x x x x x',
-          'x x x x x x _ _ _ _ _ _ x x x x x x',
-          'x x x x x _ _ _ _ _ _ _ _ x x x x x',
-          '_ _ _ _ _ x x x _ x x x _ _ _ _ _ _',
-          '_ _ _ _ _ x x x _ x x x _ _ _ _ _ _',
-        }
-      })
+      -- Add special alternates for golang
+      -- Finds the alternate test
+      vim.fn["edit_alternate#rule#add"]("go", function(filename)
+        if filename:find "_test.go" then
+          return (filename:gsub("_test%.go", ".go"))
+        else
+          return (filename:gsub("%.go", "_test.go"))
+        end
+      end)
+
+      vim.api.nvim_set_keymap("n", "<leader>ea", "<cmd>EditAlternate<CR>", { silent = true })
     end,
-  }
+    priority = 80,
+  },
+
+  -- lir
+  "tamago324/lir.nvim",
+  "tamago324/lir-git-status.nvim",
+  {
+    "tamago324/lir-mmv.nvim",
+    cond = function()
+      return vim.fn.executable "mmv" == 1
+    end,
+  },
 })

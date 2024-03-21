@@ -2,15 +2,15 @@
 size = 16
 
 [font.bold]
-family = "Monaspace Argon Var"
+family = "MonaspiceAr Nerd Font"
 style = "Medium"
 
 [font.italic]
-family = "Monaspace Argon Var"
+family = "MonaspiceAr Nerd Font"
 style = "Regular"
 
 [font.normal]
-family = "Monaspace Argon Var"
+family = "MonaspiceAr Nerd Font"
 style = "Light"
 
 [font.offset]
