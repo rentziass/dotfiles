@@ -503,4 +503,16 @@ telescope.load_extension("ui-select")
       return vim.fn.executable "mmv" == 1
     end,
   },
+
+  { "tjdevries/express_line.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+  {
+  "j-hui/fidget.nvim",
+  opts = {
+    -- options
+  },
+}
 })
