@@ -51,6 +51,7 @@ require('lazy').setup({
           "markdown",
           "devicetree",
           "ruby",
+          "vimdoc"
         },
         highlight = {
           enable = true, -- false will disable the whole extension
@@ -456,20 +457,6 @@ telescope.load_extension("ui-select")
     ft = 'yaml',
   },
   'github/copilot.vim',
-  -- use {
-  --   'zbirenbaum/copilot.lua',
-  --   requires = {{"github/copilot.vim"}},
-  --   event = {"VimEnter"},
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require("copilot").setup()
-  --     end, 100)
-  --   end
-  -- }
-  -- use {
-  --   'zbirenbaum/copilot-cmp',
-  --   requires = {{'zbirenbaum/copilot.lua'}}
-  -- }
 
   {
     'ThePrimeagen/harpoon',
