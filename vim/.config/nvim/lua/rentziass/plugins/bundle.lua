@@ -359,7 +359,31 @@ require('lazy').setup({
     opts = {},
   },
   'myusuf3/numbers.vim',
-  'danishprakash/vim-githubinator',
+  {
+    'linrongbin16/gitlinker.nvim',
+    config = function()
+      require('gitlinker').setup()
+      -- browse
+      vim.keymap.set(
+        {"n", 'v'},
+        "ghc",
+        "<cmd>GitLink<cr>",
+        { silent = true, noremap = true, desc = "Yank git permalink" }
+      )
+      vim.keymap.set(
+        {"n", 'v'},
+        "gho",
+        "<cmd>GitLink!<cr>",
+        { silent = true, noremap = true, desc = "Open git permalink" }
+      )
+      vim.keymap.set(
+        {"n", 'v'},
+        "ghb",
+        "<cmd>GitLink blame<cr>",
+        { silent = true, noremap = true, desc = "Yank git blame link" }
+      )
+    end
+  },
   {
     'tpope/vim-fugitive',
     -- load on :G
