@@ -534,9 +534,24 @@ telescope.load_extension("ui-select")
     },
   },
   {
-  "j-hui/fidget.nvim",
-  opts = {
-    -- options
+    "j-hui/fidget.nvim",
+    opts = {
+      -- options
+  },
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("octo").setup({
+        use_local_fs = false,
+      })
+
+      vim.treesitter.language.register('markdown', 'octo')
+    end
   },
 }
 })
