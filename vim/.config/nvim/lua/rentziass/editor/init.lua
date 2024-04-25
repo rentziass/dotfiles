@@ -1,6 +1,7 @@
 require('rentziass.utils')
 require('rentziass.editor.clipboard')
 require('rentziass.editor.formatting')
+require('rentziass.editor.colors')
 require('rentziass.editor.golang')
 require('rentziass.editor.csharp')
 

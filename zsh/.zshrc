@@ -75,3 +75,5 @@ eval "$(github-copilot-cli alias -- "$0")"
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof
 fi
+
+export TERM=alacritty

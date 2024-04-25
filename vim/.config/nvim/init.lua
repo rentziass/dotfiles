@@ -22,4 +22,3 @@ else
 
   vim.keymap.set("n", "<leader>z", require("lazy").home)
 end
-
