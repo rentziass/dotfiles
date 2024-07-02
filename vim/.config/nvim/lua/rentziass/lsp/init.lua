@@ -11,6 +11,7 @@ return function ()
       "tsserver",
       "yamlls",
       "dockerls",
+      "zls",
     },
   })
 
@@ -41,6 +42,7 @@ return function ()
   require('rentziass.lsp.rust')
   require('rentziass.lsp.typescript')
   require('rentziass.lsp.yaml')
+  require('rentziass.lsp.zig')
 
   -- WIP
   -- require('rentziass.lsp.protobuf')

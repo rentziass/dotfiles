@@ -47,7 +47,12 @@ defaults:
         hidden: true
   refetchIntervalMinutes: 5
 keybindings:
-  issues: []
+  issues:
+    - key: C
+      command: >
+        tmux new-window '
+        nvim -c ":silent Octo issue edit {{.RepoName}} {{.IssueNumber}}"
+        '
   prs:
     - key: C
       command: >
@@ -56,6 +61,7 @@ keybindings:
         '
 repoPaths:
   "github/*": ~/dev/*
+  "rentziass/*": ~/dev/*
 
 theme:
   ui:

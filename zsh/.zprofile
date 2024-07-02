@@ -80,6 +80,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH":$GOPATH/bin"
 export PATH=~/.local/bin:$PATH
 export PATH="$HOME/.fastlane/bin:$PATH"
+export PATH="$HOME/bin/zig:$PATH"
 
 # Eval linuxbrew if installed
 if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then

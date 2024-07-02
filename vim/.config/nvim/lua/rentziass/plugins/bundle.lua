@@ -51,7 +51,8 @@ require('lazy').setup({
           "markdown",
           "devicetree",
           "ruby",
-          "vimdoc"
+          "vimdoc",
+          "zig",
         },
         highlight = {
           enable = true, -- false will disable the whole extension
@@ -518,16 +519,6 @@ telescope.load_extension("ui-select")
     priority = 80,
   },
 
-  -- lir
-  "tamago324/lir.nvim",
-  "tamago324/lir-git-status.nvim",
-  {
-    "tamago324/lir-mmv.nvim",
-    cond = function()
-      return vim.fn.executable "mmv" == 1
-    end,
-  },
-
   { "tjdevries/express_line.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -553,5 +544,29 @@ telescope.load_extension("ui-select")
       vim.treesitter.language.register('markdown', 'octo')
     end
   },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("oil").setup {
+        columns = { "icon" },
+        keymaps = {
+          ["<C-h>"] = false,
+          ["<M-h>"] = "actions.select_split",
+        },
+        view_options = {
+          show_hidden = true,
+        },
+      }
+
+      -- Open parent directory in current window
+      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+      -- Open parent directory in floating window
+      vim.keymap.set("n", "<space>-", require("oil").toggle_float)
+    end,
+  }
 }
 })
