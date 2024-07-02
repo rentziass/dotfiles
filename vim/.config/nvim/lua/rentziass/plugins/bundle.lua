@@ -485,15 +485,29 @@ telescope.load_extension("ui-select")
 
   {
     'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
     keys = {
-      { '<leader>a', ':lua require("harpoon.mark").add_file()<CR>' },
-      { '<C-e>', ':lua require("harpoon.ui").toggle_quick_menu()<CR>' },
+      { '<leader>a' },
+      { '<C-e>' },
 
-      { '<leader>j', ':lua require("harpoon.ui").nav_file(1)<CR>' },
-      { '<leader>k', ':lua require("harpoon.ui").nav_file(2)<CR>' },
-      { '<leader>l', ':lua require("harpoon.ui").nav_file(3)<CR>' },
-      { '<leader>;', ':lua require("harpoon.ui").nav_file(4)<CR>' },
-    }
+      { '<leader>j' },
+      { '<leader>k' },
+      { '<leader>l' },
+      { '<leader>;' },
+    },
+    config = function()
+      local harpoon = require("harpoon")
+
+      harpoon:setup()
+
+      vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+      vim.keymap.set("n", "<leader>j", function() harpoon:list():select(1) end)
+      vim.keymap.set("n", "<leader>k", function() harpoon:list():select(2) end)
+      vim.keymap.set("n", "<leader>l", function() harpoon:list():select(3) end)
+      vim.keymap.set("n", "<leader>;", function() harpoon:list():select(4) end)
+    end
   },
 
   { 'stevearc/dressing.nvim' },
