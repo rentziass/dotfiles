@@ -485,7 +485,6 @@ telescope.load_extension("ui-select")
 
   {
     'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
     keys = {
       { '<leader>a' },
       { '<C-e>' },
@@ -496,17 +495,13 @@ telescope.load_extension("ui-select")
       { '<leader>;' },
     },
     config = function()
-      local harpoon = require("harpoon")
+      vim.keymap.set("n", "<leader>a", function() require("harpoon.mark").add_file() end)
+      vim.keymap.set("n", "<C-e>", function() require("harpoon.ui").toggle_quick_menu() end)
 
-      harpoon:setup()
-
-      vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
-      vim.keymap.set("n", "<leader>j", function() harpoon:list():select(1) end)
-      vim.keymap.set("n", "<leader>k", function() harpoon:list():select(2) end)
-      vim.keymap.set("n", "<leader>l", function() harpoon:list():select(3) end)
-      vim.keymap.set("n", "<leader>;", function() harpoon:list():select(4) end)
+      vim.keymap.set("n", "<leader>j", function() require("harpoon.ui").nav_file(1) end)
+      vim.keymap.set("n", "<leader>k", function() require("harpoon.ui").nav_file(2) end)
+      vim.keymap.set("n", "<leader>l", function() require("harpoon.ui").nav_file(3) end)
+      vim.keymap.set("n", "<leader>;", function() require("harpoon.ui").nav_file(4) end)
     end
   },
 
@@ -581,6 +576,59 @@ telescope.load_extension("ui-select")
       -- Open parent directory in floating window
       vim.keymap.set("n", "<space>-", require("oil").toggle_float)
     end,
-  }
+  },
+
+
+  -- DAP
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "leoluz/nvim-dap-go",
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-neotest/nvim-nio",
+      "williamboman/mason.nvim",
+    },
+    config = function()
+      local dap = require "dap"
+      local ui = require "dapui"
+
+      require("dapui").setup()
+      require("dap-go").setup()
+
+      require("nvim-dap-virtual-text").setup { }
+
+
+      vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
+      vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
+
+      -- Eval var under cursor
+      vim.keymap.set("n", "<space>?", function()
+        require("dapui").eval(nil, { enter = true })
+      end)
+
+      vim.keymap.set("n", "<F10>", require("dapui").toggle)
+
+      vim.keymap.set("n", "<F1>", dap.continue)
+      vim.keymap.set("n", "<F2>", dap.step_into)
+      vim.keymap.set("n", "<F3>", dap.step_over)
+      vim.keymap.set("n", "<F4>", dap.step_out)
+      vim.keymap.set("n", "<F5>", dap.step_back)
+      vim.keymap.set("n", "<F13>", dap.restart)
+
+      dap.listeners.before.attach.dapui_config = function()
+        ui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        ui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        ui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        ui.close()
+      end
+    end,
+  },
 }
 })

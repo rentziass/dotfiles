@@ -46,6 +46,9 @@ vim.o.undofile = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 
+-- Stay afloat from bottom of screen
+vim.o.scrolloff = 15
+
 -- Splits navigation
 NMap('<C-j>', '<C-w><C-j>')
 NMap('<C-k>', '<C-w><C-k>')

@@ -77,3 +77,5 @@ if [ -n "${ZSH_DEBUGRC+1}" ]; then
 fi
 
 export TERM=alacritty
+
+export PATH=$PATH:/Users/rentziass/.spicetify
