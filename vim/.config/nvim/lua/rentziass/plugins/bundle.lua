@@ -345,7 +345,7 @@ require('lazy').setup({
         })
 
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
-        local servers = { 'gopls', 'lua_ls', 'tsserver', 'yamlls', 'rust_analyzer' }
+        local servers = { 'gopls', 'lua_ls', 'ts_ls', 'yamlls', 'rust_analyzer' }
         for _, server in pairs(servers) do
           require('lspconfig')[server].setup {
             capabilities = capabilities

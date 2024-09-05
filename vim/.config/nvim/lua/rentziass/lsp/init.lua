@@ -8,7 +8,7 @@ return function ()
       "gopls",
       "marksman",
       "lua_ls",
-      "tsserver",
+      "ts_ls",
       "yamlls",
       "dockerls",
       "zls",

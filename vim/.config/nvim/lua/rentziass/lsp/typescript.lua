@@ -28,4 +28,4 @@ config.commands = {
   },
 }
 
-lspconfig.tsserver.setup(config)
+lspconfig.ts_ls.setup(config)
