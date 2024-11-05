@@ -1,3 +1,5 @@
 [user]
 name = "Francesco Renzi"
 email = "rentziass@gmail.com"
+[credential]
+helper = "!/usr/bin/gh auth git-credential"
