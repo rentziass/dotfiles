@@ -30,7 +30,9 @@ local function on_attach(client, bufnr)
   end)
 
   h.nnoremap("<leader>tt", function()
-    vim.api.nvim_command("GoTest")
+    local current_file = vim.api.nvim_buf_get_name(0)
+    local folder = vim.fn.fnamemodify(current_file, ":h")
+    vim.api.nvim_command("silent !zellij run -f -- go test " .. folder)
   end)
 
   -- Disable virtual diagnostics because they are mostly annoying
