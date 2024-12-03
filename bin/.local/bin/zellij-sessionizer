@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# if we're in zellij already, print a message and exit
+if [[ -n $ZELLIJ ]]; then
+    echo "Already in zellij, detach first"
+    exit 1
+fi
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
@@ -32,7 +38,6 @@ EOF
 
 
   zellij -s "$selected_name" --new-session-with-layout $tmpfile
-  cd $selected
 else
   zellij attach "$selected_name"
 fi
