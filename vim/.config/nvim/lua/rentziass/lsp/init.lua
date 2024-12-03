@@ -15,7 +15,7 @@ return function ()
     },
   })
 
-  require("rentziass.lsp.null-ls")
+  -- require("rentziass.lsp.null-ls")
 
   require('lspkind').init({})
 
