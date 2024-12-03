@@ -578,6 +578,8 @@ telescope.load_extension("ui-select")
     end,
   },
 
+  { "imsnif/kdl.vim" },
+
 
   -- DAP
   {
