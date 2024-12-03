@@ -17,7 +17,7 @@ require('lazy').setup({
     "neovim/nvim-lspconfig",
     event = 'BufReadPre',
     dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
+      "nvimtools/none-ls.nvim",
       "onsails/lspkind-nvim",
       "tami5/lspsaga.nvim",
       'hrsh7th/vim-vsnip',
