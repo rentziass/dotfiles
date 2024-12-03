@@ -7,19 +7,4 @@ if [[ $CODESPACES == "true" ]]; then
     folder=/workspaces/.codespaces/.persistedshare/dotfiles
 fi
 
-session_name=dotfiles
-tmux_running=$(pgrep tmux)
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $session_name -c $folder
-    exit 0
-fi
-
-if ! tmux has-session -t $session_name 2> /dev/null; then
-    tmux new-session -ds $session_name -c $folder
-fi
-
-if [[ -z $TMUX ]]; then
-    tmux attach-session -t $session_name
-else
-    tmux switch-client -t $session_name
-fi
+source $HOME/.local/bin/zellij-sessionizer $folder

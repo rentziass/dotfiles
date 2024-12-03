@@ -317,7 +317,7 @@ default_mode "normal"
 //   - true (default, enabled)
 //   - false
 //
-// pane_frames false
+pane_frames false
 
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -355,7 +355,7 @@ default_mode "normal"
 // copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 //
-// copy_command "pbcopy"
+copy_command "rdm copy"
 
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.

@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/dev -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+sessions=$(zellij list-sessions -s)
+if ! echo "$sessions" | grep -q "$selected_name"; then
+  # create a tmp file containing the layout
+  tmpfile=$(mktemp)
+
+  cat > $tmpfile <<- EOF
+layout {
+    cwd "$selected"
+    pane focus=true
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
+EOF
+
+
+  zellij -s "$selected_name" --new-session-with-layout $tmpfile
+  cd $selected
+else
+  zellij attach "$selected_name"
+fi

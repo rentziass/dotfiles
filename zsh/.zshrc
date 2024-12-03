@@ -45,7 +45,7 @@ for function in $HOME/functions/*; do
   source $function
 done
 
-bindkey -s "^F" "tmux-sessionizer\n"
+bindkey -s "^F" "zellij-sessionizer\n"
 bindkey -s "^T" "dotfiles\n"
 
 # GOLANG

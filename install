@@ -15,7 +15,7 @@ if [ -f "/etc/debian_version" ]; then
     ripgrep \
     kitty-terminfo
 
-  brew install jj
+  brew install jj zellij
 
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
