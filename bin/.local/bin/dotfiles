@@ -7,4 +7,4 @@ if [[ $CODESPACES == "true" ]]; then
     folder=/workspaces/.codespaces/.persistedshare/dotfiles
 fi
 
-source $HOME/.local/bin/zellij-sessionizer $folder
+source $HOME/.local/bin/tmux-sessionizer $folder

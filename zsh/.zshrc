@@ -38,14 +38,14 @@ export EDITOR=$VISUAL
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # env vars
-[[ -f ~/.vn ]] && source ~/.env
+[[ -f ~/.env ]] && source ~/.env
 
 # functions
 for function in $HOME/functions/*; do
   source $function
 done
 
-bindkey -s "^F" "zellij-sessionizer\n"
+bindkey -s "^F" "tmux-sessionizer\n"
 bindkey -s "^T" "dotfiles\n"
 
 # GOLANG
