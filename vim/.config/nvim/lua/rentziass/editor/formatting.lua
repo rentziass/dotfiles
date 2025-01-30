@@ -17,9 +17,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- AUTO FORMATTING
 auto_formatting = vim.api.nvim_create_augroup("AutoFormatting", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.go", "*.rs", "*.ts" },
+  pattern = { "*.go", "*.rs", "*.ts", "*.lua" },
   callback = function()
-    vim.lsp.buf.format { async = true }
+    vim.lsp.buf.format { sync = true }
   end,
   group = auto_formatting,
 })

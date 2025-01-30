@@ -16,8 +16,8 @@ config.settings = {
     },
   },
 }
--- Disable the diagnostics from the LSP as I tipically use luacheck, which is configured on null-ls
-config.handlers["textDocument/publishDiagnostics"] = function() end
+-- -- Disable the diagnostics from the LSP as I tipically use luacheck, which is configured on null-ls
+-- config.handlers["textDocument/publishDiagnostics"] = function() end
 config.on_attach = function(client, bufnr)
   -- disable  formatting for gopls so that goimports handles it through
   -- null-ls

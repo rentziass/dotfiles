@@ -67,3 +67,5 @@ alias lastcommit="git fall && git rev-parse --verify origin/master"
 alias cat="bat"
 
 alias prlink="gh pr view --json url --jq '.url'"
+
+alias love="/Applications/love.app/Contents/MacOS/love"

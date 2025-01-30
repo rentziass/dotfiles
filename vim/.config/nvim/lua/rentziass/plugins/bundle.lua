@@ -536,6 +536,15 @@ telescope.load_extension("ui-select")
         end
       end)
 
+      -- same for lua
+      vim.fn["edit_alternate#rule#add"]("lua", function(filename)
+        if filename:find "_spec.lua" then
+          return (filename:gsub("_spec%.lua", ".lua"))
+        else
+          return (filename:gsub("%.lua", "_spec.lua"))
+        end
+      end)
+
       vim.api.nvim_set_keymap("n", "<leader>ea", "<cmd>EditAlternate<CR>", { silent = true })
     end,
     priority = 80,
@@ -644,6 +653,16 @@ telescope.load_extension("ui-select")
         ui.close()
       end
     end,
+  },
+  {
+    "S1M0N38/love2d.nvim",
+    cmd = "LoveRun",
+    opts = { },
+    keys = {
+      { "<leader>v", ft = "lua", desc = "LÖVE" },
+      { "<leader>vv", "<cmd>LoveRun<cr>", ft = "lua", desc = "Run LÖVE" },
+      { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
+    },
   },
 }
 })
