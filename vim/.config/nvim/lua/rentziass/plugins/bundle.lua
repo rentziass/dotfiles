@@ -36,8 +36,8 @@ require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter', -- just the best thing
     build = ':TSUpdate',
-    config = function ()
-      require'nvim-treesitter.configs'.setup {
+    config = function()
+      require 'nvim-treesitter.configs'.setup {
         ensure_installed = {
           "go",
           "c_sharp",
@@ -101,7 +101,7 @@ require('lazy').setup({
       -- maintain cursor position after formatting loaded buffer
       maintain_cursor_pos = true,
       -- test flags: -count=1 will disable cache
-      test_flags = {'-v'},
+      test_flags = { '-v' },
       test_timeout = '0',
       test_env = {},
       -- show test result with popup window
@@ -113,11 +113,11 @@ require('lazy').setup({
       test_open_cmd = 'edit',
       -- struct tags
       tags_name = 'json',
-      tags_options = {'json=omitempty'},
+      tags_options = { 'json=omitempty' },
       tags_transform = 'snakecase',
-      tags_flags = {'-skip-unexported'},
+      tags_flags = { '-skip-unexported' },
       -- quick type
-      quick_type_flags = {'--just-types'},
+      quick_type_flags = { '--just-types' },
     },
   },
 
@@ -127,7 +127,7 @@ require('lazy').setup({
     version = "*",
     cmd = 'NoNeckPain',
     keys = {
-      {'<leader>np', '<cmd>NoNeckPain<cr>'},
+      { '<leader>np', '<cmd>NoNeckPain<cr>' },
     },
     opts = {
       width = 120,
@@ -155,17 +155,17 @@ require('lazy').setup({
             if vim.wo.diff then return ']c' end
             vim.schedule(function() gs.next_hunk() end)
             return '<Ignore>'
-          end, {expr=true})
+          end, { expr = true })
 
           map('n', '[c', function()
             if vim.wo.diff then return '[c' end
             vim.schedule(function() gs.prev_hunk() end)
             return '<Ignore>'
-          end, {expr=true})
+          end, { expr = true })
 
           -- Actions
-          map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-          map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+          map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+          map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
         end
       })
     end,
@@ -229,18 +229,18 @@ require('lazy').setup({
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-e>"] = cmp.mapping.close(),
           ["<CR>"] = cmp.mapping(
-          cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = false,
-          },
-          { "i", "c" }
+            cmp.mapping.confirm {
+              behavior = cmp.ConfirmBehavior.Insert,
+              select = false,
+            },
+            { "i", "c" }
           ),
 
           ["<c-space>"] = cmp.mapping {
             i = cmp.mapping.complete(),
             c = function(
-              _ --[[fallback]]
-              )
+                _ --[[fallback]]
+            )
               if cmp.visible() then
                 if not cmp.confirm { select = true } then
                   return
@@ -292,7 +292,7 @@ require('lazy').setup({
           { name = "vsnip" },
           { name = "orgmode" },
           { name = "path" },
-          { name = "buffer", keyword_length = 5 },
+          { name = "buffer",  keyword_length = 5 },
           { name = "nvim_lua" },
         },
 
@@ -324,7 +324,7 @@ require('lazy').setup({
       }
 
       -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline({'/', '?'}, {
+      cmp.setup.cmdline({ '/', '?' }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
           { name = 'buffer' }
@@ -334,23 +334,23 @@ require('lazy').setup({
       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline(':', {
         -- mapping = cmp.mapping.preset.insert({
-          --   ['<CR>'] = cmp.mapping.confirm({ select = false }),
-          -- }),
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = cmp.config.sources({
-            { name = 'path' }
-          }, {
-            { name = 'cmdline', keyword_length = 5 }
-          })
+        --   ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        -- }),
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline', keyword_length = 5 }
         })
+      })
 
-        local capabilities = require('cmp_nvim_lsp').default_capabilities()
-        local servers = { 'gopls', 'lua_ls', 'ts_ls', 'yamlls', 'rust_analyzer' }
-        for _, server in pairs(servers) do
-          require('lspconfig')[server].setup {
-            capabilities = capabilities
-          }
-        end
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local servers = { 'gopls', 'lua_ls', 'ts_ls', 'yamlls', 'rust_analyzer' }
+      for _, server in pairs(servers) do
+        require('lspconfig')[server].setup {
+          capabilities = capabilities
+        }
+      end
     end
   },
 
@@ -366,19 +366,19 @@ require('lazy').setup({
       require('gitlinker').setup()
       -- browse
       vim.keymap.set(
-        {"n", 'v'},
+        { "n", 'v' },
         "ghc",
         "<cmd>GitLink<cr>",
         { silent = true, noremap = true, desc = "Yank git permalink" }
       )
       vim.keymap.set(
-        {"n", 'v'},
+        { "n", 'v' },
         "gho",
         "<cmd>GitLink!<cr>",
         { silent = true, noremap = true, desc = "Open git permalink" }
       )
       vim.keymap.set(
-        {"n", 'v'},
+        { "n", 'v' },
         "ghb",
         "<cmd>GitLink blame<cr>",
         { silent = true, noremap = true, desc = "Yank git blame link" }
@@ -472,7 +472,7 @@ require('lazy').setup({
         },
       })
 
-telescope.load_extension("ui-select")
+      telescope.load_extension("ui-select")
     end
   },
 
@@ -486,10 +486,10 @@ telescope.load_extension("ui-select")
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
-      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+      { "github/copilot.vim" },    -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
-    build = "make tiktoken", -- Only on MacOS or Linux
+    build = "make tiktoken",       -- Only on MacOS or Linux
     opts = {
       -- See Configuration section for options
     },
@@ -521,7 +521,7 @@ telescope.load_extension("ui-select")
   { 'stevearc/dressing.nvim' },
 
   { "tjdevries/standard.vim", lazy = false, priority = 100 },
-  { "tjdevries/conf.vim", lazy = false, priority = 90 },
+  { "tjdevries/conf.vim",     lazy = false, priority = 90 },
 
   {
     "tjdevries/edit_alternate.vim",
@@ -550,7 +550,8 @@ telescope.load_extension("ui-select")
     priority = 80,
   },
 
-  { "tjdevries/express_line.nvim",
+  {
+    "tjdevries/express_line.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -559,110 +560,109 @@ telescope.load_extension("ui-select")
     "j-hui/fidget.nvim",
     opts = {
       -- options
-  },
-  {
-    "pwntester/octo.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("octo").setup({
-        use_local_fs = false,
-      })
+    {
+      "pwntester/octo.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
+        "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+        require("octo").setup({
+          use_local_fs = false,
+        })
 
-      vim.treesitter.language.register('markdown', 'octo')
-    end
-  },
-  {
-    'stevearc/oil.nvim',
-    opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("oil").setup {
-        columns = { "icon" },
-        keymaps = {
-          ["<C-h>"] = false,
-          ["<M-h>"] = "actions.select_split",
-        },
-        view_options = {
-          show_hidden = true,
-        },
-      }
-
-      -- Open parent directory in current window
-      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
-      -- Open parent directory in floating window
-      vim.keymap.set("n", "<space>-", require("oil").toggle_float)
-    end,
-  },
-
-  { "imsnif/kdl.vim" },
-
-
-  -- DAP
-  {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      "leoluz/nvim-dap-go",
-      "rcarriga/nvim-dap-ui",
-      "theHamsta/nvim-dap-virtual-text",
-      "nvim-neotest/nvim-nio",
-      "williamboman/mason.nvim",
+        vim.treesitter.language.register('markdown', 'octo')
+      end
     },
-    config = function()
-      local dap = require "dap"
-      local ui = require "dapui"
+    {
+      'stevearc/oil.nvim',
+      opts = {},
+      -- Optional dependencies
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        require("oil").setup {
+          columns = { "icon" },
+          keymaps = {
+            ["<C-h>"] = false,
+            ["<M-h>"] = "actions.select_split",
+          },
+          view_options = {
+            show_hidden = true,
+          },
+        }
 
-      require("dapui").setup()
-      require("dap-go").setup()
+        -- Open parent directory in current window
+        vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-      require("nvim-dap-virtual-text").setup { }
-
-
-      vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
-      vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
-
-      -- Eval var under cursor
-      vim.keymap.set("n", "<space>?", function()
-        require("dapui").eval(nil, { enter = true })
-      end)
-
-      vim.keymap.set("n", "<F10>", require("dapui").toggle)
-
-      vim.keymap.set("n", "<F1>", dap.continue)
-      vim.keymap.set("n", "<F2>", dap.step_into)
-      vim.keymap.set("n", "<F3>", dap.step_over)
-      vim.keymap.set("n", "<F4>", dap.step_out)
-      vim.keymap.set("n", "<F5>", dap.step_back)
-      vim.keymap.set("n", "<F13>", dap.restart)
-
-      dap.listeners.before.attach.dapui_config = function()
-        ui.open()
-      end
-      dap.listeners.before.launch.dapui_config = function()
-        ui.open()
-      end
-      dap.listeners.before.event_terminated.dapui_config = function()
-        ui.close()
-      end
-      dap.listeners.before.event_exited.dapui_config = function()
-        ui.close()
-      end
-    end,
-  },
-  {
-    "S1M0N38/love2d.nvim",
-    cmd = "LoveRun",
-    opts = { },
-    keys = {
-      { "<leader>v", ft = "lua", desc = "LÖVE" },
-      { "<leader>vv", "<cmd>LoveRun<cr>", ft = "lua", desc = "Run LÖVE" },
-      { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
+        -- Open parent directory in floating window
+        vim.keymap.set("n", "<space>-", require("oil").toggle_float)
+      end,
     },
-  },
-}
+
+    { "imsnif/kdl.vim" },
+
+
+    -- DAP
+    {
+      "mfussenegger/nvim-dap",
+      dependencies = {
+        "leoluz/nvim-dap-go",
+        "rcarriga/nvim-dap-ui",
+        "theHamsta/nvim-dap-virtual-text",
+        "nvim-neotest/nvim-nio",
+        "williamboman/mason.nvim",
+      },
+      config = function()
+        local dap = require "dap"
+        local ui = require "dapui"
+
+        require("dapui").setup()
+        require("dap-go").setup()
+
+        require("nvim-dap-virtual-text").setup {}
+
+
+        vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
+
+        -- Eval var under cursor
+        vim.keymap.set("n", "<space>?", function()
+          require("dapui").eval(nil, { enter = true })
+        end)
+
+        vim.keymap.set("n", "<F10>", require("dapui").toggle)
+
+        vim.keymap.set("n", "<F1>", dap.continue)
+        vim.keymap.set("n", "<F2>", dap.step_into)
+        vim.keymap.set("n", "<F3>", dap.step_over)
+        vim.keymap.set("n", "<F4>", dap.step_out)
+        vim.keymap.set("n", "<F5>", dap.step_back)
+        vim.keymap.set("n", "<F13>", dap.restart)
+
+        dap.listeners.before.attach.dapui_config = function()
+          ui.open()
+        end
+        dap.listeners.before.launch.dapui_config = function()
+          ui.open()
+        end
+        dap.listeners.before.event_terminated.dapui_config = function()
+          ui.close()
+        end
+        dap.listeners.before.event_exited.dapui_config = function()
+          ui.close()
+        end
+      end,
+    },
+    {
+      "S1M0N38/love2d.nvim",
+      cmd = "LoveRun",
+      opts = {},
+      keys = {
+        { "<leader>v",  ft = "lua",          desc = "LÖVE" },
+        { "<leader>vv", "<cmd>LoveRun<cr>",  ft = "lua",   desc = "Run LÖVE" },
+        { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua",   desc = "Stop LÖVE" },
+      },
+    },
+  }
 })
