@@ -17,7 +17,7 @@ if [ -f "/etc/debian_version" ]; then
 
   brew install jj zellij
 
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
   chmod u+x nvim.appimage
   ./nvim.appimage --appimage-extract
   ln -s "$(pwd)/squashfs-root/usr/bin/nvim" ~/bin/nvim
