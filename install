@@ -18,10 +18,10 @@ if [ -f "/etc/debian_version" ]; then
   brew install jj zellij
 
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
-  chmod u+x nvim.appimage
-  ./nvim.appimage --appimage-extract
+  chmod u+x nvim-linux-x86_64.appimage
+  ./nvim-linux-x86_64.appimage --appimage-extract
   ln -s "$(pwd)/squashfs-root/usr/bin/nvim" ~/bin/nvim
-  rm -f nvim.appimage
+  rm -f nvim-linux-x86_64.appimage
 
   wget https://github.com/BlakeWilliams/remote-development-manager/releases/latest/download/rdm-linux-amd64
   mv rdm-linux-amd64 ~/bin/rdm
