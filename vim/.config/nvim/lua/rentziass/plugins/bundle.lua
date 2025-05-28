@@ -15,7 +15,6 @@ require('lazy').setup({
   -- LSP
   {
     "neovim/nvim-lspconfig",
-    tag = "v2.0.0",
     event = 'BufReadPre',
     dependencies = {
       "nvimtools/none-ls.nvim",
@@ -24,8 +23,6 @@ require('lazy').setup({
       'hrsh7th/vim-vsnip',
       'hrsh7th/vim-vsnip-integ',
     },
-    -- Lazy caching is sabotaging using this as config
-    -- config = require("rentziass.lsp"),
   },
 
 
@@ -346,12 +343,12 @@ require('lazy').setup({
       })
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local servers = { 'gopls', 'lua_ls', 'ts_ls', 'yamlls', 'rust_analyzer' }
-      for _, server in pairs(servers) do
-        require('lspconfig')[server].setup {
-          capabilities = capabilities
-        }
-      end
+      -- local servers = { 'gopls', 'lua_ls', 'ts_ls', 'yamlls', 'rust_analyzer' }
+      -- for _, server in pairs(servers) do
+      --   require('lspconfig')[server].setup {
+      --     capabilities = capabilities
+      --   }
+      -- end
     end
   },
 

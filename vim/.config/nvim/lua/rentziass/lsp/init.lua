@@ -32,16 +32,16 @@ require('lspsaga').init_lsp_saga({
 -- require('rentziass.lsp.server_config')
 
 -- LSP servers configurations
-require('rentziass.lsp.c#')
-require('rentziass.lsp.docker')
-require('rentziass.lsp.golang')
-require('rentziass.lsp.lua')
-require('rentziass.lsp.solargraph')
-require('rentziass.lsp.sorbet')
-require('rentziass.lsp.rust')
-require('rentziass.lsp.typescript')
-require('rentziass.lsp.yaml')
-require('rentziass.lsp.zig')
+-- require('rentziass.lsp.c#')
+-- require('rentziass.lsp.docker')
+-- require('rentziass.lsp.golang')
+-- require('rentziass.lsp.lua')
+-- require('rentziass.lsp.solargraph')
+-- require('rentziass.lsp.sorbet')
+-- require('rentziass.lsp.rust')
+-- require('rentziass.lsp.typescript')
+-- require('rentziass.lsp.yaml')
+-- require('rentziass.lsp.zig')
 
 -- WIP
 -- require('rentziass.lsp.protobuf')
@@ -51,7 +51,7 @@ require('rentziass.lsp.zig')
 local builtin = require("telescope.builtin")
 local h = require("rentziass.h")
 
-local keymapsGroup = vim.api.nvim_create_augroup("LspMappings", { clear = true })
+local keymapsGroup = vim.api.nvim_create_augroup("LspMappings", {})
 vim.api.nvim_create_autocmd("LspAttach", {
   group = keymapsGroup,
   callback = function(args)
