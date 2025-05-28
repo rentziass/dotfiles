@@ -18,7 +18,7 @@ else
   require 'rentziass.plugins'
   require 'rentziass.editor'
   require 'rentziass.term'
-  require('rentziass.lsp')()
+  require 'rentziass.lsp'
 
   vim.keymap.set("n", "<leader>z", require("lazy").home)
 end

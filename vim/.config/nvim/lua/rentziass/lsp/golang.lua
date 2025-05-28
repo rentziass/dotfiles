@@ -17,8 +17,6 @@ config.on_attach = function(client, bufnr)
       }
     }
   end
-
-  cfg.on_attach(client, bufnr)
 end
 
 config.settings = {

@@ -17,8 +17,6 @@ config.on_attach = function(client, bufnr)
   -- null-ls
   client.server_capabilities.documentFormattingProvider = features.rubucop
   client.server_capabilities.documentRangeFormattingProvider = features.rubocop
-
-  cfg.on_attach(client, bufnr)
 end
 
 lspconfig.solargraph.setup(config)

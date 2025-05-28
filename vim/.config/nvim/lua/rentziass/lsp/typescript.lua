@@ -18,7 +18,6 @@ config.on_attach = function(client, bufnr)
   -- client.server_capabilities.documentRangeFormattingProvider = false
 
   vim.keymap.set("n", "<LocalLeader>O", "<cmd>:OrganizeImports<CR>")
-  cfg.on_attach(client, bufnr)
 end
 
 config.commands = {

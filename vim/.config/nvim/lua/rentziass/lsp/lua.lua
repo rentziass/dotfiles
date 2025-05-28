@@ -23,8 +23,6 @@ config.on_attach = function(client, bufnr)
   -- null-ls
   client.server_capabilities.documentFormattingProvider = true
   client.server_capabilities.documentRangeFormattingProvider = true
-
-  cfg.on_attach(client, bufnr)
 end
 
 lspconfig.lua_ls.setup(config)
