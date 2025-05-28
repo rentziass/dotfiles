@@ -15,6 +15,7 @@ require('lazy').setup({
   -- LSP
   {
     "neovim/nvim-lspconfig",
+    tag = "v2.0.0",
     event = 'BufReadPre',
     dependencies = {
       "nvimtools/none-ls.nvim",
