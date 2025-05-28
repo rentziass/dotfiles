@@ -15,7 +15,8 @@ if vim.g.vscode then
 else
   -- ordinary Neovim
   require 'rentziass.utils'
-  require 'rentziass.plugins'
+  -- require 'rentziass.plugins'     --old way
+  require 'rentziass.config.lazy' -- new way
   require 'rentziass.editor'
   require 'rentziass.term'
   require 'rentziass.lsp'
