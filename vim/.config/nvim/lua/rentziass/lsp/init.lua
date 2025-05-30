@@ -76,7 +76,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     h.nnoremap("<Leader>o", function()
       builtin.lsp_document_symbols({ sort_lastused = true, layout_config = { width = 0.8 }, symbol_width = 50 })
     end)
-    h.nnoremap("gr", function()
+
+    h.nnoremap("grr", function()
       builtin.lsp_references({ include_current_line = true })
     end)
 
