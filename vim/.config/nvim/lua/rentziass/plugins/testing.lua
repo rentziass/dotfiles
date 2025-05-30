@@ -31,6 +31,7 @@ return {
           "-count=1",
         },
       }
+      opts.consumers = opts.consumers or {}
     end,
     config = function(_, opts)
       if opts.adapters then
@@ -62,12 +63,16 @@ return {
         opts.adapters = adapters
       end
 
+      opts.consumers.notify = require("rentziass.editor.test_notifications")
+
+
       local neotest = require("neotest")
       neotest.setup(opts)
     end,
     keys = {
       { "<leader>ta", function() require("neotest").run.attach() end,                                      desc = "[t]est [a]ttach" },
       { "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end,                       desc = "[t]est run [f]ile" },
+      { "<leader>tp", function() require("neotest").run.run(vim.fn.expand("%:p:h")) end,                   desc = "[t]est run [p]ackage (directory)" },
       { "<leader>tA", function() require("neotest").run.run(vim.uv.cwd()) end,                             desc = "[t]est [A]ll files" },
       { "<leader>tS", function() require("neotest").run.run({ suite = true }) end,                         desc = "[t]est [S]uite" },
       { "<leader>tn", function() require("neotest").run.run() end,                                         desc = "[t]est [n]earest" },

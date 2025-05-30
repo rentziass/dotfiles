@@ -12,11 +12,18 @@ return {
     },
   },
 
-
   {
-    "folke/neodev.nvim",
-    ft = "lua",
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
   },
+
   {
     'williamboman/mason.nvim',
     dependencies = {
@@ -315,5 +322,11 @@ return {
         { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua",   desc = "Stop LÖVE" },
       },
     },
+    {
+      "rcarriga/nvim-notify",
+      -- config = function()
+      --   vim.notify = require("notify") -- use notify as the default notification systems
+      -- end,
+    }
   }
 }

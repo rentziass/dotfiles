@@ -12,10 +12,11 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 
 -- enter insert mode when opening a terminal
-vim.api.nvim_create_autocmd("TermOpen", {
-  callback = function()
-    if vim.opt.buftype:get() == "terminal" then
-      vim.cmd(":startinsert")
-    end
-  end,
-})
+-- TODO: this puts me in insert mode after neotest runs a test
+-- vim.api.nvim_create_autocmd("TermOpen", {
+--   callback = function()
+--     if vim.opt.buftype:get() == "terminal" then
+--       vim.cmd(":startinsert")
+--     end
+--   end,
+-- })
