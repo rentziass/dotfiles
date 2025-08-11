@@ -1,17 +1,22 @@
 return {
   -- LSP
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   event = 'BufReadPre',
+  --   dependencies = {
+  --     "nvimtools/none-ls.nvim",
+  --     "onsails/lspkind-nvim",
+  --     "tami5/lspsaga.nvim",
+  --     'hrsh7th/vim-vsnip',
+  --     'hrsh7th/vim-vsnip-integ',
+  --   },
+  -- },
   {
-    "neovim/nvim-lspconfig",
-    event = 'BufReadPre',
-    dependencies = {
-      "nvimtools/none-ls.nvim",
-      "onsails/lspkind-nvim",
-      "tami5/lspsaga.nvim",
-      'hrsh7th/vim-vsnip',
-      'hrsh7th/vim-vsnip-integ',
-    },
+    "onsails/lspkind-nvim",
   },
-
+  {
+    "tami5/lspsaga.nvim",
+  },
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
@@ -135,6 +140,7 @@ return {
   'myusuf3/numbers.vim',
   {
     'linrongbin16/gitlinker.nvim',
+    event = "BufReadPre",
     config = function()
       require('gitlinker').setup()
       -- browse

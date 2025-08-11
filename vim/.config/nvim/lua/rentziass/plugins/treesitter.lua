@@ -2,6 +2,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter', -- just the best thing
     build = ':TSUpdate',
+    event = "BufReadPre",
     config = function()
       require 'nvim-treesitter.configs'.setup {
         ensure_installed = {
@@ -19,6 +20,7 @@ return {
           "ruby",
           "vimdoc",
           "zig",
+          "dart",
         },
         highlight = {
           enable = true, -- false will disable the whole extension
@@ -31,7 +33,6 @@ return {
       }
     end,
   },
-
   {
     'nvim-treesitter/nvim-treesitter-context',
     event = "BufReadPre",

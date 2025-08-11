@@ -121,6 +121,15 @@ return {
       "nvim-neotest/nvim-nio",
       "williamboman/mason.nvim",
     },
+    keys = {
+      { "<F1>",  function() require("dap").continue() end,  desc = "[d]ebug [c]ontinue" },
+      { "<F2>",  function() require("dap").step_into() end, desc = "[d]ebug step [i]nto" },
+      { "<F3>",  function() require("dap").step_over() end, desc = "[d]ebug step [o]ver" },
+      { "<F4>",  function() require("dap").step_out() end,  desc = "[d]ebug step [O]ut" },
+      { "<F5>",  function() require("dap").step_back() end, desc = "[d]ebug step [b]ack" },
+      { "<F10>", function() require("dapui").toggle() end,  desc = "Toggle DAP UI" },
+      { "<F13>", function() require("dap").restart() end,   desc = "[d]ebug [r]estart" },
+    },
     config = function()
       local dap = require "dap"
       local ui = require "dapui"

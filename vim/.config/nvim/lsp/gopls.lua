@@ -1,6 +1,8 @@
 local features = require("rentziass.features")
 
 return {
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod" },
   settings = {
     gopls = {
       gofumpt = features.gofumpt,

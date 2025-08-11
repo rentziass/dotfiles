@@ -21,5 +21,9 @@ else
   require 'rentziass.term'
   require 'rentziass.lsp'
 
+  vim.lsp.enable('ruby-lsp')
+  vim.lsp.enable('sorbet')
+  vim.lsp.enable('gopls')
+
   vim.keymap.set("n", "<leader>z", require("lazy").home)
 end

@@ -80,3 +80,4 @@ export PATH=$PATH:/Users/rentziass/.spicetify
 
 # JJ config
 export JJ_CONFIG=$HOME/.config/jj/config.toml
+eval "$(~/.local/bin/mise activate)"

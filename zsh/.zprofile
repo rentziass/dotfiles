@@ -81,6 +81,7 @@ export PATH=$PATH":$GOPATH/bin"
 export PATH=~/.local/bin:$PATH
 export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH="$HOME/bin/zig:$PATH"
+export PATH="$HOME/dev/flutter/flutter/bin:$PATH"
 
 # Eval linuxbrew if installed
 if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
