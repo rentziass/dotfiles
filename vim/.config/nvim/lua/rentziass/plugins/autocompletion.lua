@@ -9,6 +9,7 @@ return {
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-document-symbol',
+      'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-vsnip',
     },
     event = "InsertEnter",

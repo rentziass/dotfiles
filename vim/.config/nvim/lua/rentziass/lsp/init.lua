@@ -11,7 +11,6 @@ require("mason-lspconfig").setup({
     "yamlls",
     "dockerls",
     "zls",
-    "ruby-lsp",
   },
 })
 

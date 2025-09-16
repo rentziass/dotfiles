@@ -19,7 +19,7 @@ keymap('n', 'gr', notify 'editor.action.goToReferences', { silent = true })
 keymap('n', '<Leader>rn', notify 'editor.action.rename', { silent = true })
 keymap('n', '<Leader>Fm', notify 'editor.action.formatDocument', { silent = true })
 keymap('n', '<Leader>ca', notify 'editor.action.refactor', { silent = true }) -- language code actions
-keymap('n', ']d', notify 'editor.action.marker.next', { silent = true }) -- next diagnostic
+keymap('n', '<Leader>d', notify 'editor.action.marker.next', { silent = true }) -- next diagnostic
 keymap('n', '[d', notify 'editor.action.marker.prev', { silent = true }) -- previous diagnostic
 keymap('v', '<Leader>ca', v_notify 'editor.action.refactor', { silent = true })
 
@@ -27,7 +27,7 @@ keymap('v', '<Leader>ca', v_notify 'editor.action.refactor', { silent = true })
 keymap('n', '<Leader>f', notify 'workbench.action.quickOpen', { silent = true }) -- find files
 keymap('n', '<Leader>g', notify 'workbench.action.findInFiles', { silent = true }) -- search in files
 keymap('n', '<Leader>o', notify 'workbench.action.gotoSymbol', { silent = true }) -- search symbols in file
-keymap('n', '<Leader>p', v_notify 'workbench.action.showCommands', { silent = true })
+keymap('n', '<Leader>p', notify 'workbench.action.showCommands', { silent = true })
 
 -- VSCode view management
 -- Nvim tree equivalents
@@ -42,6 +42,11 @@ keymap('n', '<C-j>', '<C-w>j', { silent = true })
 keymap('n', '<C-k>', '<C-w>k', { silent = true })
 keymap('n', '<C-l>', '<C-w>l', { silent = true })
 keymap('n', '<C-h>', '<C-w>h', { silent = true })
+
+
+keymap('n', '<Leader><esc>', ':noh<CR>', { silent = true })
+keymap('n', '<Leader>np', notify 'workbench.action.toggleCenteredLayout', { silent = true })
+keymap('n', '<C-w>o', notify 'multiCommand.closeAllButEditor', { silent = true })
 
 -- Copilot
 keymap('n', '<Leader>c', notify 'workbench.action.chat.attachFile', { silent = true }) -- attach file to copilot chat
