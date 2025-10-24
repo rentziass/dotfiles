@@ -14,7 +14,6 @@ return {
           "dockerfile",
           "graphql",
           "hcl", -- Hashicorp language (used by Terraform)
-          "org", -- Orgmode
           "markdown",
           "devicetree",
           "ruby",
