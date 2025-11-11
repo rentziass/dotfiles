@@ -37,6 +37,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
 
+exec-on-workspace-change = [
+  # always move Countdown windows to new workspace
+  '/bin/bash', '-c',
+  '~/.config/aerospace/sticky-windows.sh',
+]
+
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]

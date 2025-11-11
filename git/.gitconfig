@@ -56,3 +56,5 @@
 	mergeOptions = ff = only
 [branch "master"]
 	mergeOptions = ff = only
+[url "ssh://git@github.com/actions/"]
+	insteadOf = "https://github.com/actions/"
