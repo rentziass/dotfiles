@@ -43,6 +43,9 @@ exec-on-workspace-change = [
   '~/.config/aerospace/sticky-windows.sh',
 ]
 
+[workspace-to-monitor-force-assignment]
+  M = 'secondary'
+
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
@@ -212,6 +215,10 @@ exec-on-workspace-change = [
     shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    if.window-title-regex-substring = 'todo'
+    run = 'move-node-to-workspace M' # mnemonics S - Slack
+[[on-window-detected]]
     if.app-id = 'com.mitchellh.ghostty'
     run = 'move-node-to-workspace T' # mnemonics T - Terminal
 [[on-window-detected]]
@@ -226,3 +233,4 @@ exec-on-workspace-change = [
 [[on-window-detected]]
     if.app-id = 'com.tinyspeck.slackmacgap'
     run = 'move-node-to-workspace S' # mnemonics S - Slack
+    check-further-callbacks = true

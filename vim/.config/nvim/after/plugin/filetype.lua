@@ -10,6 +10,13 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
+-- set filetype for GitHub Actions workflow files
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = ".github/workflows/*.{yml,yaml}",
+  callback = function()
+    vim.bo.filetype = "yaml.ghaction"
+  end,
+})
 
 -- enter insert mode when opening a terminal
 -- TODO: this puts me in insert mode after neotest runs a test

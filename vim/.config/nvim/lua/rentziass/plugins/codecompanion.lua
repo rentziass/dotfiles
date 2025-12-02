@@ -14,7 +14,8 @@ return {
         desc = "Code Companion inline",
       },
       {
-        "<C-i>",
+        -- cmd + ctrl + i, same as vscode
+        "<D-C-i>",
         "<cmd>CodeCompanionChat Toggle<cr>",
         mode = { "n", "v" },
         desc = "Toggle Code Companion chat",

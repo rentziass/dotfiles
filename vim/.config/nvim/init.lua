@@ -24,6 +24,8 @@ else
   vim.lsp.enable('ruby-lsp')
   vim.lsp.enable('sorbet')
   vim.lsp.enable('gopls')
+  vim.lsp.enable('actionsls')
+  vim.lsp.log.set_level('debug')
 
   vim.keymap.set("n", "<leader>z", require("lazy").home)
 end
