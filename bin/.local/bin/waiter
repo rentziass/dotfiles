@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Waiter script: waits for dotfiles install to complete and then launches zsh
+# This is useful when connecting to codespaces during setup
+
+MAX_WAIT=300  # Maximum wait time in seconds (5 minutes)
+INTERVAL=2    # Check interval in seconds
+elapsed=0
+
+echo "Waiting for dotfiles install to complete..."
+
+# Check for starship as an indicator that dotfiles setup is complete
+# The install script runs starship installation as one of its steps
+while ! command -v starship &> /dev/null; do
+    if [ $elapsed -ge $MAX_WAIT ]; then
+        echo ""
+        echo "Timeout: dotfiles install did not complete within $MAX_WAIT seconds."
+        exit 1
+    fi
+    echo -n "."
+    sleep $INTERVAL
+    elapsed=$((elapsed + INTERVAL))
+done
+
+echo ""
+echo "Dotfiles setup complete! Launching zsh..."
+
+if command -v zsh &> /dev/null; then
+    exec zsh
+else
+    echo "Warning: zsh not available, falling back to current shell."
+fi
