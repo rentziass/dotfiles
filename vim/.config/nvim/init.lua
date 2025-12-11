@@ -19,6 +19,7 @@ else
   require 'rentziass.config' -- new way
   require 'rentziass.editor'
   require 'rentziass.term'
+  require 'rentziass.filetype'
   require 'rentziass.lsp'
 
   vim.lsp.enable('ruby-lsp')

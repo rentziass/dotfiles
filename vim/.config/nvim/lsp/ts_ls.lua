@@ -16,5 +16,10 @@ return {
       organize_imports,
       description = "Organize Imports",
     },
-  }
+  },
+  on_attach = function(client, bufnr)
+    -- Disable ts_ls formatting, let Prettier handle it
+    client.server_capabilities. documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end,
 }
