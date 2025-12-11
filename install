@@ -1,6 +1,27 @@
 #!/bin/zsh
 
 export USERNAME=`whoami`
+
+# GitHub Codespaces specific - add waiter to shell profiles early
+if [ -n "${CODESPACES}" ]; then
+  # Copy waiter script to a location available before stow
+  mkdir -p ~/.local/bin
+  cp "$(dirname "$0")/bin/.local/bin/waiter" ~/.local/bin/waiter
+  chmod +x ~/.local/bin/waiter
+
+  # Add waiter to .bashrc if it exists (default shell in codespaces)
+  if [ -f ~/.bashrc ]; then
+    # Only add if not already present and if dotfiles not complete
+    if ! grep -q "Auto-launch waiter for dotfiles setup" ~/.bashrc; then
+      echo '' >> ~/.bashrc
+      echo '# Auto-launch waiter for dotfiles setup (added by dotfiles install)' >> ~/.bashrc
+      echo 'if [ ! -f "$HOME/.dotfiles_complete" ] && [ -f "$HOME/.local/bin/waiter" ]; then' >> ~/.bashrc
+      echo '  exec $HOME/.local/bin/waiter' >> ~/.bashrc
+      echo 'fi' >> ~/.bashrc
+    fi
+  fi
+fi
+
 sudo chsh -s $(which zsh) $USERNAME
 
 mkdir -p ~/bin
@@ -70,3 +91,6 @@ nvim --headless "+Lazy! sync" +qa
 
 ## Download Alacritty terminfo
 curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x -
+
+## Mark dotfiles installation as complete
+touch ~/.dotfiles_complete
