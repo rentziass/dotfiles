@@ -144,8 +144,9 @@ return {
       { "<leader>dr", function() require("dap").repl.toggle() end,                                          desc = "[d]ebug [r]epl" },
       { "<leader>dR", function() require("dap").clear_breakpoints() end,                                    desc = "[d]ebug [R]emove breakpoints" },
       { "<leader>ds", function() require("dap").session() end,                                              desc = "[d]ebug [s]ession" },
-      { "<leader>dt", function() require("dap").terminate() end,                                            desc = "[d]ebug [t]erminate" },
+      { "<leader>dT", function() require("dap").terminate() end,                                            desc = "[d]ebug [T]erminate" },
       { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                     desc = "[d]ebug [w]idgets" },
+      { "<leader>dt", function() require('dap-go').debug_test() end,                                            desc = "[d]ebug [t]est" },
     },
     config = function()
       local dap = require "dap"
