@@ -82,3 +82,6 @@ export PATH=$PATH:/Users/rentziass/.spicetify
 export JJ_CONFIG=$HOME/.config/jj/config.toml
 eval "$(~/.local/bin/mise activate)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# opencode
+export PATH=/Users/rentziass/.opencode/bin:$PATH
