@@ -85,3 +85,4 @@ eval "$(~/.local/bin/mise activate)"
 
 # opencode
 export PATH=/Users/rentziass/.opencode/bin:$PATH
+export GITHUB_PERSONAL_ACCESS_TOKEN="$(gh auth token)"
