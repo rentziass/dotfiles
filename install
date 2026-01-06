@@ -5,9 +5,10 @@ export USERNAME=`whoami`
 # GitHub Codespaces specific - add waiter to shell profiles early
 if [ -n "${CODESPACES}" ]; then
   # Copy waiter script to a location available before stow
-  mkdir -p ~/.local/bin
-  cp "$(dirname "$0")/bin/.local/bin/waiter" ~/.local/bin/waiter
-  chmod +x ~/.local/bin/waiter
+  # TODO: COPYING HERE BREAKS STOW LATER
+  # mkdir -p ~/.local/bin
+  # cp "$(dirname "$0")/bin/.local/bin/waiter" ~/.local/bin/waiter
+  # chmod +x ~/.local/bin/waiter
 
   # Add waiter to .bashrc if it exists (default shell in codespaces)
   if [ -f ~/.bashrc ]; then
@@ -41,7 +42,7 @@ if [ -f "/etc/debian_version" ]; then
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
   chmod u+x nvim-linux-x86_64.appimage
   ./nvim-linux-x86_64.appimage --appimage-extract
-  ln -s "$(pwd)/squashfs-root/usr/bin/nvim" ~/bin/nvim
+  ln -s "$(pwd)/squashfs-root/usr/bin/nvim" ~/.local/bin/nvim
   rm -f nvim-linux-x86_64.appimage
 
   wget https://github.com/BlakeWilliams/remote-development-manager/releases/latest/download/rdm-linux-amd64

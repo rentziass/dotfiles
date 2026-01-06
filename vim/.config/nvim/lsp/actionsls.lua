@@ -81,5 +81,8 @@ return {
   init_options = {
     sessionToken = get_github_token(),
     repos = get_repos_config(),
+    experimentalFeatures = {
+      missingInputsQuickfix = false
+    },
   },
 }
