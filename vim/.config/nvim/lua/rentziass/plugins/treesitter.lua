@@ -4,7 +4,7 @@ return {
     build = ':TSUpdate',
     event = "BufReadPre",
     config = function()
-      require 'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter.config'.setup {
         ensure_installed = {
           "go",
           "c_sharp",
