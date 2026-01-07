@@ -85,7 +85,7 @@ if [ -f ~/.zprofile ]; then
   rm -f ~/.zprofile
 fi
 
-stow bin git terminal tmux vim zsh jj -t $HOME
+stow bin git terminal tmux vim zsh jj opencode -t $HOME
 
 ## NEOVIM setup
 nvim --headless "+Lazy! sync" +qa
