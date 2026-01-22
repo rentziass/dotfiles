@@ -157,6 +157,29 @@ return {
 
       require("nvim-dap-virtual-text").setup {}
 
+      -- GitHub Actions Runner DAP adapter
+      dap.adapters.actions = {
+        type = 'server',
+        host = '127.0.0.1',
+        port = 4711,
+      }
+
+      dap.configurations.yaml = {
+        {
+          type = 'actions',
+          request = 'attach',
+          name = 'Attach to Actions Runner',
+        }
+      }
+
+      -- Quick attach to Actions Runner
+      vim.keymap.set("n", "<leader>Da", function()
+        dap.run({
+          type = 'actions',
+          request = 'attach',
+          name = 'Attach to Actions Runner',
+        })
+      end, { desc = "[D]ebug [a]ttach to Actions Runner" })
 
       vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
 
