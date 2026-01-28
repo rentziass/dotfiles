@@ -87,6 +87,12 @@ fi
 
 stow bin git terminal tmux vim zsh jj opencode -t $HOME
 
+## Install OpenCode
+curl -fsSL https://opencode.ai/install | bash
+
+## Install and configure oh-my-opencode plugin
+bunx oh-my-opencode install --no-tui --claude=no --openai=no --gemini=no --copilot=yes
+
 ## NEOVIM setup
 nvim --headless "+Lazy! sync" +qa
 
