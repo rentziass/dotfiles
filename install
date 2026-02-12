@@ -46,6 +46,7 @@ if [ -f "/etc/debian_version" ]; then
   rm -f nvim-linux-x86_64.appimage
 
   wget https://github.com/BlakeWilliams/remote-development-manager/releases/latest/download/rdm-linux-amd64
+  if [ ! -f "rdm-linux-amd64" ]; then wget https://github.com/BlakeWilliams/remote-development-manager/releases/download/v0.0.6/rdm-linux-amd64; fi
   mv rdm-linux-amd64 ~/bin/rdm
   chmod +x ~/bin/rdm
 fi
