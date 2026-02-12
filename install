@@ -37,13 +37,14 @@ if [ -f "/etc/debian_version" ]; then
     ripgrep \
     kitty-terminfo
 
-  brew install jj zellij
+  # if brew isn't installed install it
+  if ! command -v brew &> /dev/null; then
+    echo "Homebrew not found, installing..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
 
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
-  chmod u+x nvim-linux-x86_64.appimage
-  ./nvim-linux-x86_64.appimage --appimage-extract
-  ln -s "$(pwd)/squashfs-root/usr/bin/nvim" ~/.local/bin/nvim
-  rm -f nvim-linux-x86_64.appimage
+  brew install jj zellij neovim
 
   wget https://github.com/BlakeWilliams/remote-development-manager/releases/latest/download/rdm-linux-amd64
   if [ ! -f "rdm-linux-amd64" ]; then wget https://github.com/BlakeWilliams/remote-development-manager/releases/download/v0.0.6/rdm-linux-amd64; fi
