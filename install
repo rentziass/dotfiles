@@ -44,7 +44,7 @@ if [ -f "/etc/debian_version" ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
 
-  brew install jj zellij neovim
+  brew install jj zellij neovim tree-sitter-cli
 
   wget https://github.com/BlakeWilliams/remote-development-manager/releases/latest/download/rdm-linux-amd64
   if [ ! -f "rdm-linux-amd64" ]; then wget https://github.com/BlakeWilliams/remote-development-manager/releases/download/v0.0.6/rdm-linux-amd64; fi
