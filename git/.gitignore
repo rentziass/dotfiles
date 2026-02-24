@@ -10,3 +10,4 @@ tmp/**/*
 zeus.json
 .idea
 telepresence.log
+.sisyphus
