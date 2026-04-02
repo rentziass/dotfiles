@@ -90,6 +90,9 @@ if ! command -v nvm &> /dev/null && [ ! -s "$HOME/.nvm/nvm.sh" ]; then
   nvm install 24
 fi
 
+## Install GitHub Copilot CLI
+npm install -g @githubnext/github-copilot-cli
+
 ## Install OpenCode
 curl -fsSL https://opencode.ai/install | bash
 
