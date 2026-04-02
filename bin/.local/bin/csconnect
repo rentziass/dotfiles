@@ -16,7 +16,6 @@ if [[ "$TERM" == "xterm-ghostty" ]]; then
     infocmp -x xterm-ghostty | gh cs ssh -c "$selected_name" -- tic -x -
 fi
 
-gh cs ports forward 80:80 -c "$selected_name" & pid=$!
 rdm server &
 gh cs ssh -c "$selected_name" -- -t -R 127.0.0.1:7391:$(rdm socket)
 
