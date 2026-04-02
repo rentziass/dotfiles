@@ -92,3 +92,6 @@ fi
 if [[ -d "/opt/homebrew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# Source pre-existing zprofile (e.g. codespaces defaults)
+[[ -f ~/.zprofile.pre-dotfiles ]] && source ~/.zprofile.pre-dotfiles

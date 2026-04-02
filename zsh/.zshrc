@@ -84,3 +84,6 @@ eval "$(~/.local/bin/mise activate)"
 # opencode
 export PATH=/Users/rentziass/.opencode/bin:$PATH
 export GITHUB_PERSONAL_ACCESS_TOKEN="$(gh auth token)"
+
+# Source pre-existing zshrc (e.g. codespaces defaults)
+[[ -f ~/.zshrc.pre-dotfiles ]] && source ~/.zshrc.pre-dotfiles
