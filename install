@@ -80,7 +80,7 @@ if [ -f ~/.zprofile ] && [ ! -L ~/.zprofile ]; then
   mv ~/.zprofile ~/.zprofile.pre-dotfiles
 fi
 
-stow bin git terminal tmux vim zsh jj opencode -t $HOME
+stow bin git terminal tmux vim zsh jj opencode copilot -t $HOME
 
 ## Install nvm and Node.js 24
 if ! command -v nvm &> /dev/null && [ ! -s "$HOME/.nvm/nvm.sh" ]; then

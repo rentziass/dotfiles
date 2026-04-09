@@ -17,15 +17,15 @@ if [[ "$TERM" == "xterm-ghostty" ]]; then
 fi
 
 # Forward all codespace ports locally in the background
-ports=$(gh cs ports -c "$selected_name" --json sourcePort -q '.[].sourcePort')
-if [[ -n "$ports" ]]; then
-    port_pairs=""
-    for port in $ports; do
-        port_pairs="$port_pairs $port:$port"
-    done
-    gh cs ports forward $port_pairs -c "$selected_name" &
-    ports_pid=$!
-fi
+# ports=$(gh cs ports -c "$selected_name" --json sourcePort -q '.[].sourcePort')
+# if [[ -n "$ports" ]]; then
+#     port_pairs=""
+#     for port in $ports; do
+#         port_pairs="$port_pairs $port:$port"
+#     done
+#     gh cs ports forward $port_pairs -c "$selected_name" &
+#     ports_pid=$!
+# fi
 
 cleanup() {
     [[ -n "$ports_pid" ]] && kill "$ports_pid" 2>/dev/null
