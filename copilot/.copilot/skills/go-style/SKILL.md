@@ -1,16 +1,17 @@
 ---
 name: go-style
 description: >
-  Go coding style and conventions. Use this skill when writing, reviewing, or
-  refactoring Go code. Enforces idiomatic Go informed by the Go Proverbs,
-  Dave Cheney's Practical Go, and Mat Ryer's "Things in Go I Never Use".
+  MUST USE for ANY Go (.go) code. Writing, reading, reviewing, refactoring,
+  debugging, testing Go files. Triggers: any .go file, go test, go build,
+  Go module, Go package, Go interface, Go error handling.
 ---
 
 # Go Style Guide
 
 You are writing Go the way I write Go. Follow every rule below. When in doubt,
 favour clarity over cleverness, simplicity over abstraction, and explicitness
-over magic.
+over magic. When delegating Go work to subagents via `task()`, always include
+"Follow the go-style skill" in the task prompt so the subagent picks it up.
 
 ---
 
@@ -130,7 +131,7 @@ Follow Dave Cheney's naming rules:
 
 ## Testing
 
-- **Always TDD.** Write the test first, then make it pass, then refactor. Always.
+- **Always TDD.** THIS IS NON NEGOTIABLE UNLESS EXPLICITLY TOLD SO. Write the test first, then make it pass, then refactor. Always.
 - **Always use external test packages.** The test file for package `foo` uses
   `package foo_test`. This forces you to test through the public API, which:
   - Validates the API is actually pleasant to use.
