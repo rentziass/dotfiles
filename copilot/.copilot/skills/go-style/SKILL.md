@@ -137,6 +137,9 @@ Follow Dave Cheney's naming rules:
   - Validates the API is actually pleasant to use.
   - Prevents coupling tests to internals.
   - Results in better package design.
+- Prefer writing small manual mock implementations of interfaces over using a
+  mocking framework, this encourages keeping interfaces small. If the
+  project/package standard is to use a mocking framework, follow that.
 - Prefer table-driven tests for anything with more than two cases.
 - Test behaviour, not implementation.
 - Use `testdata/` for fixtures. Use `testify` or standard `testing` — keep
