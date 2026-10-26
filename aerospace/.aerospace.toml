@@ -1,3 +1,5 @@
+config-version = 2
+
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
@@ -214,10 +216,8 @@ exec-on-workspace-change = [
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
 
-[[on-window-detected]]
-    if.app-id = 'com.tinyspeck.slackmacgap'
-    if.window-title-regex-substring = 'todo'
-    run = 'move-node-to-workspace M' # mnemonics S - Slack
+## Find app-ids with `aerospace list-apps`
+
 [[on-window-detected]]
     if.app-id = 'com.mitchellh.ghostty'
     run = 'move-node-to-workspace T' # mnemonics T - Terminal
@@ -233,4 +233,24 @@ exec-on-workspace-change = [
 [[on-window-detected]]
     if.app-id = 'com.tinyspeck.slackmacgap'
     run = 'move-node-to-workspace S' # mnemonics S - Slack
+    check-further-callbacks = true
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.Outlook'
+    run = 'move-node-to-workspace O' # mnemonics O - Outlook
+    check-further-callbacks = true
+[[on-window-detected]]
+    if.app-id = 'com.github.githubapp'
+    run = 'move-node-to-workspace G' # mnemonics G - GitHub
+    check-further-callbacks = true
+[[on-window-detected]]
+    if.app-id = 'com.openai.chat'
+    run = 'move-node-to-workspace A' # mnemonics A - AI
+    check-further-callbacks = true
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.VSCode'
+    run = 'move-node-to-workspace C' # mnemonics C - Code
+    check-further-callbacks = true
+[[on-window-detected]]
+    if.app-id = 'net.whatsapp.WhatsApp'
+    run = 'move-node-to-workspace W' # mnemonics W - WhatsApp
     check-further-callbacks = true

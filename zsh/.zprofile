@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/rentziass/.docker/bin"
+# End of Docker Desktop section.
+
 #
 # Browser
 #
@@ -95,3 +99,7 @@ fi
 
 # Source pre-existing zprofile (e.g. codespaces defaults)
 [[ -f ~/.zprofile.pre-dotfiles ]] && source ~/.zprofile.pre-dotfiles
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

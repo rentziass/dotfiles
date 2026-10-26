@@ -80,7 +80,7 @@ if [ -f ~/.zprofile ] && [ ! -L ~/.zprofile ]; then
   mv ~/.zprofile ~/.zprofile.pre-dotfiles
 fi
 
-stow bin git terminal tmux vim zsh jj opencode copilot -t $HOME
+stow bin git terminal tmux vim zsh jj copilot -t $HOME
 
 ## Install nvm and Node.js 24
 if ! command -v nvm &> /dev/null && [ ! -s "$HOME/.nvm/nvm.sh" ]; then
@@ -92,12 +92,6 @@ fi
 
 ## Install GitHub Copilot CLI
 npm install -g @githubnext/github-copilot-cli
-
-## Install OpenCode
-curl -fsSL https://opencode.ai/install | bash
-
-## Install and configure oh-my-opencode plugin
-bunx oh-my-opencode install --no-tui --claude=no --openai=no --gemini=no --copilot=yes
 
 ## NEOVIM setup
 nvim --headless "+Lazy! sync" +qa

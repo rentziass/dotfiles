@@ -39,6 +39,7 @@ export EDITOR=$VISUAL
 
 # env vars
 [[ -f ~/.env ]] && source ~/.env
+[[ -f ~/.config/pup/env.sh ]] && source ~/.config/pup/env.sh
 
 # functions
 for function in $HOME/functions/*; do
@@ -81,9 +82,8 @@ export JJ_CONFIG=$HOME/.config/jj/config.toml
 eval "$(~/.local/bin/mise activate)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# opencode
-export PATH=/Users/rentziass/.opencode/bin:$PATH
-export GITHUB_PERSONAL_ACCESS_TOKEN="$(gh auth token)"
-
 # Source pre-existing zshrc (e.g. codespaces defaults)
 [[ -f ~/.zshrc.pre-dotfiles ]] && source ~/.zshrc.pre-dotfiles
+
+# Added by codebase-memory-mcp install
+export PATH="/Users/rentziass/.local/bin:$PATH"
