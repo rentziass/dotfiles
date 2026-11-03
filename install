@@ -80,7 +80,7 @@ if [ -f ~/.zprofile ] && [ ! -L ~/.zprofile ]; then
   mv ~/.zprofile ~/.zprofile.pre-dotfiles
 fi
 
-stow bin git terminal tmux vim zsh jj copilot -t $HOME
+stow bin git terminal tmux vim zsh jj copilot aerospace -t $HOME
 
 ## Install nvm and Node.js 24
 if ! command -v nvm &> /dev/null && [ ! -s "$HOME/.nvm/nvm.sh" ]; then
@@ -90,14 +90,8 @@ if ! command -v nvm &> /dev/null && [ ! -s "$HOME/.nvm/nvm.sh" ]; then
   nvm install 24
 fi
 
-## Install GitHub Copilot CLI
-npm install -g @githubnext/github-copilot-cli
-
 ## NEOVIM setup
 nvim --headless "+Lazy! sync" +qa
-
-## Download Alacritty terminfo
-curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x -
 
 ## Mark dotfiles installation as complete
 touch ~/.dotfiles_complete
