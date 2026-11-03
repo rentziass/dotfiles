@@ -79,7 +79,6 @@ export PATH=$PATH:/Users/rentziass/.spicetify
 
 # JJ config
 export JJ_CONFIG=$HOME/.config/jj/config.toml
-eval "$(~/.local/bin/mise activate)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Source pre-existing zshrc (e.g. codespaces defaults)
