@@ -14,8 +14,6 @@ require("mason-lspconfig").setup({
   },
 })
 
--- require("rentziass.lsp.null-ls")
-
 require('lspkind').init({})
 
 require('lspsaga').init_lsp_saga({

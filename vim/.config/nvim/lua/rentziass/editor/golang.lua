@@ -1,5 +1,4 @@
 -- Go Imports on save
--- now handled by null-ls
 local goimports = vim.api.nvim_create_augroup("GoImports", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.go" },

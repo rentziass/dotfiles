@@ -4,7 +4,6 @@ return {
   --   "neovim/nvim-lspconfig",
   --   event = 'BufReadPre',
   --   dependencies = {
-  --     "nvimtools/none-ls.nvim",
   --     "onsails/lspkind-nvim",
   --     "tami5/lspsaga.nvim",
   --     'hrsh7th/vim-vsnip',
@@ -29,13 +28,7 @@ return {
     },
   },
 
-  {
-    'williamboman/mason.nvim',
-    dependencies = {
-      'jose-elias-alvarez/null-ls.nvim',
-      'jayp0521/mason-null-ls.nvim',
-    }
-  },
+  'williamboman/mason.nvim',
   "williamboman/mason-lspconfig.nvim",
   {
     'crispgm/nvim-go',
